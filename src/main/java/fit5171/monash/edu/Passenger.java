@@ -104,4 +104,9 @@ public class Passenger extends Person
                 ", passport='" + passport +
                 '}';
     }
+
+    public static void main(String args[]){
+        Passenger passenger = new Passenger();
+        passenger.setFirstName("");
+    }
 }
