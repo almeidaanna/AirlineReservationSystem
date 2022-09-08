@@ -20,6 +20,28 @@ public class PersonTest {
     }
 
     @Test
+    void testPersonValidity()
+    {
+        String firstName = "Jane";
+        String secondName = "Doe";
+        int age = 42;
+        String gender = "Female";
+
+        String expectedFirstName ="Jane";
+        String expectedSecondName = "Doe";
+        int expectedAge = 42;
+        String expectedGender = "Female";
+
+        person.setFirstName(firstName);
+        assertEquals(expectedFirstName,person.getFirstName());
+        person.setSecondName(secondName);
+        assertEquals(expectedSecondName,person.getSecondName());
+        person.setAge(age);
+        assertEquals(expectedAge,person.getAge());
+        person.setGender(gender);
+        assertEquals(expectedGender,person.getGender());
+    }
+    @Test
     void testFirstNameEmpty()
     {
         String firstName = "";
@@ -42,9 +64,9 @@ public class PersonTest {
     @Test
     void testAge()
     {
-        int age = 0;
+        int invalidAge = 0;
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            person.setAge(age);
+            person.setAge(invalidAge);
         });
         assertEquals("Age can not be zero",exception.getMessage());
     }
@@ -60,47 +82,56 @@ public class PersonTest {
     }
 
     @Test
+    void testFirstNameNull()
+    {
+        String firstName = null;
+        Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
+            person.setFirstName(firstName);
+        });
+        assertEquals("First Name can not be empty",exception.getMessage());
+    }
+
+    @Test
+    void testSecondNameNull()
+    {
+        String secondName = null;
+        Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
+            person.setSecondName(secondName);
+        });
+        assertEquals("Second Name can not be empty",exception.getMessage());
+    }
+
+    @Test
+    void testGenderNull()
+    {
+        String gender= null;
+        Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
+            person.setGender(gender);
+        });
+        assertEquals("Gender can not be empty",exception.getMessage());
+    }
+
+    @Test
     void testGenderOptions() {
-        String genderInputValid = "Female";
+
         String genderInputInvalid = "abc";
-
-        String expectedResultValid ="Female";
         String expectedResultInvalid ="Invalid Input";
-
-        person.setGender(genderInputValid);
-        assertEquals(expectedResultValid,person.getGender());
-
         person.setGender(genderInputInvalid);
         assertEquals(expectedResultInvalid,person.getGender());
     }
+
     @Test
-    void testValidationOfFirstName() {
-        String FirstNameInputValid = "Jane";
+    void testFirstNameFormat() {
         String FirstNameInputInvalid = "j@n3";
-
-        String expectedResultValid ="";
         String expectedResultInvalid ="";
-
-
-        person.setFirstName(FirstNameInputValid);
-        assertEquals(expectedResultValid,person.getFirstName());
-
         person.setFirstName(FirstNameInputInvalid);
         assertEquals(expectedResultInvalid,person.getFirstName());
     }
 
     @Test
-    void testValidationOfSecondName() {
-        String SecondNameInputValid = "Doe";
+    void testSecondNameFormat() {
         String SecondNameInputInvalid = "D03";
-
-        String expectedResultValid ="";
         String expectedResultInvalid ="";
-
-
-        person.setFirstName(SecondNameInputValid);
-        assertEquals(expectedResultValid,person.getSecondName());
-
         person.setFirstName(SecondNameInputInvalid);
         assertEquals(expectedResultInvalid,person.getSecondName());
     }
