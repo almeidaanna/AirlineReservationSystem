@@ -68,7 +68,7 @@ public class PersonTest {
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             person.setAge(invalidAge);
         });
-        assertEquals("Age can not be zero",exception.getMessage());
+        assertEquals("Please enter valid age",exception.getMessage());
     }
 
     @Test
@@ -88,7 +88,7 @@ public class PersonTest {
         Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
             person.setFirstName(firstName);
         });
-        assertEquals("First Name can not be empty",exception.getMessage());
+        assertEquals("First Name can not be null",exception.getMessage());
     }
 
     @Test
@@ -98,7 +98,7 @@ public class PersonTest {
         Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
             person.setSecondName(secondName);
         });
-        assertEquals("Second Name can not be empty",exception.getMessage());
+        assertEquals("Second Name can not be null",exception.getMessage());
     }
 
     @Test
@@ -108,32 +108,38 @@ public class PersonTest {
         Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
             person.setGender(gender);
         });
-        assertEquals("Gender can not be empty",exception.getMessage());
+        assertEquals("Gender can not be null",exception.getMessage());
     }
 
     @Test
     void testGenderOptions() {
 
         String genderInputInvalid = "abc";
-        String expectedResultInvalid ="Invalid Input";
-        person.setGender(genderInputInvalid);
-        assertEquals(expectedResultInvalid,person.getGender());
+        String expectedResultInvalid ="Please enter valid gender";
+        String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
+            person.setGender(genderInputInvalid);
+        }).getMessage();
+        assertEquals(expectedResultInvalid,exception);
     }
 
     @Test
     void testFirstNameFormat() {
         String FirstNameInputInvalid = "j@n3";
-        String expectedResultInvalid ="";
-        person.setFirstName(FirstNameInputInvalid);
-        assertEquals(expectedResultInvalid,person.getFirstName());
+        String expectedResultInvalid ="Please enter valid First Name";
+        String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
+            person.setFirstName(FirstNameInputInvalid);
+        }).getMessage();
+        assertEquals(expectedResultInvalid,exception);
     }
 
     @Test
     void testSecondNameFormat() {
         String SecondNameInputInvalid = "D03";
-        String expectedResultInvalid ="";
-        person.setFirstName(SecondNameInputInvalid);
-        assertEquals(expectedResultInvalid,person.getSecondName());
+        String expectedResultInvalid ="Please enter valid Second Name";
+        String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
+            person.setSecondName(SecondNameInputInvalid);
+        }).getMessage();
+        assertEquals(expectedResultInvalid,exception);
     }
 }
 
