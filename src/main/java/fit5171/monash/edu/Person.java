@@ -1,5 +1,5 @@
 package fit5171.monash.edu;
-public class Person //abstract class Person
+public class Person
 {
     private String firstName;
     private String secondName;
