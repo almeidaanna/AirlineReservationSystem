@@ -86,5 +86,74 @@ public class PassengerTest {
         assertEquals("Email can not be null", exception.getMessage());
     }
 
+    @Test
+    void testPassportEmpty()
+    {
+        String passport = "";
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            passenger.setPassport(passport);
+        });
+        assertEquals("Passport can not be empty", exception.getMessage());
+    }
+
+    @Test
+    void testPassportNull()
+    {
+        String passport = null;
+        Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
+            passenger.setPassport(passport);
+        });
+        assertEquals("Passport can not be null", exception.getMessage());
+    }
+    @Test
+    void testSecurityCodeEmpty()
+    {
+        String passport = "";
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            passenger.setPassport(passport);
+        });
+        assertEquals("Passport can not be empty", exception.getMessage());
+    }
+
+    @Test
+    void testCardNumberEmpty()
+    {
+        String cardNumber = "";
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            passenger.setPassport(cardNumber);
+        });
+        assertEquals("Card Number can not be empty", exception.getMessage());
+    }
+
+    @Test
+    void testCardNumberNull()
+    {
+        String cardNumber = null;
+        Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
+            passenger.setCardNumber(cardNumber);
+        });
+        assertEquals("Card Number can not be null", exception.getMessage());
+    }
+
+    @Test
+    void testPhoneNumberEmpty()
+    {
+        String phoneNumber = "";
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            passenger.setPhoneNumber(phoneNumber);
+        });
+        assertEquals("Phone Number can not be empty", exception.getMessage());
+    }
+
+    @Test
+    void testPhoneNumberNull()
+    {
+        String phoneNumber = null;
+        Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
+            passenger.setPhoneNumber(phoneNumber);
+        });
+        assertEquals("Phone Number can not be null", exception.getMessage());
+    }
+
 
 }
