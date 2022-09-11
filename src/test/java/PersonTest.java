@@ -3,9 +3,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test class for person")
 public class PersonTest {
@@ -19,18 +22,18 @@ public class PersonTest {
         person = new Person();
     }
 
-    @Test
-    void testPersonValidity()
+    @ParameterizedTest
+    @ValueSource(strings = {"Male","Female","Other","O","F","M"})
+    void testPersonValidity(String gender)
     {
         String firstName = "Jane";
         String secondName = "Doe";
         int age = 42;
-        String gender = "Female";
 
         String expectedFirstName ="Jane";
         String expectedSecondName = "Doe";
         int expectedAge = 42;
-        String expectedGender = "Female";
+        String[] expectedGender = {"Male","Female","Other","O","F","M"};
 
         person.setFirstName(firstName);
         assertEquals(expectedFirstName,person.getFirstName());
@@ -39,7 +42,7 @@ public class PersonTest {
         person.setAge(age);
         assertEquals(expectedAge,person.getAge());
         person.setGender(gender);
-        assertEquals(expectedGender,person.getGender());
+        assertTrue(Arrays.asList(expectedGender).contains(person.getGender()));
     }
     @Test
     void testFirstNameEmpty()

@@ -26,7 +26,7 @@ public class Passenger extends Person
 
     public void setEmail(String email) {
         this.email = email;
-    }
+}
 
     public String getFirstName() {
         return super.getFirstName();
@@ -105,8 +105,4 @@ public class Passenger extends Person
                 '}';
     }
 
-    public static void main(String args[]){
-        Passenger passenger = new Passenger();
-        passenger.setFirstName("");
-    }
 }
