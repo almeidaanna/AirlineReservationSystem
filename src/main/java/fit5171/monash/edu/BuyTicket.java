@@ -91,7 +91,6 @@ public class BuyTicket <T>
                     return;
                 } else
                 {
-                	
 	                   flight = FlightCollection.getFlightInfo(flight_id);
 	                	
 	                	int airplane_id = flight.getAirplane().getAirplaneID();

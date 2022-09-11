@@ -6,6 +6,10 @@ public class TicketCollection {
 	
 	public static ArrayList<Ticket> tickets;
 
+	public TicketCollection(){
+		tickets = new ArrayList<>();
+	}
+
 	public static ArrayList<Ticket> getTickets() {
 		return tickets;
 	}
@@ -19,10 +23,12 @@ public class TicketCollection {
     }
 	public static Ticket getTicketInfo(int ticket_id) {
     	//SELECT a ticket where ticket id = ticket_id
-
-    	return null;
-
+		Ticket new_ticket = null;
+		for (Ticket ticket: getTickets())
+			if (ticket.getTicket_id() == ticket_id)
+				new_ticket = ticket;
+		if (new_ticket == null)
+			throw new NullPointerException("Ticket does not exist");
+		return new_ticket;
     }
-	
-
 }
