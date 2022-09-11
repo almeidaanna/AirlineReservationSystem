@@ -8,19 +8,24 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 
 @DisplayName("Test class for TicketCollection")
 public class TicketCollectionTest {
     private TicketCollection ticketCollection;
+    private Flight flight;
+    private Passenger passenger;
 
     @BeforeAll
     static  void initAll(){
         TicketCollectionTest ticketCollectionTest = new TicketCollectionTest();
+        Flight flight = mock(Flight.class);
+        Passenger passenger = mock(Passenger.class);
     }
 
     @Test
     public void testAddTickets(){
-
+        Ticket inputTicket = new Ticket(12345, 600, flight,true, passenger);
     }
 
     @Test
@@ -28,9 +33,6 @@ public class TicketCollectionTest {
     {
         int inputValidTicket_id = 12345;
         int inputInvalidTicket_id = 0;
-
-        Flight flight = new Flight();
-        Passenger passenger = new Passenger();
 
         Ticket expectedValidTicket = new Ticket(12345, 600, flight,true, passenger);
         String expectedInvalidTicket = "Ticket does not exist.";
