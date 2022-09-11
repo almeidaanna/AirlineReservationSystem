@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
@@ -19,13 +21,13 @@ public class TicketCollectionTest {
     @BeforeAll
     static  void initAll(){
         TicketCollectionTest ticketCollectionTest = new TicketCollectionTest();
-        Flight flight = mock(Flight.class);
-        Passenger passenger = mock(Passenger.class);
     }
 
     @Test
     public void testAddTickets(){
+        ArrayList<Ticket> tickets = new ArrayList<>();
         Ticket inputTicket = new Ticket(12345, 600, flight,true, passenger);
+        TicketCollection.addTickets(tickets);
     }
 
     @Test

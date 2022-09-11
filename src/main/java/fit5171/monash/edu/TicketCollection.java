@@ -19,6 +19,7 @@ public class TicketCollection {
     }
 	public static Ticket getTicketInfo(int ticket_id) {
     	//SELECT a ticket where ticket id = ticket_id
+
     	return null;
 
     }
