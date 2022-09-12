@@ -33,7 +33,7 @@ public class PersonTest {
         String expectedFirstName ="Jane";
         String expectedSecondName = "Doe";
         int expectedAge = 42;
-        String[] expectedGender = {"Male","Female","Other","O","F","M"};
+        String[] expectedGender = {"Male","Female","Other"};
 
         person.setFirstName(firstName);
         assertEquals(expectedFirstName,person.getFirstName());
