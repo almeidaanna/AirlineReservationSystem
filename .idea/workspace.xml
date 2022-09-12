@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Worked on TicketCollectionTest (req. 2)">
-      <change afterPath="$PROJECT_DIR$/src/test/java/AirplaneTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/FlightCollectionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/FlightTest.java" afterDir="false" />
+    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Worked on AirplaneTest.java finish test classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment1-code-base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment1-code-base.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/Airplane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/Airplane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AirplaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AirplaneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/FlightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FlightTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +28,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="2EO7XcLDOlSrPWdtGfH9VRqZDrP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -39,13 +43,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Sahaj/Monash/Sem 3/SVVQ_5171/Week 7/mockito-test/.project&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/All course documents/S1 2022/FIT 5136/Assignment/Ass3_presentation"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="PersonTest.testFirstNameNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1-code-base" />
@@ -93,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662635829080</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Worked on AirplaneTest.java finish test classes">
+      <created>1662965816590</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662965816590</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,6 +121,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="maven update" />
     <MESSAGE value="Worked on TicketCollectionTest (req. 2)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked on TicketCollectionTest (req. 2)" />
+    <MESSAGE value="Worked on AirplaneTest.java finish test classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Worked on AirplaneTest.java finish test classes" />
   </component>
 </project>

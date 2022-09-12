@@ -80,6 +80,17 @@ public class AirplaneTest {
     }
 
     @Test
+    void testAirplaneModelNull()
+    {
+        String  airplaneModel= null;
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            airplane.setAirplaneModel(airplaneModel);
+        });
+        assertEquals("AirplaneModel can not be Null",exception.getMessage());
+    }
+
+
+    @Test
     void testBusinessSitsNumberEmpty()
     {
         int businessSitsNumber= 0;
