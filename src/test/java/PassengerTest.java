@@ -155,5 +155,34 @@ public class PassengerTest {
         assertEquals("Phone Number can not be null", exception.getMessage());
     }
 
+    @Test
+    void testPhoneNumberPattern()
+    {
+        String phoneNumber = "012E5Ab597@";
+        String expectedResult = "Please enter a valid phone number";
+        String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
+            passenger.setFirstName(phoneNumber);
+        }).getMessage();
+        assertEquals(expectedResult,exception);
+    }
 
+    void testEmailPattern()
+    {
+        String email = "0ad8c$1237@";
+        String expectedResult = "Please enter a valid email address";
+        String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
+            passenger.setFirstName(email);
+        }).getMessage();
+        assertEquals(expectedResult,exception);
+    }
+
+    void testPassportCharacterLenght()
+    {
+        String passport = "01237A7@";
+        String expectedResult = "Please enter a valid passport number";
+        String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
+            passenger.setFirstName(passport);
+        }).getMessage();
+        assertEquals(expectedResult,exception);
+    }
 }
