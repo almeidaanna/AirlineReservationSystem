@@ -1,4 +1,5 @@
 import fit5171.monash.edu.Airplane;
+import fit5171.monash.edu.AirplaneModelA;
 import fit5171.monash.edu.Flight;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.sql.Timestamp;
@@ -13,6 +15,7 @@ import java.sql.Timestamp;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 @DisplayName("This is test class for Flight")
@@ -20,9 +23,10 @@ import static org.mockito.Mockito.mock;
 public class FlightTest {
 
     private Flight flight;
+    private Airplane airplane;
 
     @Mock
-    private Airplane airplane;
+    private AirplaneModelA airplaneModelA;
 
     @BeforeAll
     static void initAll(){
@@ -31,9 +35,9 @@ public class FlightTest {
 
     @BeforeEach
     void init(){
-        flight = new Flight(airplane);
+        flight = new Flight();
     }
-
+//Still can not use the mock
     @Test
     void testFlightValidity()
     {
@@ -154,7 +158,8 @@ public class FlightTest {
     @Test
     void testAirplaneEmpty()
     {
-        airplane = mock(Airplane.class);
+        AirplaneModelA AirplaneMock = Mockito.mock(AirplaneModelA.class);
+        when(AirplaneMock.getAirplaneID());
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             flight.setAirplane(airplane);
         });

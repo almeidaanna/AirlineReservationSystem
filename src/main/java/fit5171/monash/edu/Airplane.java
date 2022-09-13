@@ -8,6 +8,7 @@ public class Airplane
     private int economySitsNumber;
     private int crewSitsNumber;
 
+
     public Airplane(int airplaneID, String airplaneModel, int businessSitsNumber, int economySitsNumber, int crewSitsNumber)
     {
         this.airplaneID=airplaneID;

@@ -10,6 +10,11 @@ public class FlightCollection {
 		return flights;
 	}
 
+	public FlightCollection()
+	{
+		flights = new ArrayList<>();
+	}
+
 	public static void addFlights(ArrayList<Flight> flights) {
 		FlightCollection.flights.addAll(flights);
 	}

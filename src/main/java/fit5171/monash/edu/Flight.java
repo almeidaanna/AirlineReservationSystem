@@ -12,8 +12,9 @@ public class Flight {
     private Timestamp dateFrom;
     private Timestamp dateTo;
     Airplane airplane;
+
     
-    public Flight(){}
+
 
     public Flight(int flight_id, String departTo, String departFrom, String code, String company, Timestamp dateFrom,Timestamp dateTo, Airplane airplane)
     {
@@ -27,8 +28,10 @@ public class Flight {
             this.dateFrom = dateFrom;
     }
 
-    public Flight(Airplane airplane) { this.airplane = airplane;
+    public Flight() {
+
     }
+
 
     public int getFlightID() {
         return flightID;

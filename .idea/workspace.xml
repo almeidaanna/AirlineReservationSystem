@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Correct AirplaneTest.java ,working on FlightTest and modified the dependency in Pom">
+    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Need to improve FlightTest.java, Working on flightCollection Test">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/AirplaneModelA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/Airplane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/Airplane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/Flight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/FlightCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/FlightCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/FlightCollectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FlightCollectionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/FlightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FlightTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -48,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/All course documents/S2 2022/FIT 5171/Reference"
+    "last_opened_file_path": "D:/All course documents/S2 2022/FIT 5171/Assessment2/Ass2_original_Code"
   }
 }]]></component>
   <component name="RunManager" selected="JUnit.FlightTest.testFlightValidity">
@@ -148,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663033280173</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Need to improve FlightTest.java, Working on flightCollection Test">
+      <created>1663036175753</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1663036175753</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,6 +180,7 @@
     <MESSAGE value="Worked on AirplaneTest.java finish test classes" />
     <MESSAGE value="Correct AirplaneTest.java ,working on Flight" />
     <MESSAGE value="Correct AirplaneTest.java ,working on FlightTest and modified the dependency in Pom" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correct AirplaneTest.java ,working on FlightTest and modified the dependency in Pom" />
+    <MESSAGE value="Need to improve FlightTest.java, Working on flightCollection Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Need to improve FlightTest.java, Working on flightCollection Test" />
   </component>
 </project>
