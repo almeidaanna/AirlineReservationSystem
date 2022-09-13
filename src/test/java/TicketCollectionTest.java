@@ -18,6 +18,7 @@ public class TicketCollectionTest {
     private Flight flight;
     private Passenger passenger;
     private Ticket inputTicket;
+    ArrayList<Ticket> newTickets;
 
     @BeforeAll
     static void initAll(){
@@ -65,7 +66,13 @@ public class TicketCollectionTest {
 
     @Test
     public void testAddTicketsNull(){
+        String expectedResult = "Invalid Tickets, Cannot be added to list";
 
+        String actualResult = assertThrows(java.lang.NullPointerException.class, () -> {
+            TicketCollection.addTickets(newTickets);
+        }).getMessage();
+
+        assertEquals(expectedResult, actualResult);
     }
 
     @Test
