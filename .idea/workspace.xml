@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Need to improve mock of test, working on source code" />
+    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Need to improve mock of test, working on source code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/FlightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FlightTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fit5171/monash/edu/Flight.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fit5171/monash/edu/Flight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fit5171/monash/edu/FlightCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fit5171/monash/edu/FlightCollection.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,16 +44,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/All course documents/S2 2022/FIT 5171/Assessment2/Ass2_original_Code&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "D:/All course documents/S2 2022/FIT 5171/Reference/FIT5171AssignmentDemo"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="JUnit.FlightTest.testFlightValidity">
+    <configuration name="FlightTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1-code-base" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FlightTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FlightTest.testDateToEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1-code-base" />
       <option name="PACKAGE_NAME" value="" />
@@ -82,6 +96,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.FlightTest.testFlightValidity" />
+        <item itemvalue="JUnit.FlightTest" />
         <item itemvalue="JUnit.FlightTest.testDateToEmpty" />
         <item itemvalue="JUnit.PersonTest.testFirstNameNull" />
       </list>
@@ -159,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663054567636</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Need to improve mock of test, working on source code">
+      <created>1663054810797</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1663054810797</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

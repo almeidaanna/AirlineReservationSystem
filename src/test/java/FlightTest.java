@@ -1,16 +1,16 @@
 import fit5171.monash.edu.Airplane;
-import fit5171.monash.edu.AirplaneModelA;
 import fit5171.monash.edu.Flight;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -19,14 +19,14 @@ import static org.mockito.Mockito.when;
 
 
 @DisplayName("This is test class for Flight")
-@ExtendWith(MockitoExtension.class)
+//@ExtendWith(MockitoExtension.class)
 public class FlightTest {
 
     private Flight flight;
     private Airplane airplane;
 
-    @Mock
-    private AirplaneModelA airplaneModelA;
+//    @Mock
+//    private AirplaneModelA airplaneModelA;
 
     @BeforeAll
     static void initAll(){
@@ -35,6 +35,7 @@ public class FlightTest {
 
     @BeforeEach
     void init(){
+        airplane = new Airplane();
         flight = new Flight();
     }
 //Still can not use the mock
@@ -46,9 +47,28 @@ public class FlightTest {
         String departFrom =  "Sydney";
         String code = "123456";
         String company = "AUAirLine";
-        Timestamp dateFrom = Timestamp.valueOf("2022/09/10");
-        Timestamp dateTo = Timestamp.valueOf("2022/09/11");
-        airplane = mock(Airplane.class);
+//        airplane = mock(Airplane.class);
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = null;
+
+        try {
+            date = dateFormat.parse("23/09/2007");
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        long time = date.getTime();
+        Timestamp dateFrom =  new Timestamp(time);
+
+        try {
+            date = dateFormat.parse("24/09/2007");
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        long time2 = date.getTime();
+        new Timestamp(time2);
+
+        Timestamp dateTo =  new Timestamp(time2);;
+
 
         int expectedFlightID = 123456;
         String expectedDepartTo = "Melbourne" ;
