@@ -1,7 +1,12 @@
 package fit5171.monash.edu;
-
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.sql.Timestamp;
 import java.util.Calendar;
+import java.util.regex.PatternSyntaxException;
 
 public class Flight {
     private int flightID;
@@ -28,17 +33,21 @@ public class Flight {
             this.dateFrom = dateFrom;
     }
 
-    public Flight() {
-
-    }
+    public Flight() {}
 
 
     public int getFlightID() {
         return flightID;
     }
 
-    public void setFlightID(int flightid) {
-        this.flightID = flightid;
+    public void setFlightID(int flightid)
+    {
+        if(flightid <= 0)
+        {
+            throw new IllegalArgumentException("FlightID can not be Zero or Empty");
+        }
+        else
+            this.flightID = flightid;
     }
 
     public String getDepartTo() {
@@ -46,7 +55,21 @@ public class Flight {
     }
 
     public void setDepartTo(String departTo) {
-        this.departTo = departTo;
+        if (departTo == null)
+        {
+            throw new NullPointerException("DepartTo can not be Null");
+        }
+        else if (departTo.isBlank()||departTo.isEmpty())
+        {
+            throw new IllegalArgumentException("DepartTo can not be Empty");
+
+        }
+
+        else
+        {
+            this.departTo = departTo;
+        }
+
     }
 
     public String getDepartFrom() {
@@ -54,7 +77,20 @@ public class Flight {
     }
 
     public void setDepartFrom(String departFrom) {
-        this.departFrom = departFrom;
+        if (departFrom == null)
+        {
+            throw new NullPointerException("DepartFrom can not be Null");
+        }
+        else if (departFrom.isBlank()||departFrom.isEmpty())
+        {
+            throw new IllegalArgumentException("DepartFrom can not be Empty");
+
+        }
+
+        else
+        {
+            this.departFrom = departFrom;
+        }
     }
 
     public String getCode() {
@@ -62,7 +98,19 @@ public class Flight {
     }
 
     public void setCode(String code) {
-        this.code = code;
+        if (code == null)
+        {
+            throw new NullPointerException("Code can not be Null");
+        }
+        else if (code.isBlank()||code.isEmpty())
+        {
+            throw new IllegalArgumentException("Code can not be Empty");
+
+        }
+        else
+        {
+            this.code = code;
+        }
     }
 
     public String getCompany() {
@@ -70,14 +118,34 @@ public class Flight {
     }
 
     public void setCompany(String company) {
-        this.company = company;
+        if (company == null)
+        {
+            throw new NullPointerException("Company can not be Null");
+        }
+        else if (company.isBlank()||company.isEmpty())
+        {
+            throw new IllegalArgumentException("Company can not be Empty");
+
+        }
+        else
+        {
+            this.company = company;
+        }
+
     }
 
     public Timestamp getDateFrom() {
+
         return dateFrom;
     }
 
     public void setDateFrom(Timestamp dateFrom) {
+        String dateFromString = dateFrom.toString();
+        String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\\d{3})$";
+        if (!dateFromString.matches(pattern))
+        {
+            throw new PatternSyntaxException("This is invalid format of timestamp","",-1);
+        }
         this.dateFrom = dateFrom;
     }
 

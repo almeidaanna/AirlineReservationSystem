@@ -63,17 +63,31 @@ public class FlightTest {
         }
         long time2 = date.getTime();
         new Timestamp(time2);
-
         Timestamp dateTo =  new Timestamp(time2);;
-
 
         int expectedFlightID = 123456;
         String expectedDepartTo = "Melbourne" ;
         String expectedDepartFrom =  "Sydney";
         String expectedCode = "123456";
         String expectedCompany = "AUAirLine";
-        Timestamp expectedDateFrom = Timestamp.valueOf("2022/09/10");
-        Timestamp expectedDateTo = Timestamp.valueOf("2022/09/11");
+
+        try {
+            date = dateFormat.parse("23/09/2007");
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        long time3 = date.getTime();
+        new Timestamp(time3);
+        Timestamp expectedDateFrom = new Timestamp(time3);
+
+        try {
+            date = dateFormat.parse("24/09/2007");
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        long time4 = date.getTime();
+        new Timestamp(time4);
+        Timestamp expectedDateTo =  new Timestamp(time4);
 
 
         flight.setFlightID(flightID);
@@ -145,9 +159,9 @@ public class FlightTest {
     @Test
     void testCompanyEmpty()
     {
-        String code = "";
+        String company = "";
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            flight.setCode(code);
+            flight.setCompany(company);
         });
         assertEquals("Company can not be Empty",exception.getMessage());
     }
