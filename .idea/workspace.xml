@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Worked on AirplaneTest.java finish test classes">
+    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Correct AirplaneTest.java ,working on Flight">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AirplaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AirplaneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment1-code-base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment1-code-base.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/FlightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FlightTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +48,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/All course documents/S1 2022/FIT 5136/Assignment/Ass3_presentation"
+    "last_opened_file_path": "D:/All course documents/S2 2022/FIT 5171/Reference"
   }
 }]]></component>
   <component name="RunManager">
@@ -104,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662965816590</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Correct AirplaneTest.java ,working on Flight">
+      <created>1662985651162</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662985651162</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,6 +130,7 @@
     <MESSAGE value="maven update" />
     <MESSAGE value="Worked on TicketCollectionTest (req. 2)" />
     <MESSAGE value="Worked on AirplaneTest.java finish test classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked on AirplaneTest.java finish test classes" />
+    <MESSAGE value="Correct AirplaneTest.java ,working on Flight" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correct AirplaneTest.java ,working on Flight" />
   </component>
 </project>
