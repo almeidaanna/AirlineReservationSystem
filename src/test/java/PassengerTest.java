@@ -26,17 +26,8 @@ public class PassengerTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"Male","Female","Other"})
-    void testPassengerValidity(String gender)
+    void testPassengerValidity(String expectedGender)
     {
-        String email = "janedoe@gmail.com";
-        String firstName = "Jane";
-        String secondName = "Doe";
-        String passport = "A123Z4569";
-        int securityCode = 123;
-        String cardNumber = "1234567891052378";
-        String phoneNumber = "0458353974";
-        int age = 42;
-
         String expectedEmail = "janedoe@gmail.com";
         String expectedFirstName ="Jane";
         String expectedSecondName = "Doe";
@@ -45,25 +36,24 @@ public class PassengerTest {
         String expectedCardNumber = "1234567891052378";
         String expectedPhoneNumber = "0458353974";
         int expectedAge = 42;
-        String[] expectedGender = {"Male","Female","Other"};
 
-        passenger.setEmail(email);
+        passenger.setEmail(expectedEmail);
         assertEquals(expectedEmail,passenger.getEmail());
-        passenger.setFirstName(firstName);
+        passenger.setFirstName(expectedFirstName);
         assertEquals(expectedFirstName,passenger.getFirstName());
-        passenger.setSecondName(secondName);
+        passenger.setSecondName(expectedSecondName);
         assertEquals(expectedSecondName,passenger.getSecondName());
-        passenger.setPassport(passport);
+        passenger.setPassport(expectedPassport);
         assertEquals(expectedPassport,passenger.getPassport());
-        passenger.setSecurityCode(securityCode);
+        passenger.setSecurityCode(expectedSecurityCode);
         assertEquals(expectedSecurityCode,passenger.getSecurityCode());
-        passenger.setCardNumber(cardNumber);
+        passenger.setCardNumber(expectedCardNumber);
         assertEquals(expectedCardNumber,passenger.getCardNumber());
-        passenger.setPhoneNumber(phoneNumber);
+        passenger.setPhoneNumber(expectedPhoneNumber);
         assertEquals(expectedPhoneNumber,passenger.getPhoneNumber());
-        passenger.setAge(age);
+        passenger.setAge(expectedAge);
         assertEquals(expectedAge,passenger.getAge());
-        passenger.setGender(gender);
+        passenger.setGender(expectedGender);
         assertTrue(Arrays.asList(expectedGender).contains(passenger.getGender()));
     }
 

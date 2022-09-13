@@ -23,25 +23,20 @@ public class PersonTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"Male","Female","Other","O","F","M"})
-    void testPersonValidity(String gender)
+    @ValueSource(strings = {"Male","Female","Other"})
+    void testPersonValidity(String expectedGender)
     {
-        String firstName = "Jane";
-        String secondName = "Doe";
-        int age = 42;
-
         String expectedFirstName ="Jane";
         String expectedSecondName = "Doe";
         int expectedAge = 42;
-        String[] expectedGender = {"Male","Female","Other"};
 
-        person.setFirstName(firstName);
+        person.setFirstName(expectedFirstName);
         assertEquals(expectedFirstName,person.getFirstName());
-        person.setSecondName(secondName);
+        person.setSecondName(expectedSecondName);
         assertEquals(expectedSecondName,person.getSecondName());
-        person.setAge(age);
+        person.setAge(expectedAge);
         assertEquals(expectedAge,person.getAge());
-        person.setGender(gender);
+        person.setGender(expectedGender);
         assertTrue(Arrays.asList(expectedGender).contains(person.getGender()));
     }
     @Test
