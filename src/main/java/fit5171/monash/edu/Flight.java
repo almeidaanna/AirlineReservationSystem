@@ -28,17 +28,21 @@ public class Flight {
             this.dateFrom = dateFrom;
     }
 
-    public Flight() {
-
-    }
+    public Flight() {}
 
 
     public int getFlightID() {
         return flightID;
     }
 
-    public void setFlightID(int flightid) {
-        this.flightID = flightid;
+    public void setFlightID(int flightid)
+    {
+        if(flightid <= 0)
+        {
+            throw new IllegalArgumentException("FlightID can not be Zero or Empty");
+        }
+        else
+            this.flightID = flightid;
     }
 
     public String getDepartTo() {

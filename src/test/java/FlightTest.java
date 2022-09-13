@@ -66,16 +66,16 @@ public class FlightTest {
 //
 //        Timestamp dateTo =  new Timestamp(time2);;
 
-        Timestamp dateTo = Timestamp.valueOf("2022-09-10 10:10:10.0");
-        Timestamp dateFrom = Timestamp.valueOf("2022-09-13 10:10:10.0");
+        Timestamp dateFrom = Timestamp.valueOf("2022-09-10 10:10:10.0");
+        Timestamp dateTo = Timestamp.valueOf("2022-09-13 10:10:10.0");
 
         int expectedFlightID = 123456;
         String expectedDepartTo = "Melbourne" ;
         String expectedDepartFrom =  "Sydney";
         String expectedCode = "123456";
         String expectedCompany = "AUAirLine";
-        Timestamp expectedDateFrom = Timestamp.valueOf("2022/09/10");
-        Timestamp expectedDateTo = Timestamp.valueOf("2022/09/11");
+        Timestamp expectedDateFrom = Timestamp.valueOf("2022-09-10 10:10:10.0");
+        Timestamp expectedDateTo = Timestamp.valueOf("2022-09-13 10:10:10.0");
 
 
         flight.setFlightID(flightID);
