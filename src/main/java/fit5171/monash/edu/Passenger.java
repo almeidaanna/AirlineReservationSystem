@@ -25,6 +25,12 @@ public class Passenger extends Person
     }
 
     public void setEmail(String email) {
+        if(email == null)
+            throw new NullPointerException("Email can not be null");
+        if (email.isBlank()||email.isEmpty())
+            throw new IllegalArgumentException("Email can not be empty");
+        if (!(email.endsWith(".com")&&email.matches("^(.*)@(.+)$")))
+            throw new IllegalArgumentException("Please enter a valid email address");
         this.email = email;
 }
 
@@ -44,9 +50,7 @@ public class Passenger extends Person
         super.setFirstName(firstName);
     }
 
-    public String getPassport() {
-        return passport;
-    }
+    public String getPassport() {return passport;}
 
     public void setGender(String gender) {
         super.setGender(gender);
@@ -78,6 +82,12 @@ public class Passenger extends Person
     }
 
     public void setPassport(String passport) {
+        if (passport==null)
+            throw new NullPointerException("Passport can not be null");
+        if (passport.isEmpty()||passport.isBlank())
+            throw new IllegalArgumentException("Passport can not be empty");
+        if (passport.length() > 9)
+            throw new IllegalArgumentException("Please enter a valid passport number");
         this.passport = passport;
     }
 
@@ -87,6 +97,21 @@ public class Passenger extends Person
     }
 
     public void setPhoneNumber(String phoneNumber) {
+        if(phoneNumber== null)
+            throw new NullPointerException("Phone number can not be null");
+        if(phoneNumber.isEmpty()||phoneNumber.isBlank())
+            throw new IllegalArgumentException("Phone number can not be null");
+
+        if(phoneNumber.length() == 12)
+            phoneNumber.substring();
+        else if (phoneNumber.length() == 10)
+            phoneNumber.split();
+
+        if (!(phoneNumber.startsWith("+614")||(phoneNumber.startsWith("+615")||(phoneNumber.startsWith("04")||(phoneNumber.startsWith("05"))
+                for(char ch: phoneNumber.toCharArray())
+                    if(!(Character.isDigit(ch))&&phoneNumber.length()==9)
+
+
         this.phoneNumber = phoneNumber;
     }
 
