@@ -35,14 +35,14 @@ public class TicketTest {
 
         ticket.setTicket_id(expectedTicket_id);
         assertEquals(expectedTicket_id,ticket.getTicket_id());
-        ticket.setPrice(expectedPrice);
-        assertEquals(expectedPrice,ticket.getPrice());
-        ticket.setFlight(expectedFlight);
-        assertEquals(expectedFlight,ticket.getFlight());
-        ticket.setClassVip(expectedClassVip);
-        assertEquals(expectedClassVip,ticket.getClassVip());
         ticket.setPassenger(expectedPassenger);
         assertEquals(expectedPassenger,ticket.getPassenger());
+        ticket.setFlight(expectedFlight);
+        assertEquals(expectedFlight,ticket.getFlight());
+        ticket.setPrice(expectedPrice);
+        assertEquals(expectedPrice,ticket.getPrice());
+        ticket.setClassVip(expectedClassVip);
+        assertEquals(expectedClassVip,ticket.getClassVip());
     }
 
     @Test
