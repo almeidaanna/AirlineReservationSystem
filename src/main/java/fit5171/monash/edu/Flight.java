@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.Timestamp;
 import java.util.Calendar;
+import java.util.regex.PatternSyntaxException;
 
 public class Flight {
     private int flightID;
@@ -139,8 +140,12 @@ public class Flight {
     }
 
     public void setDateFrom(Timestamp dateFrom) {
+        String dateFromString = dateFrom.toString();
         String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\\d{3})$";
-//        if ()
+        if (!dateFromString.matches(pattern))
+        {
+            throw new PatternSyntaxException("This is invalid format of timestamp","",-1);
+        }
         this.dateFrom = dateFrom;
     }
 
