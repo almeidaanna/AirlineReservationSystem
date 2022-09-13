@@ -120,34 +120,18 @@ public class AirplaneTest {
         assertEquals("CrewSitsNumber can not be Zero or Empty",exception.getMessage());
     }
 
-    @Test
-    void testBusinessSitsNumberOverRange()
-    {
-        int businessSitsNumber= (int)((1000000000 - 301 + 1)*Math.random()) + 301;
-        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            airplane.setBusinessSitsNumber(businessSitsNumber);
-        });
-        assertEquals("BusinessSitsNumber should between 1 to 300",exception.getMessage());
-    }
 
     @Test
-    void testEconomySitsNumberOverRange()
+    void testTotalNumberOverRange()
     {
-        int economySitsNumber= (int)((1000000000 - 301 + 1)*Math.random()) + 301;
+        int economySitsNumber = 100;
+        int businessSitsNumber = 200;
+        int crewSitsNumber = 200;
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            airplane.setBusinessSitsNumber(economySitsNumber);
+            airplane.totalSitNumber(economySitsNumber, crewSitsNumber, businessSitsNumber);
         });
-        assertEquals("EconomySitsNumber should between 1 to 300",exception.getMessage());
+        assertEquals("Total number of sits should between 1 to 300",exception.getMessage());
     }
 
-    @Test
-    void testCrewSitsNumberOverRange()
-    {
-        int crewSitsNumber= (int)((1000000000 - 301 + 1)*Math.random()) + 301;
-        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            airplane.setBusinessSitsNumber(crewSitsNumber);
-        });
-        assertEquals("CrewSitsNumber should between 1 to 300",exception.getMessage());
-    }
 
 }
