@@ -14,6 +14,15 @@ public class TicketCollection {
 		return tickets;
 	}
 
+	public static void addTicket(Ticket newTicket){
+		if (newTicket == null)
+			throw new NullPointerException("Invalid Ticket");
+		for (Ticket ticket : tickets)
+			if (ticket.getTicket_id() == newTicket.getTicket_id())
+				throw new RuntimeException("Duplicate Ticket");
+		tickets.add(newTicket);
+	}
+
 	public static void addTickets(ArrayList<Ticket> tickets_db) {
 		TicketCollection.tickets.addAll(tickets_db);
 	}

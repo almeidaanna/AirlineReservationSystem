@@ -66,6 +66,7 @@ public class PassengerTest {
         passenger.setGender(gender);
         assertTrue(Arrays.asList(expectedGender).contains(passenger.getGender()));
     }
+
     @Test
     void testEmailEmpty()
     {
