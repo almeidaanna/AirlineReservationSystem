@@ -107,7 +107,7 @@ public class Passenger extends Person
         else if (phoneNumber.length() == 10)
             phoneNumber.split();
 
-        if (!(phoneNumber.startsWith("+614")||(phoneNumber.startsWith("+615")||(phoneNumber.startsWith("04")||(phoneNumber.startsWith("05"))
+        if (!(phoneNumber.startsWith("+614")||(phoneNumber.startsWith("+615")||(phoneNumber.startsWith("04")||(phoneNumber.startsWith("05")))
                 for(char ch: phoneNumber.toCharArray())
                     if(!(Character.isDigit(ch))&&phoneNumber.length()==9)
 

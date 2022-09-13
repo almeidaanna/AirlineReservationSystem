@@ -19,14 +19,12 @@ import static org.mockito.Mockito.when;
 
 
 @DisplayName("This is test class for Flight")
-//@ExtendWith(MockitoExtension.class)
 public class FlightTest {
 
     private Flight flight;
     private Airplane airplane;
 
-//    @Mock
-//    private AirplaneModelA airplaneModelA;
+
 
     @BeforeAll
     static void initAll(){
@@ -38,7 +36,7 @@ public class FlightTest {
         airplane = new Airplane();
         flight = new Flight();
     }
-//Still can not use the mock
+
     @Test
     void testFlightValidity()
     {
@@ -47,7 +45,6 @@ public class FlightTest {
         String departFrom =  "Sydney";
         String code = "123456";
         String company = "AUAirLine";
-//        airplane = mock(Airplane.class);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = null;
 

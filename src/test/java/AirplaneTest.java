@@ -83,7 +83,7 @@ public class AirplaneTest {
     void testAirplaneModelNull()
     {
         String  airplaneModel= null;
-        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+        Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
             airplane.setAirplaneModel(airplaneModel);
         });
         assertEquals("AirplaneModel can not be Null",exception.getMessage());
