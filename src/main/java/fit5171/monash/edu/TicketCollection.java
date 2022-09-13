@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class TicketCollection {
 	
-	public static ArrayList<Ticket> tickets;
+	public static ArrayList<Ticket> tickets = new ArrayList<>();
 
 	public TicketCollection(){
 		tickets = new ArrayList<>();
@@ -24,16 +24,19 @@ public class TicketCollection {
 	}
 
 	public static void addTickets(ArrayList<Ticket> tickets_db) {
+		if (tickets_db == null)
+			throw new NullPointerException("Invalid Tickets, Cannot be added to list");
 		TicketCollection.tickets.addAll(tickets_db);
 	}
 	
 	public static void getAllTickets() {
     	//display all available tickets from the Ticket collection
     }
+
 	public static Ticket getTicketInfo(int ticket_id) {
     	//SELECT a ticket where ticket id = ticket_id
 		Ticket new_ticket = null;
-		for (Ticket ticket: getTickets())
+		for (Ticket ticket: tickets)
 			if (ticket.getTicket_id() == ticket_id)
 				new_ticket = ticket;
 		if (new_ticket == null)

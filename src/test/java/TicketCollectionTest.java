@@ -9,12 +9,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test class for TicketCollection")
 public class TicketCollectionTest {
-    private TicketCollection ticketCollection;
     private Flight flight;
     private Passenger passenger;
     private Ticket inputTicket;
@@ -22,20 +20,19 @@ public class TicketCollectionTest {
 
     @BeforeAll
     static void initAll(){
-        TicketCollectionTest ticketCollectionTest = new TicketCollectionTest();
     }
 
     @BeforeEach
     public void setup(){
-        TicketCollection ticketCollection1 = new TicketCollection();
+
     }
 
     @Test
     public void testAddTicketValid(){
-        inputTicket = new Ticket(12345, 600, flight,true, passenger);
+        inputTicket = new Ticket(34221, 600, flight,true, passenger);
         TicketCollection.addTicket(inputTicket);
 
-        Ticket actualTicket = TicketCollection.getTicketInfo(12345);
+        Ticket actualTicket = TicketCollection.getTicketInfo(34221);
 
         assertEquals(inputTicket, actualTicket);
     }
@@ -76,6 +73,17 @@ public class TicketCollectionTest {
     }
 
     @Test
+    public void testAddTicketsValid(){
+        newTickets = new ArrayList<Ticket>();
+        Ticket newTicket1 = new Ticket(12345, 600, flight,true, passenger);
+        Ticket newTicket2 = new Ticket(30024, 500,flight, false, passenger);
+        newTickets.add(newTicket1);
+        newTickets.add(newTicket2);
+        TicketCollection.addTickets(newTickets);
+        assertTrue(TicketCollection.getTickets().containsAll(newTickets));
+    }
+
+    @Test
     public void testTicketInfo()
     {
         int inputValidTicket_id = 12345;
@@ -83,10 +91,10 @@ public class TicketCollectionTest {
 
         Ticket expectedValidTicket = new Ticket(12345, 600, flight,true, passenger);
         TicketCollection.tickets.add(expectedValidTicket);
-        String expectedInvalidTicket = "Ticket does not exist.";
+        String expectedInvalidTicket = "Ticket does not exist";
 
         Ticket actualValidTicket_id = TicketCollection.getTicketInfo(inputValidTicket_id);
-        String actualInvalidTicket_id = assertThrows(java.lang.IllegalArgumentException.class,() ->{
+        String actualInvalidTicket_id = assertThrows(java.lang.NullPointerException.class,() ->{
             Ticket ticket = TicketCollection.getTicketInfo(inputInvalidTicket_id);
         }).getMessage();
 
