@@ -147,9 +147,9 @@ public class FlightTest {
     @Test
     void testCompanyEmpty()
     {
-        String code = "";
+        String company = "";
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            flight.setCode(code);
+            flight.setCompany(company);
         });
         assertEquals("Company can not be Empty",exception.getMessage());
     }

@@ -50,7 +50,21 @@ public class Flight {
     }
 
     public void setDepartTo(String departTo) {
-        this.departTo = departTo;
+        if (departTo == null)
+        {
+            throw new NullPointerException("DepartTo can not be Null");
+        }
+        else if (departTo.isBlank()||departTo.isEmpty())
+        {
+            throw new IllegalArgumentException("DepartTo can not be Empty");
+
+        }
+
+        else
+        {
+            this.departTo = departTo;
+        }
+
     }
 
     public String getDepartFrom() {
@@ -58,7 +72,20 @@ public class Flight {
     }
 
     public void setDepartFrom(String departFrom) {
-        this.departFrom = departFrom;
+        if (departFrom == null)
+        {
+            throw new NullPointerException("DepartFrom can not be Null");
+        }
+        else if (departFrom.isBlank()||departFrom.isEmpty())
+        {
+            throw new IllegalArgumentException("DepartFrom can not be Empty");
+
+        }
+
+        else
+        {
+            this.departFrom = departFrom;
+        }
     }
 
     public String getCode() {
@@ -66,7 +93,19 @@ public class Flight {
     }
 
     public void setCode(String code) {
-        this.code = code;
+        if (code == null)
+        {
+            throw new NullPointerException("Code can not be Null");
+        }
+        else if (code.isBlank()||code.isEmpty())
+        {
+            throw new IllegalArgumentException("Code can not be Empty");
+
+        }
+        else
+        {
+            this.code = code;
+        }
     }
 
     public String getCompany() {
@@ -74,7 +113,20 @@ public class Flight {
     }
 
     public void setCompany(String company) {
-        this.company = company;
+        if (company == null)
+        {
+            throw new NullPointerException("Company can not be Null");
+        }
+        else if (company.isBlank()||company.isEmpty())
+        {
+            throw new IllegalArgumentException("Company can not be Empty");
+
+        }
+        else
+        {
+            this.company = company;
+        }
+
     }
 
     public Timestamp getDateFrom() {
@@ -82,6 +134,7 @@ public class Flight {
     }
 
     public void setDateFrom(Timestamp dateFrom) {
+
         this.dateFrom = dateFrom;
     }
 
