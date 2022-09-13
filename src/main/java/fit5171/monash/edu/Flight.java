@@ -27,6 +27,9 @@ public class Flight {
             this.dateFrom = dateFrom;
     }
 
+    public Flight(Airplane airplane) { this.airplane = airplane;
+    }
+
     public int getFlightID() {
         return flightID;
     }

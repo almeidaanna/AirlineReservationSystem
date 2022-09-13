@@ -31,8 +31,7 @@ public class FlightTest {
 
     @BeforeEach
     void init(){
-
-        flight = new Flight();
+        flight = new Flight(airplane);
     }
 
     @Test
@@ -129,6 +128,37 @@ public class FlightTest {
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             flight.setCode(code);
         });
-        assertEquals("Code can not be Empty",exception.getMessage());
+        assertEquals("Company can not be Empty",exception.getMessage());
     }
+
+    @Test
+    void testDateFromEmpty()
+    {
+        Timestamp dateFrom = Timestamp.valueOf("");
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            flight.setDateFrom(dateFrom);
+        });
+        assertEquals("DateFrom can not be Empty or enter invalid Format",exception.getMessage());
+    }
+
+    @Test
+    void testDateToEmpty()
+    {
+        Timestamp dateTo = Timestamp.valueOf("");
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            flight.setDateTo(dateTo);
+        });
+        assertEquals("DateTo can not be Empty or enter invalid Format",exception.getMessage());
+    }
+
+    @Test
+    void testAirplaneEmpty()
+    {
+        airplane = mock(Airplane.class);
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            flight.setAirplane(airplane);
+        });
+        assertEquals("Airplane object can not be Empty or enter invalid Format",exception.getMessage());
+    }
+
 }

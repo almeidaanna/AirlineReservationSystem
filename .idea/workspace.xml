@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Correct AirplaneTest.java ,working on Flight">
+    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Correct AirplaneTest.java ,working on FlightTest and modified the dependency in Pom">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment1-code-base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment1-code-base.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/Flight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/FlightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/FlightTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +23,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,12 +44,34 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "D:/All course documents/S2 2022/FIT 5171/Reference"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.FlightTest.testFlightValidity">
+    <configuration name="FlightTest.testDateToEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1-code-base" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FlightTest" />
+      <option name="METHOD_NAME" value="testDateToEmpty" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FlightTest.testFlightValidity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1-code-base" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FlightTest" />
+      <option name="METHOD_NAME" value="testFlightValidity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PersonTest.testFirstNameNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1-code-base" />
       <option name="PACKAGE_NAME" value="" />
@@ -64,6 +84,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FlightTest.testFlightValidity" />
+        <item itemvalue="JUnit.FlightTest.testDateToEmpty" />
         <item itemvalue="JUnit.PersonTest.testFirstNameNull" />
       </list>
     </recent_temporary>
@@ -112,7 +134,21 @@
       <option name="project" value="LOCAL" />
       <updated>1662985651162</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Correct AirplaneTest.java ,working on FlightTest and modified the dependency in Pom">
+      <created>1663033214622</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1663033214622</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Correct AirplaneTest.java ,working on FlightTest and modified the dependency in Pom">
+      <created>1663033280173</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1663033280173</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,6 +167,7 @@
     <MESSAGE value="Worked on TicketCollectionTest (req. 2)" />
     <MESSAGE value="Worked on AirplaneTest.java finish test classes" />
     <MESSAGE value="Correct AirplaneTest.java ,working on Flight" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correct AirplaneTest.java ,working on Flight" />
+    <MESSAGE value="Correct AirplaneTest.java ,working on FlightTest and modified the dependency in Pom" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correct AirplaneTest.java ,working on FlightTest and modified the dependency in Pom" />
   </component>
 </project>
