@@ -209,11 +209,11 @@ public class PassengerTest {
     @Test
     void testSecurityCodeEmpty()
     {
-        String passport = "";
+        int securityCode = 0;
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            passenger.setSecurityCode(passport);
+            passenger.setSecurityCode(securityCode);
         });
-        assertEquals("Passport can not be empty", exception.getMessage());
+        assertEquals("Security Code can not be zero", exception.getMessage());
     }
 
     @Test
