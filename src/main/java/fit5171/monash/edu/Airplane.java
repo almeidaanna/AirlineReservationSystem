@@ -18,16 +18,17 @@ public class Airplane
         this.crewSitsNumber = crewSitsNumber;
     }
 
-    public Airplane() {
-
-    }
+    public Airplane() {}
 
     public int getAirplaneID() {
         return airplaneID;
     }
 
     public void setAirplaneID(int airplaneID) {
-        this.airplaneID = airplaneID;
+        if (airplaneID <= 0 )
+            throw new IllegalArgumentException("AirplaneID can not be Zero or Empty");
+        else
+            this.airplaneID = airplaneID;
     }
 
     public String getAirplaneModel() {
@@ -35,7 +36,13 @@ public class Airplane
     }
 
     public void setAirplaneModel(String airplaneModel) {
-        this.airplaneModel = airplaneModel;
+
+        if(airplaneModel.isBlank()||airplaneModel.isEmpty())
+        {
+            throw new IllegalArgumentException("AirplaneModel can not be Empty");
+        }
+        else
+            this.airplaneModel = airplaneModel;
     }
 
     public int getBusinessSitsNumber() {

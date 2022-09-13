@@ -97,18 +97,23 @@ public class Passenger extends Person
     }
 
     public void setPhoneNumber(String phoneNumber) {
-//        if(phoneNumber== null)
-//            throw new NullPointerException("Phone number can not be null");
-//        if(phoneNumber.isEmpty()||phoneNumber.isBlank())
-//            throw new IllegalArgumentException("Phone number can not be null");
-//        if (!(phoneNumber.length()==12 ||phoneNumber.length()==10))
-//        if (!(phoneNumber.startsWith("+614")||(phoneNumber.startsWith("+615")||(phoneNumber.startsWith("04")||(phoneNumber.startsWith("05"))
-//                for(char ch: phoneNumber.toCharArray())
-//                    if(!(Character.isDigit(ch))&&phoneNumber.length()==9)
+        if(phoneNumber== null)
+            throw new NullPointerException("Phone number can not be null");
+        if(phoneNumber.isEmpty()||phoneNumber.isBlank())
+            throw new IllegalArgumentException("Phone number can not be null");
 
-//
-//        this.phoneNumber = phoneNumber;
-   }
+        if(phoneNumber.length() == 12)
+            phoneNumber.substring();
+        else if (phoneNumber.length() == 10)
+            phoneNumber.split();
+
+        if (!(phoneNumber.startsWith("+614")||(phoneNumber.startsWith("+615")||(phoneNumber.startsWith("04")||(phoneNumber.startsWith("05")))
+                for(char ch: phoneNumber.toCharArray())
+                    if(!(Character.isDigit(ch))&&phoneNumber.length()==9)
+
+
+        this.phoneNumber = phoneNumber;
+    }
 
     @Override
     public int getAge() {
