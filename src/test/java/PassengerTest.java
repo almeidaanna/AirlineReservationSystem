@@ -77,6 +77,106 @@ public class PassengerTest {
     }
 
     @Test
+    void testFirstNameEmpty()
+    {
+        String firstName = "";
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            passenger.setFirstName(firstName);
+        });
+        assertEquals("First Name can not be empty",exception.getMessage());
+    }
+
+    @Test
+    void testSecondNameEmpty()
+    {
+        String secondName = "";
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            passenger.setSecondName(secondName);
+        });
+        assertEquals("Second Name can not be empty",exception.getMessage());
+    }
+
+    @Test
+    void testAge()
+    {
+        int invalidAge = 0;
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            passenger.setAge(invalidAge);
+        });
+        assertEquals("Please enter valid age",exception.getMessage());
+    }
+
+    @Test
+    void testGenderEmpty()
+    {
+        String gender= "";
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            passenger.setGender(gender);
+        });
+        assertEquals("Gender can not be empty",exception.getMessage());
+    }
+
+    @Test
+    void testFirstNameNull()
+    {
+        String firstName = null;
+        Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
+            passenger.setFirstName(firstName);
+        });
+        assertEquals("First Name can not be null",exception.getMessage());
+    }
+
+    @Test
+    void testSecondNameNull()
+    {
+        String secondName = null;
+        Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
+            passenger.setSecondName(secondName);
+        });
+        assertEquals("Second Name can not be null",exception.getMessage());
+    }
+
+    @Test
+    void testGenderNull()
+    {
+        String gender= null;
+        Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
+            passenger.setGender(gender);
+        });
+        assertEquals("Gender can not be null",exception.getMessage());
+    }
+
+    @Test
+    void testGenderOptions() {
+
+        String genderInputInvalid = "abc";
+        String expectedResultInvalid ="Please enter valid gender";
+        String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
+            passenger.setGender(genderInputInvalid);
+        }).getMessage();
+        assertEquals(expectedResultInvalid,exception);
+    }
+
+    @Test
+    void testFirstNameFormat() {
+        String FirstNameInputInvalid = "j@n3";
+        String expectedResultInvalid ="Please enter valid First Name";
+        String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
+            passenger.setFirstName(FirstNameInputInvalid);
+        }).getMessage();
+        assertEquals(expectedResultInvalid,exception);
+    }
+
+    @Test
+    void testSecondNameFormat() {
+        String SecondNameInputInvalid = "D03";
+        String expectedResultInvalid ="Please enter valid Second Name";
+        String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
+            passenger.setSecondName(SecondNameInputInvalid);
+        }).getMessage();
+        assertEquals(expectedResultInvalid,exception);
+    }
+    @Test
     void testEmailNull()
     {
         String email = null;
@@ -166,6 +266,7 @@ public class PassengerTest {
         assertEquals(expectedResult,exception);
     }
 
+    @Test
     void testEmailPattern()
     {
         String email = "0ad8c$1237@";
@@ -175,8 +276,8 @@ public class PassengerTest {
         }).getMessage();
         assertEquals(expectedResult,exception);
     }
-
-    void testPassportCharacterLenght()
+    @Test
+    void testPassportCharacterLength()
     {
         String passport = "01237A7@";
         String expectedResult = "Please enter a valid passport number";
