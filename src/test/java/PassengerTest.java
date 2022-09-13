@@ -213,7 +213,7 @@ public class PassengerTest {
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             passenger.setSecurityCode(securityCode);
         });
-        assertEquals("Security Code can not be zero", exception.getMessage());
+        assertEquals("Please enter valid Security Code", exception.getMessage());
     }
 
     @Test

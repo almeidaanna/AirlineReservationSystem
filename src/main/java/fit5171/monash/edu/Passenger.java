@@ -1,5 +1,7 @@
 package fit5171.monash.edu;
 
+import java.util.regex.Pattern;
+
 public class Passenger extends Person
 {
     private String email;
@@ -69,11 +71,23 @@ public class Passenger extends Person
     }
 
     public void setCardNumber(String cardNumber) {
+        if (cardNumber == null)
+            throw new NullPointerException("Card Number can not be null");
+        if (cardNumber.isBlank()||cardNumber.isEmpty())
+            throw new IllegalArgumentException("Card Number can not be empty");
+        if (cardNumber.length() != 16)
+            throw new IllegalArgumentException("Please enter valid Card Number");
+        for (char ch: cardNumber.toCharArray())
+            if(!(Character.isDigit(ch)))
+                throw new IllegalArgumentException("Please enter valid Card Number");
         this.cardNumber = cardNumber;
     }
 
     public void setSecurityCode(int securityCode) {
-        this.securityCode = securityCode;
+        if (securityCode>99 && securityCode<1000)
+            this.securityCode = securityCode;
+        else
+            throw new IllegalArgumentException("Please enter valid Security Code");
     }
 
     @Override
@@ -97,6 +111,14 @@ public class Passenger extends Person
     }
 
     public void setPhoneNumber(String phoneNumber) {
+        String [] arrayPh = new String[2];
+        String stringNum = "";
+        if(phoneNumber== null)
+            throw new NullPointerException("Phone Number can not be null");
+        if(phoneNumber.isEmpty()||phoneNumber.isBlank())
+            throw new IllegalArgumentException("Phone Number can not be empty");
+        if(!(phoneNumber.matches("^(\\+61|0)[4|5]\\d{8}$")))
+            throw new IllegalArgumentException("Please enter a valid phone number");
         this.phoneNumber = phoneNumber;
     }
 

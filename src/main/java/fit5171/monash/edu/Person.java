@@ -68,7 +68,6 @@ public class Person
         for (char ch: secondName.toCharArray())
             if(!(Character.isLetter(ch)))
                 throw new IllegalArgumentException("Please enter valid Second Name");
-
         this.secondName = secondName;
     }
 
