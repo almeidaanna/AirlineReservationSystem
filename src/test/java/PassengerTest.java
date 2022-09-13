@@ -211,7 +211,7 @@ public class PassengerTest {
     {
         String passport = "";
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            passenger.setPassport(passport);
+            passenger.setSecurityCode(passport);
         });
         assertEquals("Passport can not be empty", exception.getMessage());
     }
@@ -221,7 +221,7 @@ public class PassengerTest {
     {
         String cardNumber = "";
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            passenger.setPassport(cardNumber);
+            passenger.setCardNumber(cardNumber);
         });
         assertEquals("Card Number can not be empty", exception.getMessage());
     }
@@ -262,7 +262,7 @@ public class PassengerTest {
         String phoneNumber = "012E5Ab597@";
         String expectedResult = "Please enter a valid phone number";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
-            passenger.setFirstName(phoneNumber);
+            passenger.setPhoneNumber(phoneNumber);
         }).getMessage();
         assertEquals(expectedResult,exception);
     }
@@ -270,20 +270,20 @@ public class PassengerTest {
     @Test
     void testEmailPattern()
     {
-        String email = "0ad8c$1237@";
+        String email = "AbC$@.125";
         String expectedResult = "Please enter a valid email address";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
-            passenger.setFirstName(email);
+            passenger.setEmail(email);
         }).getMessage();
         assertEquals(expectedResult,exception);
     }
     @Test
     void testPassportCharacterLength()
     {
-        String passport = "01237A7@";
+        String passport = "01237A7@710";
         String expectedResult = "Please enter a valid passport number";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
-            passenger.setFirstName(passport);
+            passenger.setPassport(passport);
         }).getMessage();
         assertEquals(expectedResult,exception);
     }
