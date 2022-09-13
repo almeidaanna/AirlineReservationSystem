@@ -45,37 +45,49 @@ public class FlightTest {
         String departFrom =  "Sydney";
         String code = "123456";
         String company = "AUAirLine";
-//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//        Date date = null;
-//
-//        try {
-//            date = dateFormat.parse("23/09/2007");
-//        } catch (ParseException e) {
-//            throw new RuntimeException(e);
-//        }
-//        long time = date.getTime();
-//        Timestamp dateFrom =  new Timestamp(time);
-//
-//        try {
-//            date = dateFormat.parse("24/09/2007");
-//        } catch (ParseException e) {
-//            throw new RuntimeException(e);
-//        }
-//        long time2 = date.getTime();
-//        new Timestamp(time2);
-//
-//        Timestamp dateTo =  new Timestamp(time2);;
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = null;
 
-        Timestamp dateFrom = Timestamp.valueOf("2022-09-10 10:10:10.0");
-        Timestamp dateTo = Timestamp.valueOf("2022-09-13 10:10:10.0");
+        try {
+            date = dateFormat.parse("23/09/2007");
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        long time = date.getTime();
+        Timestamp dateFrom =  new Timestamp(time);
+
+        try {
+            date = dateFormat.parse("24/09/2007");
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        long time2 = date.getTime();
+        new Timestamp(time2);
+        Timestamp dateTo =  new Timestamp(time2);;
 
         int expectedFlightID = 123456;
         String expectedDepartTo = "Melbourne" ;
         String expectedDepartFrom =  "Sydney";
         String expectedCode = "123456";
         String expectedCompany = "AUAirLine";
-        Timestamp expectedDateFrom = Timestamp.valueOf("2022-09-10 10:10:10.0");
-        Timestamp expectedDateTo = Timestamp.valueOf("2022-09-13 10:10:10.0");
+
+        try {
+            date = dateFormat.parse("23/09/2007");
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        long time3 = date.getTime();
+        new Timestamp(time3);
+        Timestamp expectedDateFrom = new Timestamp(time3);
+
+        try {
+            date = dateFormat.parse("24/09/2007");
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+        long time4 = date.getTime();
+        new Timestamp(time4);
+        Timestamp expectedDateTo =  new Timestamp(time4);
 
 
         flight.setFlightID(flightID);

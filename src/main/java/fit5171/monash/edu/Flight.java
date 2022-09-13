@@ -1,5 +1,9 @@
 package fit5171.monash.edu;
-
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
@@ -130,11 +134,13 @@ public class Flight {
     }
 
     public Timestamp getDateFrom() {
+
         return dateFrom;
     }
 
     public void setDateFrom(Timestamp dateFrom) {
-
+        String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\\d{3})$";
+//        if ()
         this.dateFrom = dateFrom;
     }
 
