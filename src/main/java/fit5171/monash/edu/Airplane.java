@@ -50,15 +50,21 @@ public class Airplane
     }
 
     public void setBusinessSitsNumber(int businessSitsNumber) {
-        this.businessSitsNumber = businessSitsNumber;
+        if (businessSitsNumber <= 0)
+            throw new IllegalArgumentException("BusinessSitsNumber can not be Zero or Empty");
+        else
+            this.businessSitsNumber = businessSitsNumber;
     }
 
     public int getEconomySitsNumber() {
         return economySitsNumber;
     }
 
-    public void setEconomySitsNumber(int economSitsNumber) {
-        this.economySitsNumber = economSitsNumber;
+    public void setEconomySitsNumber(int economySitsNumber) {
+        if(economySitsNumber <= 0)
+            throw new IllegalArgumentException("EconomySitsNumber can not be Zero or Empty");
+        else
+            this.economySitsNumber = economySitsNumber;
     }
 
     public int getCrewSitsNumber() {
@@ -66,7 +72,19 @@ public class Airplane
     }
 
     public void setCrewSitsNumber(int crewSitsNumber) {
-        this.crewSitsNumber = crewSitsNumber;
+        if (crewSitsNumber <= 0)
+            throw new IllegalArgumentException("CrewSitsNumber can not be Zero or Empty");
+        else
+            this.crewSitsNumber = crewSitsNumber;
+    }
+
+    public boolean totalSitNumber(int economySitsNumber, int crewSitsNumber , int businessSitsNumber)
+    {
+        boolean totalNumberOfSit = true;
+        if (economySitsNumber + crewSitsNumber + businessSitsNumber > 300)
+            totalNumberOfSit = false;
+        return totalNumberOfSit;
+
     }
 
     public String toString()

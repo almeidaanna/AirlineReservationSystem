@@ -113,11 +113,11 @@ public class AirplaneTest {
     @Test
     void testCrewSitsNumberEmpty()
     {
-        int economySitsNumber = 0;
+        int crewSitsNumber = 0;
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            airplane.setEconomySitsNumber(economySitsNumber);
+            airplane.setCrewSitsNumber(crewSitsNumber);
         });
-        assertEquals("EconomySitsNumber can not be Zero or Empty",exception.getMessage());
+        assertEquals("CrewSitsNumber can not be Zero or Empty",exception.getMessage());
     }
 
     @Test
