@@ -37,12 +37,20 @@ public class Airplane
 
     public void setAirplaneModel(String airplaneModel) {
 
-        if(airplaneModel.isBlank()||airplaneModel.isEmpty())
+        if (airplaneModel == null)
+        {
+            throw new NullPointerException("AirplaneModel can not be Null");
+        }
+        else if (airplaneModel.isBlank()||airplaneModel.isEmpty())
         {
             throw new IllegalArgumentException("AirplaneModel can not be Empty");
+
         }
+
         else
+        {
             this.airplaneModel = airplaneModel;
+        }
     }
 
     public int getBusinessSitsNumber() {

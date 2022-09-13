@@ -82,7 +82,7 @@ public class AirplaneTest {
     @Test
     void testAirplaneModelNull()
     {
-        String  airplaneModel= null;
+        String airplaneModel= null;
         Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
             airplane.setAirplaneModel(airplaneModel);
         });
@@ -132,6 +132,5 @@ public class AirplaneTest {
         });
         assertEquals("Total number of sits should between 1 to 300",exception.getMessage());
     }
-
 
 }

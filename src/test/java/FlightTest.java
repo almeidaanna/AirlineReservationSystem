@@ -45,27 +45,29 @@ public class FlightTest {
         String departFrom =  "Sydney";
         String code = "123456";
         String company = "AUAirLine";
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = null;
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        Date date = null;
+//
+//        try {
+//            date = dateFormat.parse("23/09/2007");
+//        } catch (ParseException e) {
+//            throw new RuntimeException(e);
+//        }
+//        long time = date.getTime();
+//        Timestamp dateFrom =  new Timestamp(time);
+//
+//        try {
+//            date = dateFormat.parse("24/09/2007");
+//        } catch (ParseException e) {
+//            throw new RuntimeException(e);
+//        }
+//        long time2 = date.getTime();
+//        new Timestamp(time2);
+//
+//        Timestamp dateTo =  new Timestamp(time2);;
 
-        try {
-            date = dateFormat.parse("23/09/2007");
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        long time = date.getTime();
-        Timestamp dateFrom =  new Timestamp(time);
-
-        try {
-            date = dateFormat.parse("24/09/2007");
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        long time2 = date.getTime();
-        new Timestamp(time2);
-
-        Timestamp dateTo =  new Timestamp(time2);;
-
+        Timestamp dateTo = Timestamp.valueOf("2022-09-10 10:10:10.0");
+        Timestamp dateFrom = Timestamp.valueOf("2022-09-13 10:10:10.0");
 
         int expectedFlightID = 123456;
         String expectedDepartTo = "Melbourne" ;
