@@ -41,11 +41,11 @@ public class TicketCollectionTest {
     public void testAddTicketNull(){
         String expectedResult = "Invalid Ticket";
 
-        String actualResult = assertThrows(java.lang.NullPointerException.class, () -> {
+        Throwable actualResult = assertThrows(java.lang.NullPointerException.class, () -> {
             TicketCollection.addTicket(inputTicket);
-        }).getMessage();
+        });
 
-        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult.getMessage());
     }
 
     @Test
@@ -55,21 +55,21 @@ public class TicketCollectionTest {
 
         String expectedResult = "Duplicate Ticket";
         Ticket testTicket = new Ticket(12345, 500,flight, false, passenger);
-        String actualResult = assertThrows(java.lang.RuntimeException.class, ()->{
+        Throwable actualResult = assertThrows(java.lang.RuntimeException.class, ()->{
             TicketCollection.addTicket(testTicket);
-        }).getMessage();
-        assertEquals(expectedResult, actualResult);
+        });
+        assertEquals(expectedResult, actualResult.getMessage());
     }
 
     @Test
     public void testAddTicketsNull(){
         String expectedResult = "Invalid Tickets, Cannot be added to list";
 
-        String actualResult = assertThrows(java.lang.NullPointerException.class, () -> {
+        Throwable actualResult = assertThrows(java.lang.NullPointerException.class, () -> {
             TicketCollection.addTickets(newTickets);
-        }).getMessage();
+        });
 
-        assertEquals(expectedResult, actualResult);
+        assertEquals(expectedResult, actualResult.getMessage());
     }
 
     @Test
@@ -94,11 +94,11 @@ public class TicketCollectionTest {
         String expectedInvalidTicket = "Ticket does not exist";
 
         Ticket actualValidTicket_id = TicketCollection.getTicketInfo(inputValidTicket_id);
-        String actualInvalidTicket_id = assertThrows(java.lang.NullPointerException.class,() ->{
+        Throwable actualInvalidTicket_id = assertThrows(java.lang.NullPointerException.class,() ->{
             Ticket ticket = TicketCollection.getTicketInfo(inputInvalidTicket_id);
-        }).getMessage();
+        });
 
         assertEquals(expectedValidTicket, actualValidTicket_id);
-        assertEquals(expectedInvalidTicket, actualInvalidTicket_id);
+        assertEquals(expectedInvalidTicket, actualInvalidTicket_id.getMessage());
     }
 }
