@@ -1,4 +1,5 @@
 import fit5171.monash.edu.Passenger;
+import fit5171.monash.edu.Person;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -94,7 +95,7 @@ public class PassengerTest {
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             passenger.setAge(invalidAge);
         });
-        assertEquals("Please enter valid age",exception.getMessage());
+        assertEquals("Invalid age",exception.getMessage());
     }
 
     @Test
@@ -141,7 +142,7 @@ public class PassengerTest {
     void testGenderOptions() {
 
         String genderInputInvalid = "abc";
-        String expectedResultInvalid ="Please enter valid gender";
+        String expectedResultInvalid ="Invalid gender";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
             passenger.setGender(genderInputInvalid);
         }).getMessage();
@@ -151,7 +152,7 @@ public class PassengerTest {
     @Test
     void testFirstNameFormat() {
         String FirstNameInputInvalid = "j@n3";
-        String expectedResultInvalid ="Please enter valid First Name";
+        String expectedResultInvalid ="Invalid First Name";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
             passenger.setFirstName(FirstNameInputInvalid);
         }).getMessage();
@@ -161,7 +162,7 @@ public class PassengerTest {
     @Test
     void testSecondNameFormat() {
         String SecondNameInputInvalid = "D03";
-        String expectedResultInvalid ="Please enter valid Second Name";
+        String expectedResultInvalid ="Invalid Second Name";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
             passenger.setSecondName(SecondNameInputInvalid);
         }).getMessage();
@@ -203,7 +204,7 @@ public class PassengerTest {
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             passenger.setSecurityCode(securityCode);
         });
-        assertEquals("Please enter valid Security Code", exception.getMessage());
+        assertEquals("Invalid Security Code", exception.getMessage());
     }
 
     @Test
@@ -250,7 +251,7 @@ public class PassengerTest {
     void testPhoneNumberPattern()
     {
         String phoneNumber = "012E5Ab597@";
-        String expectedResult = "Please enter a valid phone number";
+        String expectedResult = "Invalid phone number";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
             passenger.setPhoneNumber(phoneNumber);
         }).getMessage();
@@ -261,7 +262,7 @@ public class PassengerTest {
     void testEmailPattern()
     {
         String email = "AbC$@.125";
-        String expectedResult = "Please enter a valid email address";
+        String expectedResult = "Invalid email address";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
             passenger.setEmail(email);
         }).getMessage();
@@ -271,10 +272,19 @@ public class PassengerTest {
     void testPassportCharacterLength()
     {
         String passport = "01237A7@710";
-        String expectedResult = "Please enter a valid passport number";
+        String expectedResult = "Invalid passport number";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
             passenger.setPassport(passport);
         }).getMessage();
         assertEquals(expectedResult,exception);
     }
+
+    @Test
+    void testToString()
+    {
+        Passenger passenger = new Passenger("Jane", "Doe", 43, "Female", "janedoe@gmail.com", "0458353978", "M79843234","1234567891012345", 123);
+        String expectedString = "Passenger{ Fullname= Jane Doe ,email='janedoe@gmail.com', phoneNumber='0458353978', passport='M79843234}";
+        assertEquals(expectedString,passenger.toString());
+    }
+
 }

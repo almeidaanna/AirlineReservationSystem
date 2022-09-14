@@ -14,7 +14,7 @@ public class Passenger extends Person
 
     public Passenger(String firstName, String secondName, int age, String gender,String email, String phoneNumber, String passport, String cardNumber,int securityCode)
     {
-        super();
+        super(firstName, secondName, age, gender);
         this.securityCode=securityCode;
         this.cardNumber=cardNumber;
         this.passport=passport;
@@ -32,7 +32,7 @@ public class Passenger extends Person
         if (email.isBlank()||email.isEmpty())
             throw new IllegalArgumentException("Email can not be empty");
         if (!(email.endsWith(".com")&&email.matches("^(.*)@(.+)$")))
-            throw new IllegalArgumentException("Please enter a valid email address");
+            throw new IllegalArgumentException("Invalid email address");
         this.email = email;
 }
 
@@ -76,10 +76,10 @@ public class Passenger extends Person
         if (cardNumber.isBlank()||cardNumber.isEmpty())
             throw new IllegalArgumentException("Card Number can not be empty");
         if (cardNumber.length() != 16)
-            throw new IllegalArgumentException("Please enter valid Card Number");
+            throw new IllegalArgumentException("Invalid Card Number");
         for (char ch: cardNumber.toCharArray())
             if(!(Character.isDigit(ch)))
-                throw new IllegalArgumentException("Please enter valid Card Number");
+                throw new IllegalArgumentException("Invalid Card Number");
         this.cardNumber = cardNumber;
     }
 
@@ -87,7 +87,7 @@ public class Passenger extends Person
         if (securityCode>99 && securityCode<1000)
             this.securityCode = securityCode;
         else
-            throw new IllegalArgumentException("Please enter valid Security Code");
+            throw new IllegalArgumentException("Invalid Security Code");
     }
 
     @Override
@@ -101,7 +101,7 @@ public class Passenger extends Person
         if (passport.isEmpty()||passport.isBlank())
             throw new IllegalArgumentException("Passport can not be empty");
         if (passport.length() > 9)
-            throw new IllegalArgumentException("Please enter a valid passport number");
+            throw new IllegalArgumentException("Invalid passport number");
         this.passport = passport;
     }
 
@@ -118,7 +118,7 @@ public class Passenger extends Person
         if(phoneNumber.isEmpty()||phoneNumber.isBlank())
             throw new IllegalArgumentException("Phone Number can not be empty");
         if(!(phoneNumber.matches("^(\\+61|0)[4|5]\\d{8}$")))
-            throw new IllegalArgumentException("Please enter a valid phone number");
+            throw new IllegalArgumentException("Invalid phone number");
         this.phoneNumber = phoneNumber;
     }
 

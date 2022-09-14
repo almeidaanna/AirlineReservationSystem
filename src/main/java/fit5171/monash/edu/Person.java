@@ -23,7 +23,7 @@ public class Person
         if (age > 0)
             this.age = age;
         else
-            throw new IllegalArgumentException("Please enter valid age");
+            throw new IllegalArgumentException("Invalid age");
     }
 
     public String getGender() {
@@ -36,7 +36,7 @@ public class Person
         if (gender.isBlank()||gender.isEmpty())
             throw new IllegalArgumentException("Gender can not be empty");
         if (!(gender.equalsIgnoreCase("Female")||gender.equalsIgnoreCase("Male")|| gender.equalsIgnoreCase("Other")||gender.equalsIgnoreCase("M")||gender.equalsIgnoreCase("F")||gender.equalsIgnoreCase("O")))
-            throw new IllegalArgumentException("Please enter valid gender");
+            throw new IllegalArgumentException("Invalid gender");
         else
             this.gender = gender;
     }
@@ -56,7 +56,7 @@ public class Person
             throw new IllegalArgumentException("First Name can not be empty");
         for (char ch: firstName.toCharArray())
             if(!(Character.isLetter(ch)))
-                throw new IllegalArgumentException("Please enter valid First Name");
+                throw new IllegalArgumentException("Invalid First Name");
         this.firstName = firstName;
     }
 
@@ -67,7 +67,7 @@ public class Person
             throw new IllegalArgumentException("Second Name can not be empty");
         for (char ch: secondName.toCharArray())
             if(!(Character.isLetter(ch)))
-                throw new IllegalArgumentException("Please enter valid Second Name");
+                throw new IllegalArgumentException("Invalid Second Name");
         this.secondName = secondName;
     }
 

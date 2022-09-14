@@ -1,4 +1,7 @@
 package fit5171.monash.edu;
+
+import net.bytebuddy.implementation.bytecode.Throw;
+
 public class Ticket
 {
     private int ticket_id;
@@ -34,15 +37,22 @@ public class Ticket
 
     public void setPrice(int price)
     {
-        this.price = price;
-        saleByAge(passenger.getAge()); //changes price of the ticket according to the age category of passenger
-        serviceTax( ); //changes price by adding service tax to the ticket
+        if(price > 0) {
+            this.price = price;
+            saleByAge(passenger.getAge()); //changes price of the ticket according to the age category of passenger
+            serviceTax(); //changes price by adding service tax to the ticket
+        }
+        else
+            throw new IllegalArgumentException("Invalid Price");
+
     }
 
     public void saleByAge(int age)
     {
         int price = getPrice();
-        if(age < 15)
+        if(age == 0)
+            throw new IllegalArgumentException("Invalid age");
+        else if(age < 15)
         {
             price-=(int)price*0.5;//50% sale for children under 15
             this.price=price;
@@ -75,7 +85,10 @@ public class Ticket
 
     public void setTicketStatus(boolean status)
     {
-        this.status = status;
+        if(flight == null || passenger == null)
+            throw new IllegalArgumentException();
+        else
+            this.status = status;
     }
 
     public void serviceTax(){

@@ -66,7 +66,7 @@ public class PersonTest {
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             person.setAge(invalidAge);
         });
-        assertEquals("Please enter valid age",exception.getMessage());
+        assertEquals("Invalid age",exception.getMessage());
     }
 
     @Test
@@ -113,7 +113,7 @@ public class PersonTest {
     void testGenderOptions() {
 
         String genderInputInvalid = "abc";
-        String expectedResultInvalid ="Please enter valid gender";
+        String expectedResultInvalid ="Invalid gender";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
             person.setGender(genderInputInvalid);
         }).getMessage();
@@ -123,7 +123,7 @@ public class PersonTest {
     @Test
     void testFirstNameFormat() {
         String FirstNameInputInvalid = "j@n3";
-        String expectedResultInvalid ="Please enter valid First Name";
+        String expectedResultInvalid ="Invalid First Name";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
             person.setFirstName(FirstNameInputInvalid);
         }).getMessage();
@@ -133,11 +133,20 @@ public class PersonTest {
     @Test
     void testSecondNameFormat() {
         String SecondNameInputInvalid = "D03";
-        String expectedResultInvalid ="Please enter valid Second Name";
+        String expectedResultInvalid ="Invalid Second Name";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
             person.setSecondName(SecondNameInputInvalid);
         }).getMessage();
         assertEquals(expectedResultInvalid,exception);
     }
+
+    @Test
+    void testToString()
+    {
+        Person person = new Person("Jane","Doe", 43,"Female");
+        String expectedString = "Person{firstName='Jane', secondName='Doe', age=43, gender='Female'}";
+        assertEquals(expectedString,person.toString());
+    }
+
 }
 

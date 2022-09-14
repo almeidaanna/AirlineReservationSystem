@@ -30,45 +30,45 @@ public class Flight {
 
     public Flight(int flight_id, String departTo, String departFrom, String code, String company,String dateFromString, String dateToString, Airplane airplane)
     {
-            this.flightID=flight_id;
-            this.departTo = departTo;
-            this.departFrom = departFrom;
-            this.code = code;
-            this.company = company;
-            if (flights.size() == 0)
+        this.flightID=flight_id;
+        this.departTo = departTo;
+        this.departFrom = departFrom;
+        this.code = code;
+        this.company = company;
+        if (flights.size() == 0)
+        {
+            this.airplane = airplane;
+        }
+        for (Flight flight : flights)
+        {
+            if (flight.getAirplane() != null && flight.getAirplane().getAirplaneID() == airplane.getAirplaneID())
+            {
+                throw new IllegalArgumentException("This airplane has already used for another flight");
+            }
+            else
             {
                 this.airplane = airplane;
             }
-            for (Flight flight : flights)
+        }
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
+
+        if (dateToString.matches(pattern) && dateFromString.matches(pattern))
+        {
+            try
             {
-                if (flight.getAirplane() != null && flight.getAirplane().getAirplaneID() == airplane.getAirplaneID())
-                {
-                    throw new IllegalArgumentException("This airplane has already used for another flight");
-                }
-                else
-                {
-                    this.airplane = airplane;
-                }
+                Date dateFromDate = dateFormat.parse(dateFromString);
+                Date dateToDate = dateFormat.parse(dateFromString);
+                long dateF = dateFromDate.getTime();
+                long dateT = dateToDate.getTime();
+                this.dateFrom =  new Timestamp(dateF);
+                this.dateTo = new Timestamp(dateT);
             }
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
+            catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
 
-            if (dateToString.matches(pattern) && dateFromString.matches(pattern))
-            {
-                try
-                {
-                    Date dateFromDate = dateFormat.parse(dateFromString);
-                    Date dateToDate = dateFormat.parse(dateFromString);
-                    long dateF = dateFromDate.getTime();
-                    long dateT = dateToDate.getTime();
-                    this.dateFrom =  new Timestamp(dateF);
-                    this.dateTo = new Timestamp(dateT);
-                }
-                catch (ParseException e) {
-                    throw new RuntimeException(e);
-                }
-
-            }else {throw new PatternSyntaxException("You can not enter invalid date value, Please check it", "", -1);}
+        }else {throw new PatternSyntaxException("You can not enter invalid date value, Please check it", "", -1);}
 
 
 
