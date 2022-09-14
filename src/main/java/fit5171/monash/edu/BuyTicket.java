@@ -8,6 +8,30 @@ import java.util.regex.PatternSyntaxException;
 
 public class BuyTicket <T>
 {
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
     Passenger passenger = new Passenger();
     Ticket ticket = new Ticket();
     Flight flight = new Flight();
@@ -19,6 +43,8 @@ public class BuyTicket <T>
          ticket = new Ticket();
          flight = new Flight();
     }
+
+
 
     public void showTicket()
     {
@@ -42,7 +68,7 @@ public class BuyTicket <T>
         Ticket validTicket = TicketCollection.getTicketInfo(ticket_id);
        
         //if there is a valid ticket id was input then we buy it, otherwise show message
-        if(validTicket != null)
+        if(validTicket == null)
         {
             System.out.println("This ticket does not exist.");
             return;
@@ -55,33 +81,33 @@ public class BuyTicket <T>
             try
             {
                 System.out.println("Enter your First Name: ");
-                String firstName = "";
+                String firstName = "Jane";
                 passenger.setFirstName(firstName);
                 
                 
                 System.out.println("Enter your Second name:");
-                String secondName = "";
+                String secondName = "Doe";
                 passenger.setSecondName(secondName); //setting passengers info
 
                 System.out.println("Enter your age:");
-                Integer age = 0;
+                Integer age = 43;
                 in.nextLine();
                 passenger.setAge(age);
 
                 System.out.println("Enter your gender: ");
-                String gender = "";
+                String gender = "Female";
                 passenger.setGender(gender);
 
                 System.out.println("Enter your e-mail address");
-                String email = "";
+                String email = "janedoe@gmail.com";
                 passenger.setEmail(email);
 
                 System.out.println("Enter your phone number (+7):");
-                String phoneNumber = "";
+                String phoneNumber = "0458353978";
                 passenger.setPhoneNumber(phoneNumber);
 
                 System.out.println("Enter your passport number:");
-                String passportNumber = "";
+                String passportNumber = "M79843234";
                 passenger.setPassport(passportNumber);
 
                 System.out.println("Do you want to purchase?\n 1-YES 0-NO");
@@ -123,8 +149,6 @@ public class BuyTicket <T>
                     System.out.println("Enter your security code:");
                     Integer securityCode = 0;
                     passenger.setSecurityCode(securityCode);
-
-            
             } catch (PatternSyntaxException patternException)
             {
                 patternException.printStackTrace();
@@ -274,7 +298,5 @@ public class BuyTicket <T>
                 patternException.printStackTrace();
             }
         }
-
     }
-
 }

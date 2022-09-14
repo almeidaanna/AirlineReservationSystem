@@ -1,16 +1,23 @@
-import fit5171.monash.edu.BuyTicket;
-import fit5171.monash.edu.Flight;
-import fit5171.monash.edu.Passenger;
-import fit5171.monash.edu.Ticket;
+import fit5171.monash.edu.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+
+import java.util.Scanner;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.*;
 
 @DisplayName("Test class for BuyTicket")
 public class BuyTicketTest {
     private BuyTicket buyTicket;
+    Passenger passenger;
+    Ticket ticket;
+    Flight flight;
+    Scanner userInput;
+    TicketCollection ticketCollection;
 
     @BeforeAll
     static  void initAll(){
@@ -20,13 +27,61 @@ public class BuyTicketTest {
     @BeforeEach
     public void init(){
         buyTicket = new BuyTicket();
+        passenger = mock(Passenger.class);
+        ticket = spy(Ticket.class);
+        flight = mock(Flight.class);
+//        userInput = mock(Scanner.class);
+        ticketCollection = mock(TicketCollection.class);
     }
+
+//    @Test
+//    void testBuyTicketValidity() throws Exception {
+//        int inputTicketId = 10024;
+//        Ticket ticket = new Ticket(10024, 1000, flight, true, passenger);
+//        when(TicketCollection.getTicketInfo()).thenReturn(ticket);
+//        when(ticket.getFlight().getFlightID()).thenReturn(1001);
+//        when(FlightCollection.getFlightInfo(1254));
+//        Airplane airplane = new Airplane(101, "Airbus", 30, 60, 4);
+//        when(Airplane.getAirPlaneInfo(101)).thenReturn(airplane);
+//        when(ticket.getClassVip()).thenReturn(true);
+//        when(ticket.getPrice()).thenReturn(1120);
+//        buyTicket.buyTicket(inputTicketId);
+//    }
 
     @Test
-    void testBuyTicketValidity(){
-        Passenger expectedPassenger = Mockito.mock(Passenger.class);
-        Ticket expectedTicket = Mockito.mock(Ticket.class);
-        Flight expectedFlight = Mockito.mock(Flight.class);
+    void testTicketValid()
+    {
+//        passenger = mock(Passenger.class);
+//        ticket = spy(Ticket.class);
+//        flight = mock(Flight.class);
+        Airplane airplane = new Airplane(101, "Airbus", 30, 60, 4);
+        Passenger newPassenger = new Passenger("Jane", "Doe", 43, "Female", "janedoe@gmail.com", "0458353978", "M79843234","1234567891012345", 123);
+        Flight newflight = new Flight(34567, "Mel", "Syd", "A342", "Boeing", "12/09/2022","18/09/2022", airplane );
+        Ticket newticket = new Ticket(1234, 1000,newflight, false,newPassenger);
 
+        TicketCollection.addTicket(newticket);
+
+        try {
+            buyTicket.buyTicket(1234);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        assertTrue(newticket.ticketStatus());
+//        buyTicket.setTicket(ticket);
+//        buyTicket.getTicket().setTicket_id(10136);
+//        buyTicket.getTicket().setPrice(1000);
+//        buyTicket.getTicket().setFlight(flight);
+//        buyTicket.getTicket().setClassVip(false);
+//        buyTicket.getTicket().setTicketStatus(false);
+//        buyTicket.getTicket().setPassenger((passenger));
+//
+//        assertEquals(10136, buyTicket.getTicket().getTicket_id());
+//        assertEquals(1000*1.12, buyTicket.getTicket());
+//        assertEquals(flight, buyTicket.getTicket().getFlight());
+//        assertEquals(false, buyTicket.getTicket().getClassVip());
+//        assertEquals(false, buyTicket.getTicket().ticketStatus());
+//        assertEquals(10136, buyTicket.getTicket().getTicket_id());
     }
+
 }

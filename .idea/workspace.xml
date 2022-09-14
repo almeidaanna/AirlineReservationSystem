@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="working on TicketCollectionTest">
+    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Updated TicketCollectionTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/TicketCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/TicketCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/BuyTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/BuyTicket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BuyTicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BuyTicketTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ChooseTicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ChooseTicketTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TicketCollectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TicketCollectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/BuyTicketTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BuyTicketTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TicketCollectionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TicketCollectionTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,12 +52,32 @@
     &quot;last_opened_file_path&quot;: &quot;D:/All course documents/S2 2022/FIT 5171/Reference/FIT5171AssignmentDemo&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.BuyTicketTest.testBuyTicketValidity">
+  <component name="RunManager" selected="JUnit.BuyTicketTest.testTicketValid">
     <configuration name="BuyTicketTest.testBuyTicketValidity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1-code-base" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BuyTicketTest" />
       <option name="METHOD_NAME" value="testBuyTicketValidity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BuyTicketTest.testTicketValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1-code-base" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BuyTicketTest" />
+      <option name="METHOD_NAME" value="testTicketValid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FlightTest.testFlightValidity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment1-code-base" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FlightTest" />
+      <option name="METHOD_NAME" value="testFlightValidity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -76,31 +92,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TicketCollectionTest.testAddTicketValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TicketTest.testTicketValidity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1-code-base" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TicketCollectionTest" />
-      <option name="METHOD_NAME" value="testAddTicketValid" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TicketCollectionTest.testAddTicketsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Assignment1-code-base" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TicketCollectionTest" />
-      <option name="METHOD_NAME" value="testAddTicketsNull" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TicketCollectionTest.testTicketInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Assignment1-code-base" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TicketCollectionTest" />
-      <option name="METHOD_NAME" value="testTicketInfo" />
+      <option name="MAIN_CLASS_NAME" value="TicketTest" />
+      <option name="METHOD_NAME" value="testTicketValidity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -108,11 +104,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BuyTicketTest.testTicketValid" />
         <item itemvalue="JUnit.BuyTicketTest.testBuyTicketValidity" />
         <item itemvalue="JUnit.TicketCollectionTest" />
-        <item itemvalue="JUnit.TicketCollectionTest.testAddTicketsNull" />
-        <item itemvalue="JUnit.TicketCollectionTest.testAddTicketValid" />
-        <item itemvalue="JUnit.TicketCollectionTest.testTicketInfo" />
+        <item itemvalue="JUnit.TicketTest.testTicketValidity" />
+        <item itemvalue="JUnit.FlightTest.testFlightValidity" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +198,35 @@
       <option name="project" value="LOCAL" />
       <updated>1663061319092</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="TicketCollectionTest done, started BuyTicket">
+      <created>1663095610014</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1663095610014</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Mockito in Ticket">
+      <created>1663109270045</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1663109270045</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Mockito in Ticket">
+      <created>1663109307356</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1663109307356</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Updated TicketCollectionTest">
+      <created>1663115546689</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1663115546689</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +249,9 @@
     <MESSAGE value="Need to improve FlightTest.java, Working on flightCollection Test" />
     <MESSAGE value="Need to improve mock of test, working on source code" />
     <MESSAGE value="working on TicketCollectionTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on TicketCollectionTest" />
+    <MESSAGE value="TicketCollectionTest done, started BuyTicket" />
+    <MESSAGE value="Mockito in Ticket" />
+    <MESSAGE value="Updated TicketCollectionTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated TicketCollectionTest" />
   </component>
 </project>
