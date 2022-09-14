@@ -19,8 +19,18 @@ public class ChooseTicketTest {
     }
 
     @Test
-    void testChooseTicket()
+    void validateCity(){
+
+    }
+
+    @Test
+    void validateChoice(){
+
+    }
+
+    @Test
+    void validateFlight()
     {
-        
+
     }
 }
