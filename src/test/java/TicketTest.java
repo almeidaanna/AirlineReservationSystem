@@ -117,7 +117,7 @@ public class TicketTest {
     @Test
     void testServiceTaxOnEveryTicketSold()
     {
-        int price = -1000;
+        int price = 1000;
         when(passenger.getAge()).thenReturn(43);
         ticket.setPrice(price);
         assertEquals(price* 1.12,ticket.getPrice());
