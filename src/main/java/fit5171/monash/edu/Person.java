@@ -9,10 +9,10 @@ public class Person
     public Person(){}
 
     public Person(String firstName, String secondName, int age, String gender){
-        this.age=age;
-        this.firstName=firstName;
-        this.secondName=secondName;
-        this.gender=gender;
+        setAge(age);
+        setFirstName(firstName);
+        setSecondName(secondName);
+        setGender(gender);
     }
 
     public int getAge() {
@@ -51,9 +51,9 @@ public class Person
 
     public void setFirstName(String firstName) {
         if (firstName == null)
-            throw new NullPointerException("First Name can not be null");
+            throw new NullPointerException("Invalid details");
         if (firstName.isBlank()||firstName.isEmpty())
-            throw new IllegalArgumentException("First Name can not be empty");
+            throw new IllegalArgumentException("Invalid details");
         for (char ch: firstName.toCharArray())
             if(!(Character.isLetter(ch)))
                 throw new IllegalArgumentException("Invalid First Name");
@@ -62,12 +62,12 @@ public class Person
 
     public void setSecondName(String secondName) {
         if (secondName == null)
-            throw new NullPointerException("Second Name can not be null");
+            throw new NullPointerException("Invalid details");
         if (secondName.isBlank()||secondName.isEmpty())
-            throw new IllegalArgumentException("Second Name can not be empty");
+            throw new IllegalArgumentException("Invalid details");
         for (char ch: secondName.toCharArray())
             if(!(Character.isLetter(ch)))
-                throw new IllegalArgumentException("Invalid Second Name");
+                throw new IllegalArgumentException("Invalid details");
         this.secondName = secondName;
     }
 
