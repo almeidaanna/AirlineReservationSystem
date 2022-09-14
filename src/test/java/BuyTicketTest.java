@@ -4,6 +4,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,6 +17,13 @@ import static org.mockito.Mockito.*;
 @DisplayName("Test class for BuyTicket")
 public class BuyTicketTest {
     private BuyTicket buyTicket;
+    //https://stackoverflow.com/questions/1647907/junit-how-to-simulate-system-in-testing
+//    private final InputStream systemIn = System.in;
+//    private final PrintStream systemOut = System.out;
+//
+//    private ByteArrayInputStream testIn;
+//    private ByteArrayOutputStream testOut;
+
     Passenger passenger;
     Ticket ticket;
     Flight flight;
@@ -31,9 +42,33 @@ public class BuyTicketTest {
         ticket = spy(Ticket.class);
         flight = mock(Flight.class);
 //        userInput = mock(Scanner.class);
-        ticketCollection = mock(TicketCollection.class);
+
+//        final String testString = "Hello!";
+//        provideInput(testString);
+//
+//        BuyTicket.main(new String[0]);
+//
+//        assertEquals(testString, getOutput());
+//        ticketCollection = mock(TicketCollection.class);
+
+    }
+    @Test
+    void testPassengerInformation()
+    {
+
     }
 
+    @Test
+    void testFlightInformation()
+    {
+
+    }
+
+    @Test
+    void testTicketInformation()
+    {
+
+    }
 //    @Test
 //    void testBuyTicketValidity() throws Exception {
 //        int inputTicketId = 10024;
