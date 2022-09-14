@@ -46,7 +46,7 @@ public class PersonTest {
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             person.setFirstName(firstName);
         });
-        assertEquals("First Name can not be empty",exception.getMessage());
+        assertEquals("Invalid details",exception.getMessage());
     }
 
     @Test
@@ -56,7 +56,7 @@ public class PersonTest {
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             person.setSecondName(secondName);
         });
-        assertEquals("Second Name can not be empty",exception.getMessage());
+        assertEquals("Invalid details",exception.getMessage());
     }
 
     @Test
@@ -86,7 +86,7 @@ public class PersonTest {
         Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
             person.setFirstName(firstName);
         });
-        assertEquals("First Name can not be null",exception.getMessage());
+        assertEquals("Invalid details",exception.getMessage());
     }
 
     @Test
@@ -96,7 +96,7 @@ public class PersonTest {
         Throwable exception = assertThrows(java.lang.NullPointerException.class, () -> {
             person.setSecondName(secondName);
         });
-        assertEquals("Second Name can not be null",exception.getMessage());
+        assertEquals("Invalid details",exception.getMessage());
     }
 
     @Test
@@ -133,7 +133,7 @@ public class PersonTest {
     @Test
     void testSecondNameFormat() {
         String SecondNameInputInvalid = "D03";
-        String expectedResultInvalid ="Invalid Second Name";
+        String expectedResultInvalid ="Invalid details";
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
             person.setSecondName(SecondNameInputInvalid);
         }).getMessage();
