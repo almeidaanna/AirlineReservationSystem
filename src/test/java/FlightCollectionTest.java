@@ -30,7 +30,7 @@ public class FlightCollectionTest {
     {
         ArrayList<Flight> flights = new ArrayList<>();
         Flight newFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
-                Timestamp.valueOf("2022/09/10"), Timestamp.valueOf("2022/09/11"), airplane);
+                "2022/09/10", "2022/09/11", airplane);
         FlightCollection.addFlights(flights);
     }
 
@@ -42,7 +42,7 @@ public class FlightCollectionTest {
         String inputInvalidCity1 = "";
         String inputInvalidCity2 = "";
         Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
-                Timestamp.valueOf("2022/09/10"), Timestamp.valueOf("2022/09/11"), airplane);
+                "2022/09/10", "2022/09/11", airplane);
         FlightCollection.flights.add(expectedValidFlight);
 
         String expectedInValidString = "Can not find flights you want.";
@@ -64,7 +64,7 @@ public class FlightCollectionTest {
         String inputValidCity = "Melbourne";
         String inputInvalidCity = "";
         Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
-                Timestamp.valueOf("2022/09/10"), Timestamp.valueOf("2022/09/11"), airplane);
+                "2022/09/10","2022/09/11", airplane);
         FlightCollection.flights.add(expectedValidFlight);
 
         String expectedInValidString = "Can not find flights you want by one city.";
@@ -85,7 +85,7 @@ public class FlightCollectionTest {
         int inputValidFlightID = 12345;
         int inputInvalidFlightID= 0;
         Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
-                Timestamp.valueOf("2022/09/10"), Timestamp.valueOf("2022/09/11"), airplane);
+                "2022/09/10", "2022/09/11", airplane);
         FlightCollection.flights.add(expectedValidFlight);
 
         Flight actualValidFlight = FlightCollection.getFlightInfo(inputValidFlightID);

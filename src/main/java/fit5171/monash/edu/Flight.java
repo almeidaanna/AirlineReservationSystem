@@ -15,13 +15,17 @@ public class Flight {
     private String code;
     private String company;
     private Timestamp dateFrom;
+
+    private String dateFromString;
     private Timestamp dateTo;
+
+    private String dateToString;
     Airplane airplane;
 
     
 
 
-    public Flight(int flight_id, String departTo, String departFrom, String code, String company, Timestamp dateFrom,Timestamp dateTo, Airplane airplane)
+    public Flight(int flight_id, String departTo, String departFrom, String code, String company,String dateFromString, String dateToString, Airplane airplane)
     {
             this.flightID=flight_id;
             this.departTo = departTo;
@@ -29,8 +33,31 @@ public class Flight {
             this.code = code;
             this.company = company;
             this.airplane = airplane;
-            this.dateTo = dateTo;
-            this.dateFrom = dateFrom;
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
+
+            if (dateToString.matches(pattern) && dateFromString.matches(pattern))
+            {
+                try
+                {
+                    Date dateFromDate = dateFormat.parse(dateFromString);
+                    Date dateToDate = dateFormat.parse(dateFromString);
+                    long dateF = dateFromDate.getTime();
+                    long dateT = dateToDate.getTime();
+                    this.dateFrom =  new Timestamp(dateF);
+                    this.dateTo = new Timestamp(dateT);
+                }
+                catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+
+
+            }else {throw new PatternSyntaxException("You can not enter invalid date value, Please check it", "", -1);}
+
+
+
     }
 
     public Flight() {}
@@ -139,22 +166,61 @@ public class Flight {
         return dateFrom;
     }
 
-    public void setDateFrom(Timestamp dateFrom) {
-        String dateFromString = dateFrom.toString();
-        String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))(0[1-9]|1[0-2])([12]\\d{3})$";
-        if (!dateFromString.matches(pattern))
+    public void setDateFrom(String dateFromString) {
+        String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
+        if (dateFromString.isEmpty()|| dateFromString.isBlank())
         {
-            throw new PatternSyntaxException("This is invalid format of timestamp","",-1);
+            throw new IllegalArgumentException("The Input of dateString can not be Empty or Null");
         }
-        this.dateFrom = dateFrom;
+        else if (!dateFromString.matches(pattern))
+        {
+            throw new IllegalArgumentException("This is invalid format of dateString");
+        }
+        else
+        {
+            try
+            {
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date dateFromDate = dateFormat.parse(dateFromString);
+                long dateF = dateFromDate.getTime();
+                this.dateFrom =  new Timestamp(dateF);
+            }
+            catch (ParseException cannotTransfer)
+            {
+                throw new RuntimeException(cannotTransfer);
+            }
+        }
+
+
     }
 
     public Timestamp getDateTo() {
         return dateTo;
     }
 
-    public void setDateTo(Timestamp dateTo) {
-        this.dateTo = dateTo;
+    public void setDateTo(String dateToString) {
+        String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
+        if (dateToString.isEmpty()|| dateToString.isBlank())
+        {
+            throw new IllegalArgumentException("The Input of dateString can not be Empty or Null");
+        }
+        else if (!dateToString.matches(pattern))
+        {
+            throw new IllegalArgumentException("This is invalid format of dateString");
+        }
+        else {
+            try
+            {
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date dateToDate = dateFormat.parse(dateToString);
+                long dateT = dateToDate.getTime();
+                this.dateTo =  new Timestamp(dateT);
+            }
+            catch (ParseException cannotTransfer)
+            {
+                throw new RuntimeException(cannotTransfer);
+            }
+        }
     }
 
     public void setAirplane(Airplane airplane) {

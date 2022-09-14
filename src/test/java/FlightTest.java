@@ -45,25 +45,9 @@ public class FlightTest {
         String departFrom =  "Sydney";
         String code = "123456";
         String company = "AUAirLine";
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = null;
+        String dateFromString = "23/09/2022";
+        String dateToString = "24/09/2022";
 
-        try {
-            date = dateFormat.parse("23/09/2007");
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        long time = date.getTime();
-        Timestamp dateFrom =  new Timestamp(time);
-
-        try {
-            date = dateFormat.parse("24/09/2007");
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        long time2 = date.getTime();
-        new Timestamp(time2);
-        Timestamp dateTo =  new Timestamp(time2);;
 
         int expectedFlightID = 123456;
         String expectedDepartTo = "Melbourne" ;
@@ -71,8 +55,10 @@ public class FlightTest {
         String expectedCode = "123456";
         String expectedCompany = "AUAirLine";
 
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = null;
         try {
-            date = dateFormat.parse("23/09/2007");
+            date = dateFormat.parse("23/09/2022");
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
@@ -81,7 +67,7 @@ public class FlightTest {
         Timestamp expectedDateFrom = new Timestamp(time3);
 
         try {
-            date = dateFormat.parse("24/09/2007");
+            date = dateFormat.parse("24/09/2022");
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
@@ -105,10 +91,10 @@ public class FlightTest {
         flight.setCompany(company);
         assertEquals(expectedCompany,flight.getCompany());
 
-        flight.setDateTo(dateTo);
+        flight.setDateTo(dateToString);
         assertEquals(expectedDateTo,flight.getDateTo());
 
-        flight.setDateFrom(dateFrom);
+        flight.setDateFrom(dateFromString);
         assertEquals(expectedDateFrom,flight.getDateFrom());
         // Just mock a class of Airplane, when flight.getAirplane = mocked class, then it's work
         flight.setAirplane(airplane);
@@ -169,32 +155,70 @@ public class FlightTest {
     @Test
     void testDateFromEmpty()
     {
-        Timestamp dateFrom = Timestamp.valueOf("");
+        String dateFromString = "";
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            flight.setDateFrom(dateFrom);
+            flight.setDateFrom(dateFromString);
         });
-        assertEquals("DateFrom can not be Empty or enter invalid Format",exception.getMessage());
+        assertEquals("The Input of dateString can not be Empty or Null",exception.getMessage());
     }
 
     @Test
     void testDateToEmpty()
     {
-        Timestamp dateTo = Timestamp.valueOf("");
+        String dateToString = "";
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            flight.setDateTo(dateTo);
+            flight.setDateTo(dateToString);
         });
-        assertEquals("DateTo can not be Empty or enter invalid Format",exception.getMessage());
+        assertEquals("The Input of dateString can not be Empty or Null",exception.getMessage());
     }
 
+    @Test
+    void testDateFromInvalid()
+    {
+        String dateFromString = "sziovsdkjfbi";
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            flight.setDateFrom(dateFromString);
+        });
+        assertEquals("This is invalid format of dateString",exception.getMessage());
+    }
+
+    @Test
+    void testDateToInvalid()
+    {
+        String dateToString = "klsdfsenjsdfoid";
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            flight.setDateTo(dateToString);
+        });
+        assertEquals("This is invalid format of dateString",exception.getMessage());
+    }
 //    @Test
-//    void testAirplaneEmpty()
+//    void testToStringFlight()
 //    {
-//        Airplane airplane = Mockito.mock(AirplaneModelA.class);
-//        when(AirplaneMock.getAirplaneID());
-//        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-//            flight.setAirplane(airplane);
-//        });
-//        assertEquals("Airplane object can not be Empty or enter invalid Format",exception.getMessage());
+//        Airplane mockAirplane = Mockito.mock(Airplane.class);
+//        when(mockAirplane.toString()).thenReturn("String in Airplane");
+//
+////        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+////            flight.setAirplane(airplane);
+////        });
+//        String expectedFlightToString = "Flight{" + airplane.toString() +
+//                ", date to=" +  flight.getDateTo() + ", " + '\'' +
+//                ", date from='" + flight.getDateFrom() + '\'' +
+//                ", depart from='" + flight.getDepartFrom() + '\'' +
+//                ", depart to='" + flight.getDepartTo() + '\'' +
+//                ", code=" + flight.getCode() + '\'' +
+//                ", company=" + flight.getCompany() + '\'' +
+//                ", code=" + flight.getCode() + '\'' +
+//                '}';
+//        String actualFlightToString = "Flight{" + "String in Airplane" +
+//                ", date to=" +  flight.getDateTo() + ", " + '\'' +
+//                ", date from='" + flight.getDateFrom() + '\'' +
+//                ", depart from='" + flight.getDepartFrom() + '\'' +
+//                ", depart to='" + flight.getDepartTo() + '\'' +
+//                ", code=" + flight.getCode() + '\'' +
+//                ", company=" + flight.getCompany() + '\'' +
+//                ", code=" + flight.getCode() + '\'' +
+//                '}';
+//        assertEquals(expectedFlightToString,actualFlightToString);
 //    }
 
 }
