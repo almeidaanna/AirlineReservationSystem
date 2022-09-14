@@ -1,5 +1,6 @@
 import fit5171.monash.edu.Airplane;
 import fit5171.monash.edu.Flight;
+import fit5171.monash.edu.FlightCollection;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -191,34 +192,27 @@ public class FlightTest {
         });
         assertEquals("This is invalid format of dateString",exception.getMessage());
     }
-//    @Test
-//    void testToStringFlight()
-//    {
-//        Airplane mockAirplane = Mockito.mock(Airplane.class);
-//        when(mockAirplane.toString()).thenReturn("String in Airplane");
-//
-////        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-////            flight.setAirplane(airplane);
-////        });
-//        String expectedFlightToString = "Flight{" + airplane.toString() +
-//                ", date to=" +  flight.getDateTo() + ", " + '\'' +
-//                ", date from='" + flight.getDateFrom() + '\'' +
-//                ", depart from='" + flight.getDepartFrom() + '\'' +
-//                ", depart to='" + flight.getDepartTo() + '\'' +
-//                ", code=" + flight.getCode() + '\'' +
-//                ", company=" + flight.getCompany() + '\'' +
-//                ", code=" + flight.getCode() + '\'' +
-//                '}';
-//        String actualFlightToString = "Flight{" + "String in Airplane" +
-//                ", date to=" +  flight.getDateTo() + ", " + '\'' +
-//                ", date from='" + flight.getDateFrom() + '\'' +
-//                ", depart from='" + flight.getDepartFrom() + '\'' +
-//                ", depart to='" + flight.getDepartTo() + '\'' +
-//                ", code=" + flight.getCode() + '\'' +
-//                ", company=" + flight.getCompany() + '\'' +
-//                ", code=" + flight.getCode() + '\'' +
-//                '}';
-//        assertEquals(expectedFlightToString,actualFlightToString);
-//    }
+
+
+    @Test
+    void cannotSetExistAirplane()
+    {
+        Airplane mockAirplane = Mockito.mock(Airplane.class);
+        when(mockAirplane.getAirplaneID()).thenReturn(7890);
+
+        Flight existFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
+                "10/09/2022", "11/09/2022", mockAirplane);
+        FlightCollection.addFlights(existFlight);
+
+        String expectedInValidString = "This airplane has already used for another flight";
+
+        String actualInvalidString = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            Flight newFlight = new Flight(78958, "Perth", "Sydney", "AC703", "AusAir",
+                    "15/09/2022", "17/09/2022", mockAirplane);
+        }).getMessage();
+
+        assertEquals(expectedInValidString, actualInvalidString);
+
+    }
 
 }
