@@ -4,7 +4,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ChooseTicket{
-   
+
+	public BuyTicket getBuyTicket() {
+		return buyTicket;
+	}
+
+	public void setBuyTicket(BuyTicket buyTicket) {
+		this.buyTicket = buyTicket;
+	}
+
 	BuyTicket buyTicket = new BuyTicket();
     
 	Scanner in = new Scanner(System.in);
