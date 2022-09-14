@@ -26,79 +26,102 @@ public class FlightCollectionTest {
     }
 
     @Test
-    public void testAddFlights()
+    public void testAddFlightsValid()
     {
-        ArrayList<Flight> flights = new ArrayList<>();
         Flight newFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
-                "2022/09/10", "2022/09/11", airplane);
-        FlightCollection.addFlights(flights);
+                "10/09/2022", "11/09/2022", airplane);
+        FlightCollection.addFlights(newFlight);
+        Flight expectedFlight = FlightCollection.getFlightInfo(12345);
+        assertEquals(expectedFlight, newFlight);
     }
 
     @Test
-    public void testGetFlightInfo()
+    public void testGetFlightByTwoCityValid()
     {
         String inputValidCity1 = "Melbourne";
         String inputValidCity2 = "Sydney";
-        String inputInvalidCity1 = "";
-        String inputInvalidCity2 = "";
         Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
-                "2022/09/10", "2022/09/11", airplane);
-        FlightCollection.flights.add(expectedValidFlight);
-
-        String expectedInValidString = "Can not find flights you want.";
-
+                "10/09/2022", "11/09/2022", airplane);
+        FlightCollection.addFlights(expectedValidFlight);
         Flight actualValidFlight = FlightCollection.getFlightInfo(inputValidCity1, inputValidCity2);
 
-        String actuallyInvalidFlight = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+        assertEquals(expectedValidFlight, actualValidFlight);
+
+    }
+
+    @Test
+    public void testGetFlightByTwoCityInvalid()
+    {
+        String inputInvalidCity1 = "asffawfasd";
+        String inputInvalidCity2 = "asduhanwknhisa";
+        Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
+                "10/09/2022", "11/09/2022", airplane);
+        FlightCollection.addFlights(expectedValidFlight);
+        String expectedInValidString = "Can not find flights you want by two city you entered.";
+
+        String actualInvalidString = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             Flight flight = FlightCollection.getFlightInfo(inputInvalidCity1, inputInvalidCity2);
         }).getMessage();
 
-        assertEquals(expectedValidFlight, actualValidFlight);
-        assertEquals(expectedInValidString, actuallyInvalidFlight);
-
+        assertEquals(expectedInValidString, actualInvalidString);
     }
 
     @Test
-    public void testGetFlightInfoOneCity()
+    public void testGetFlightInfoByOneCityValid()
     {
         String inputValidCity = "Melbourne";
-        String inputInvalidCity = "";
         Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
-                "2022/09/10","2022/09/11", airplane);
-        FlightCollection.flights.add(expectedValidFlight);
-
-        String expectedInValidString = "Can not find flights you want by one city.";
+                "10/09/2022","11/09/2022", airplane);
+        FlightCollection.addFlights(expectedValidFlight);
 
         Flight actualValidFlight = FlightCollection.getFlightInfo(inputValidCity);
 
-        String actuallyInvalidFlight = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            Flight flight = FlightCollection.getFlightInfo(inputInvalidCity);
-        }).getMessage();
-
         assertEquals(expectedValidFlight, actualValidFlight);
-        assertEquals(expectedInValidString, actuallyInvalidFlight);
     }
 
     @Test
-    public void testGetFlightInfoFlightID()
+    public void testGetFlightByOneCityInvalid()
     {
-        int inputValidFlightID = 12345;
-        int inputInvalidFlightID= 0;
+        String inputInvalidCity = "asffawfasd";
         Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
-                "2022/09/10", "2022/09/11", airplane);
-        FlightCollection.flights.add(expectedValidFlight);
+                "10/09/2022", "11/09/2022", airplane);
+        FlightCollection.addFlights(expectedValidFlight);
+        String expectedInValidString = "Can not find flights you want by departTo city you entered.";
 
-        Flight actualValidFlight = FlightCollection.getFlightInfo(inputValidFlightID);
-
-        String actuallyInvalidFlight = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            Flight flight = FlightCollection.getFlightInfo(inputInvalidFlightID);
+        String actualInvalidString = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            Flight flight = FlightCollection.getFlightInfo(inputInvalidCity);
         }).getMessage();
-        String expectedInValidString = "Can not find flights you want by one city.";
 
-        assertEquals(expectedValidFlight, actualValidFlight);
-        assertEquals(expectedInValidString, actuallyInvalidFlight);
+        assertEquals(expectedInValidString, actualInvalidString);
     }
 
+    @Test
+    public void testGetFlightInfoByFlightIDValid()
+    {
+        int inputValidFlightID = 12345;
+        Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
+                "10/09/2022", "11/09/2022", airplane);
+        FlightCollection.addFlights(expectedValidFlight);
+        Flight actualValidFlight = FlightCollection.getFlightInfo(inputValidFlightID);
+
+        assertEquals(expectedValidFlight, actualValidFlight);
+    }
+
+    @Test
+    public void testGetFlightByFlightIDInvalid()
+    {
+        int inputInvalidFlightID = 78347834;
+        Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
+                "10/09/2022", "11/09/2022", airplane);
+        FlightCollection.addFlights(expectedValidFlight);
+        String expectedInValidString = "Can not find flights you want by FlightID you entered.";
+
+        String actualInvalidString = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            Flight flight = FlightCollection.getFlightInfo(inputInvalidFlightID);
+        }).getMessage();
+
+        assertEquals(expectedInValidString, actualInvalidString);
+    }
 
 
 
