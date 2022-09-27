@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ChooseTicket{
+	BuyTicket buyTicket = new BuyTicket();
+
+	Scanner in = new Scanner(System.in);
 
 	public BuyTicket getBuyTicket() {
 		return buyTicket;
@@ -13,9 +16,7 @@ public class ChooseTicket{
 		this.buyTicket = buyTicket;
 	}
 
-	BuyTicket buyTicket = new BuyTicket();
-    
-	Scanner in = new Scanner(System.in);
+
 
     public void chooseTicket(String city1, String city2) throws Exception
     {
@@ -34,8 +35,7 @@ public class ChooseTicket{
         	
         	TicketCollection.getAllTickets();
        
-	        System.out.println("\nEnter ID of ticket you want to choose:");
-	        
+	        System.out.println("Enter ID of ticket you want to choose:");
 	        int ticket_id = in.nextInt();
 	        
 	        //validate ticker here

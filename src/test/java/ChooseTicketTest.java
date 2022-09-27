@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Test class for ChooseTicket")
@@ -20,7 +22,6 @@ public class ChooseTicketTest {
 
     @BeforeEach
     public void init(){
-        chooseTicket = new ChooseTicket();
         airplane = new Airplane();
         flightCollection = new FlightCollection();
         flight = new Flight();
@@ -33,7 +34,11 @@ public class ChooseTicketTest {
         FlightCollection.addFlights(newflight);
         String inputCity1 = "Mel";
         String inputCity2 = "Syd";
+
         try {
+            String userInput = "10 1";
+            System.setIn(new ByteArrayInputStream(userInput.getBytes()));
+            chooseTicket = new ChooseTicket();
             chooseTicket.chooseTicket(inputCity1, inputCity2);
         } catch (Exception e) {
             throw new NullPointerException();
