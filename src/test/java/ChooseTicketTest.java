@@ -9,6 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DisplayName("Test class for ChooseTicket")
 public class ChooseTicketTest {
     private ChooseTicket chooseTicket;
+    private Airplane airplane;
+    private FlightCollection flightCollection;
+    private Flight flight;
 
     @BeforeAll
     static  void initAll(){
@@ -18,6 +21,9 @@ public class ChooseTicketTest {
     @BeforeEach
     public void init(){
         chooseTicket = new ChooseTicket();
+        airplane = new Airplane();
+        flightCollection = new FlightCollection();
+        flight = new Flight();
     }
 
     @Test
