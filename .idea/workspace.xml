@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Updated TicketCollectionTest">
+    <list default="true" id="375708c7-8300-4fbc-b71e-76eba5ecfa92" name="Changes" comment="Stubs for chooseTicket">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/BuyTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/BuyTicket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BuyTicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BuyTicketTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/ChooseTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fit5171/monash/edu/ChooseTicket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ChooseTicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ChooseTicketTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ChooseTicketTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ChooseTicketTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +55,7 @@
     &quot;last_opened_file_path&quot;: &quot;D:/All course documents/S2 2022/FIT 5171/Reference/FIT5171AssignmentDemo&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.BuyTicketTest.testTicketValid">
+  <component name="RunManager" selected="JUnit.ChooseTicketTest.validateCity">
     <configuration name="BuyTicketTest.testBuyTicketValidity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1-code-base" />
       <option name="PACKAGE_NAME" value="" />
@@ -73,11 +76,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FlightTest.testFlightValidity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ChooseTicketTest.validateCity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment1-code-base" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FlightTest" />
-      <option name="METHOD_NAME" value="testFlightValidity" />
+      <option name="MAIN_CLASS_NAME" value="ChooseTicketTest" />
+      <option name="METHOD_NAME" value="validateCity" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -104,11 +107,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ChooseTicketTest.validateCity" />
         <item itemvalue="JUnit.BuyTicketTest.testTicketValid" />
         <item itemvalue="JUnit.BuyTicketTest.testBuyTicketValidity" />
         <item itemvalue="JUnit.TicketCollectionTest" />
         <item itemvalue="JUnit.TicketTest.testTicketValidity" />
-        <item itemvalue="JUnit.FlightTest.testFlightValidity" />
       </list>
     </recent_temporary>
   </component>
