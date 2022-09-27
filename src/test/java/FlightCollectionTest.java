@@ -25,6 +25,14 @@ public class FlightCollectionTest {
         FlightCollectionTest flightCollectionTest = new FlightCollectionTest();
     }
 
+    @BeforeEach
+    void init()
+    {
+        airplane = new Airplane();
+        flightCollection = new FlightCollection();
+        flight = new Flight();
+    }
+
     @Test
     public void testAddFlightsValid()
     {

@@ -25,6 +25,8 @@ public class FlightTest {
     private Flight flight;
     private Airplane airplane;
 
+    private FlightCollection flights;
+
 
 
     @BeforeAll
@@ -36,6 +38,7 @@ public class FlightTest {
     void init(){
         airplane = new Airplane();
         flight = new Flight();
+        flights = new FlightCollection();
     }
 
     @Test
@@ -97,6 +100,7 @@ public class FlightTest {
 
         flight.setDateFrom(dateFromString);
         assertEquals(expectedDateFrom,flight.getDateFrom());
+
         // Just mock a class of Airplane, when flight.getAirplane = mocked class, then it's work
         flight.setAirplane(airplane);
         assertEquals(airplane,flight.getAirplane());
