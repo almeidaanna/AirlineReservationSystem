@@ -28,8 +28,9 @@ public class ChooseTicket{
         if(flight != null) {
         	TicketCollection.getAllTickets();
 	        System.out.println("Enter ID of ticket you want to choose:");
-	        int ticket_id = in.nextInt();
-	        //validate ticker here
+			String input = in.nextLine();
+	        int ticket_id = Integer.parseInt(input);
+	        //validate ticket here
 	        //buy ticket here
 	        buyTicket.buyTicket(ticket_id);
         }
