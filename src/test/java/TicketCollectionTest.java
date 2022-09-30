@@ -90,7 +90,7 @@ public class TicketCollectionTest {
         int inputInvalidTicket_id = 0;
 
         Ticket expectedValidTicket = new Ticket(12345, 600, flight,true, passenger);
-        TicketCollection.tickets.add(expectedValidTicket);
+        TicketCollection.getTickets().add(expectedValidTicket);
         String expectedInvalidTicket = "Ticket does not exist";
 
         Ticket actualValidTicket_id = TicketCollection.getTicketInfo(inputValidTicket_id);
