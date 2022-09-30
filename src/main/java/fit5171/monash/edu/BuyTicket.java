@@ -80,7 +80,7 @@ public class BuyTicket <T>
 
                     ticket = TicketCollection.getTicketInfo(ticket_id);
                     ticket.setPassenger(passenger);
-                    ticket.setTicket_id(ticket_id);
+                    ticket.setTicketId(ticket_id);
                     ticket.setFlight(flight);
                     ticket.setPrice(ticket.getPrice());
                     ticket.setClassVip(ticket.getClassVip());
@@ -197,7 +197,7 @@ public class BuyTicket <T>
                     Ticket ticket_second = TicketCollection.getTicketInfo(ticket_id_second);
     	             
                     ticket_first.setPassenger(passenger);
-                    ticket_first.setTicket_id(ticket_id_first);
+                    ticket_first.setTicketId(ticket_id_first);
                     ticket_first.setFlight(flight_first);
                     ticket_first.setPrice(ticket_first.getPrice());
                     ticket_first.setClassVip(ticket_first.getClassVip());
@@ -211,7 +211,7 @@ public class BuyTicket <T>
                     System.out.println("--*-*-");
                     
                     ticket_second.setPassenger(passenger);
-                    ticket_second.setTicket_id(ticket_id_second);
+                    ticket_second.setTicketId(ticket_id_second);
                     ticket_second.setFlight(flight_first);
                     ticket_second.setPrice(ticket_second.getPrice());
                     ticket_second.setClassVip(ticket_second.getClassVip());

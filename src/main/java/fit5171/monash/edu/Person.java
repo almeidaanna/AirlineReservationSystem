@@ -50,10 +50,11 @@ public class Person
     }
 
     public void setFirstName(String firstName) {
+        String errorMessage = "Invalid details";
         if (firstName == null)
-            throw new NullPointerException("Invalid details");
+            throw new NullPointerException(errorMessage);
         if (firstName.isBlank()||firstName.isEmpty())
-            throw new IllegalArgumentException("Invalid details");
+            throw new IllegalArgumentException(errorMessage);
         for (char ch: firstName.toCharArray())
             if(!(Character.isLetter(ch)))
                 throw new IllegalArgumentException("Invalid First Name");

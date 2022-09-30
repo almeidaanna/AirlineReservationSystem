@@ -1,19 +1,16 @@
 package fit5171.monash.edu;
-
-import net.bytebuddy.implementation.bytecode.Throw;
-
 public class Ticket
 {
-    private int ticket_id;
+    private int ticketId;
     private int price;
     Flight flight;
     private boolean classVip; //indicates if this is bussiness class ticket or not
     private boolean status; //indicates status of ticket: if it is bought by someone or not
     Passenger passenger;
 
-    public Ticket(int ticket_id,int price, Flight flight, boolean classVip, Passenger passenger)
+    public Ticket(int ticketId, int price, Flight flight, boolean classVip, Passenger passenger)
     {
-        this.ticket_id=ticket_id;
+        this.ticketId = ticketId;
         this.price = price;
         this.flight = flight;
         this.classVip = classVip;
@@ -25,12 +22,12 @@ public class Ticket
 
     }
 
-    public int getTicket_id() {
-        return ticket_id;
+    public int getTicketId() {
+        return ticketId;
     }
 
-    public void setTicket_id(int ticket_id) {
-        this.ticket_id = ticket_id;
+    public void setTicketId(int ticketId) {
+        this.ticketId = ticketId;
     }
 
     public int getPrice() { return price; }
@@ -49,13 +46,13 @@ public class Ticket
 
     public void saleByAge(int age)
     {
-        int price = getPrice();
+        int salePrice = getPrice();
         if(age == 0)
             throw new IllegalArgumentException("Invalid age");
         else if(age < 15)
         {
-            price-=(int)price*0.5;//50% sale for children under 15
-            this.price=price;
+            salePrice-= salePrice*0.5;//50% sale for children under 15
+            this.price=salePrice;
 
         } else if(age>=60){
             this.price=0; //100% sale for elder people

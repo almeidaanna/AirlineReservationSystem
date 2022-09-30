@@ -1,7 +1,4 @@
 package fit5171.monash.edu;
-
-import java.util.regex.Pattern;
-
 public class Passenger extends Person
 {
     private String email;
@@ -36,27 +33,27 @@ public class Passenger extends Person
         this.email = email;
 }
 
-    public String getFirstName() {
-        return super.getFirstName();
-    }
+//    public String getFirstName() {
+//        return super.getFirstName();
+//    }
+//
+//    public String getSecondName() {
+//        return super.getSecondName();
+//    }
 
-    public String getSecondName() {
-        return super.getSecondName();
-    }
-
-    public void setSecondName(String secondName) {
-        super.setSecondName(secondName);
-    }
-
-    public void setFirstName(String firstName) {
-        super.setFirstName(firstName);
-    }
+//    public void setSecondName(String secondName) {
+//        super.setSecondName(secondName);
+//    }
+//
+//    public void setFirstName(String firstName) {
+//        super.setFirstName(firstName);
+//    }
 
     public String getPassport() {return passport;}
 
-    public void setGender(String gender) {
-        super.setGender(gender);
-    }
+//    public void setGender(String gender) {
+//        super.setGender(gender);
+//    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -90,10 +87,10 @@ public class Passenger extends Person
             throw new IllegalArgumentException("Invalid Security Code");
     }
 
-    @Override
-    public void setAge(int age) {
-        super.setAge(age);
-    }
+//    @Override
+//    public void setAge(int age) {
+//        super.setAge(age);
+//    }
 
     public void setPassport(String passport) {
         if (passport==null)
@@ -105,14 +102,12 @@ public class Passenger extends Person
         this.passport = passport;
     }
 
-    @Override
-    public String getGender() {
-        return super.getGender();
-    }
+//    @Override
+//    public String getGender() {
+//        return super.getGender();
+//    }
 
     public void setPhoneNumber(String phoneNumber) {
-        String [] arrayPh = new String[2];
-        String stringNum = "";
         if(phoneNumber== null)
             throw new NullPointerException("Phone Number can not be null");
         if(phoneNumber.isEmpty()||phoneNumber.isBlank())
@@ -122,10 +117,10 @@ public class Passenger extends Person
         this.phoneNumber = phoneNumber;
     }
 
-    @Override
-    public int getAge() {
-        return super.getAge();
-    }
+//    @Override
+//    public int getAge() {
+//        return super.getAge();
+//    }
 
     @Override
     public String toString()

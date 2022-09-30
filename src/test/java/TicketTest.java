@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -46,8 +45,8 @@ public class TicketTest {
         boolean expectedClassVip = false;
        // Passenger expectedPassenger = mock(Passenger.class);
 
-        ticket.setTicket_id(expectedTicket_id);
-        assertEquals(expectedTicket_id,ticket.getTicket_id());
+        ticket.setTicketId(expectedTicket_id);
+        assertEquals(expectedTicket_id,ticket.getTicketId());
         ticket.setPassenger(passenger);
         assertEquals(passenger,ticket.getPassenger());
         ticket.setFlight(flight);

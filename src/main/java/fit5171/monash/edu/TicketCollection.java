@@ -18,7 +18,7 @@ public class TicketCollection {
 		if (newTicket == null)
 			throw new NullPointerException("Invalid Ticket");
 		for (Ticket ticket : tickets)
-			if (ticket.getTicket_id() == newTicket.getTicket_id())
+			if (ticket.getTicketId() == newTicket.getTicketId())
 				throw new RuntimeException("Duplicate Ticket");
 		tickets.add(newTicket);
 	}
@@ -37,7 +37,7 @@ public class TicketCollection {
     	//SELECT a ticket where ticket id = ticket_id
 		Ticket new_ticket = null;
 		for (Ticket ticket: tickets)
-			if (ticket.getTicket_id() == ticket_id)
+			if (ticket.getTicketId() == ticket_id)
 				new_ticket = ticket;
 		if (new_ticket == null)
 			throw new NullPointerException("Ticket does not exist");
