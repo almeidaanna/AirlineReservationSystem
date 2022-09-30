@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TicketCollection {
-	private static List<Ticket> tickets = new ArrayList<>();
+	private static final List<Ticket> tickets = new ArrayList<>();
 	public static List<Ticket> getTickets() {
 		return tickets;
 	}
@@ -29,6 +29,8 @@ public class TicketCollection {
 	
 	public static void getAllTickets() {
     	//display all available tickets from the Ticket collection
+		for (Ticket ticket:getTickets())
+			System.out.println(ticket);
     }
 
 	public static Ticket getTicketInfo(int ticketId) {
