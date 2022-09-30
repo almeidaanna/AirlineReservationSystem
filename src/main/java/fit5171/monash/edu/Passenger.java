@@ -33,27 +33,7 @@ public class Passenger extends Person
         this.email = email;
 }
 
-//    public String getFirstName() {
-//        return super.getFirstName();
-//    }
-//
-//    public String getSecondName() {
-//        return super.getSecondName();
-//    }
-
-//    public void setSecondName(String secondName) {
-//        super.setSecondName(secondName);
-//    }
-//
-//    public void setFirstName(String firstName) {
-//        super.setFirstName(firstName);
-//    }
-
     public String getPassport() {return passport;}
-
-//    public void setGender(String gender) {
-//        super.setGender(gender);
-//    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -87,11 +67,6 @@ public class Passenger extends Person
             throw new IllegalArgumentException("Invalid Security Code");
     }
 
-//    @Override
-//    public void setAge(int age) {
-//        super.setAge(age);
-//    }
-
     public void setPassport(String passport) {
         if (passport==null)
             throw new NullPointerException("Passport can not be null");
@@ -102,11 +77,6 @@ public class Passenger extends Person
         this.passport = passport;
     }
 
-//    @Override
-//    public String getGender() {
-//        return super.getGender();
-//    }
-
     public void setPhoneNumber(String phoneNumber) {
         if(phoneNumber== null)
             throw new NullPointerException("Phone Number can not be null");
@@ -116,11 +86,6 @@ public class Passenger extends Person
             throw new IllegalArgumentException("Invalid phone number");
         this.phoneNumber = phoneNumber;
     }
-
-//    @Override
-//    public int getAge() {
-//        return super.getAge();
-//    }
 
     @Override
     public String toString()

@@ -1,6 +1,7 @@
 package fit5171.monash.edu;
 public class Person
 {
+    private final String ERRORMESSAGE = "Invalid details";
     private String firstName;
     private String secondName;
     private int age;
@@ -50,11 +51,10 @@ public class Person
     }
 
     public void setFirstName(String firstName) {
-        String errorMessage = "Invalid details";
         if (firstName == null)
-            throw new NullPointerException(errorMessage);
+            throw new NullPointerException(ERRORMESSAGE);
         if (firstName.isBlank()||firstName.isEmpty())
-            throw new IllegalArgumentException(errorMessage);
+            throw new IllegalArgumentException(ERRORMESSAGE);
         for (char ch: firstName.toCharArray())
             if(!(Character.isLetter(ch)))
                 throw new IllegalArgumentException("Invalid First Name");
@@ -63,12 +63,12 @@ public class Person
 
     public void setSecondName(String secondName) {
         if (secondName == null)
-            throw new NullPointerException("Invalid details");
+            throw new NullPointerException(ERRORMESSAGE);
         if (secondName.isBlank()||secondName.isEmpty())
-            throw new IllegalArgumentException("Invalid details");
+            throw new IllegalArgumentException(ERRORMESSAGE);
         for (char ch: secondName.toCharArray())
             if(!(Character.isLetter(ch)))
-                throw new IllegalArgumentException("Invalid details");
+                throw new IllegalArgumentException(ERRORMESSAGE);
         this.secondName = secondName;
     }
 
