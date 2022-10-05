@@ -88,7 +88,8 @@ public class Airplane
 
     public void totalSitNumber(int economySitsNumber, int crewSitsNumber , int businessSitsNumber)
     {
-        if (economySitsNumber + crewSitsNumber + businessSitsNumber > 300)
+        int totalSits = economySitsNumber + crewSitsNumber + businessSitsNumber;
+        if (totalSits < 1 || totalSits > 300)
             throw new IllegalArgumentException("Total number of sits should between 1 to 300");
         else
         {
