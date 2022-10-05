@@ -40,6 +40,7 @@ public class TicketCollectionTest {
     @Test
     public void testAddTicketNull(){
         String expectedResult = "Invalid Ticket";
+        inputTicket = null;
 
         Throwable actualResult = assertThrows(java.lang.NullPointerException.class, () -> {
             TicketCollection.addTicket(inputTicket);
@@ -64,7 +65,7 @@ public class TicketCollectionTest {
     @Test
     public void testAddTicketsNull(){
         String expectedResult = "Invalid Tickets, Cannot be added to list";
-
+        newTickets = null;
         Throwable actualResult = assertThrows(java.lang.NullPointerException.class, () -> {
             TicketCollection.addTickets(newTickets);
         });
