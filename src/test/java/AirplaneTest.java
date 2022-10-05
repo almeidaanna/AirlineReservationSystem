@@ -26,6 +26,23 @@ public class AirplaneTest {
         airplane = new Airplane();
     }
 
+
+    @Test
+    void testConstructorValidAndToString()
+    {
+        Airplane newAirplane = new Airplane(123456,"AF123", 5, 20, 2);
+        String exceptedString = "Airplane{" +
+                "model=" + "AF123" + '\'' +
+                ", business sits=" + "5" + '\'' +
+                ", economy sits=" + "20" + '\'' +
+                ", crew sits=" + "2" + '\'' +
+                '}';
+        String actualString = newAirplane.toString();
+        assertEquals(exceptedString, actualString);
+
+    }
+
+
     @Test
     void testAirplaneValidity()
     {
