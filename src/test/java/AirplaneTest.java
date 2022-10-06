@@ -1,4 +1,6 @@
 import fit5171.monash.edu.Airplane;
+import fit5171.monash.edu.Flight;
+import fit5171.monash.edu.FlightCollection;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -7,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.swing.text.TableView;
 
+import static junit.framework.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -17,13 +20,19 @@ public class AirplaneTest {
 
 
     private Airplane airplane;
+    private Flight flight;
+    private FlightCollection flights;
+
     @BeforeAll
     static void initAll(){
         AirplaneTest airplaneTest = new AirplaneTest();
     }
     @BeforeEach
-    void init(){
+    void init()
+    {
         airplane = new Airplane();
+        flight = new Flight();
+        flights = new FlightCollection();
     }
 
 
@@ -161,6 +170,26 @@ public class AirplaneTest {
             airplane.totalSitNumber(economySitsNumber, crewSitsNumber, businessSitsNumber);
         });
         assertEquals("Total number of sits should between 1 to 300",exception.getMessage());
+    }
+
+    @Test
+    void testGetAirplaneInfoWithValidID()
+    {
+        Airplane existAirplane = new Airplane(123456,"AF123", 5, 20, 2);
+        Flight existFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
+                "10/09/2022", "11/09/2022", existAirplane);
+        FlightCollection.addFlights(existFlight);
+        assertEquals(existAirplane, Airplane.getAirPlaneInfo(123456));
+    }
+
+    @Test
+    void testGetAirplaneInfoWithInvalidID()
+    {
+        Airplane existAirplane = new Airplane(123456,"AF123", 5, 20, 2);
+        Flight existFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
+                "10/09/2022", "11/09/2022", existAirplane);
+        FlightCollection.addFlights(existFlight);
+        assertNull(null,Airplane.getAirPlaneInfo(123999));
     }
 
 }

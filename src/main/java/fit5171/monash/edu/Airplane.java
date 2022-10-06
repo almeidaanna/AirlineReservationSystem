@@ -115,7 +115,6 @@ public class Airplane
     }
 
 	public static Airplane getAirPlaneInfo(int airplane_id) {
-		// TODO Auto-generated method stub
         for (Flight flight:FlightCollection.flights)
             if (flight.getAirplane().airplaneID == airplane_id)
                 return flight.getAirplane();
