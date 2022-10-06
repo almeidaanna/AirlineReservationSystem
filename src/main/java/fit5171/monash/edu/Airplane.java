@@ -16,9 +16,13 @@ public class Airplane
         this.businessSitsNumber = businessSitsNumber;
         this.economySitsNumber = economySitsNumber;
         this.crewSitsNumber = crewSitsNumber;
+        totalSitNumber(this.economySitsNumber, this.crewSitsNumber, this.businessSitsNumber);
     }
 
-    public Airplane() {}
+    public Airplane()
+    {
+
+    }
 
     public int getAirplaneID() {
         return airplaneID;
