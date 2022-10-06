@@ -63,7 +63,7 @@ public class TicketTest {
     {
         boolean status = false;
         Flight flight = null;
-        Passenger passenger = null;
+        Passenger passenger = new Passenger();
         Ticket ticket = new Ticket(4034,500,flight, false,passenger);
         String exception = assertThrows(java.lang.IllegalArgumentException.class,() ->{
             ticket.setTicketStatus(true);

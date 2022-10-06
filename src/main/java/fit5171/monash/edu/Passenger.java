@@ -31,7 +31,7 @@ public class Passenger extends Person
         if (!(email.endsWith(".com")&&email.matches("^(.*)@(.+)$")))
             throw new IllegalArgumentException("Invalid email address");
         this.email = email;
-}
+    }
 
     public String getPassport() {return passport;}
 
