@@ -137,6 +137,19 @@ public class AirplaneTest {
         assertEquals("CrewSitsNumber can not be Zero or Empty",exception.getMessage());
     }
 
+    @Test
+    void testSitNumberValid()
+    {
+        Airplane newAirplane = new Airplane(123456,"AF123", 5, 20, 2);
+        int expectedBusinessSitNumber = 5;
+        int expectedEconomySitNumber = 20;
+        int expectedCrewSitNumber = 2;
+        assertEquals(expectedBusinessSitNumber, newAirplane.getBusinessSitsNumber());
+        assertEquals(expectedEconomySitNumber, newAirplane.getEconomySitsNumber());
+        assertEquals(expectedCrewSitNumber, newAirplane.getCrewSitsNumber());
+
+    }
+
 
     @Test
     void testTotalNumberOverRange()
