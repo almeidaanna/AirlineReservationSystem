@@ -64,7 +64,7 @@ public class BuyTicket <T>
             
             try
             {
-                getPassengerDetails();
+                setPassengerDetails();
                 String tempInput;
 
                 System.out.println("Do you want to purchase?\n 1-YES 0-NO");
@@ -92,7 +92,7 @@ public class BuyTicket <T>
                 }
                 System.out.println("Your bill: " + ticket.getPrice() + "\n");
 
-                getPassengerCardDetails();
+                setPassengerCardDetails();
             }
             catch (PatternSyntaxException patternException) {
                 patternException.printStackTrace();
@@ -100,7 +100,7 @@ public class BuyTicket <T>
         }
     }
 
-    private void getPassengerCardDetails() {
+    private void setPassengerCardDetails() {
         String tempInput;
         System.out.println("Enter your card number:");
         String cardNumber = in.nextLine();
@@ -112,7 +112,7 @@ public class BuyTicket <T>
         passenger.setSecurityCode(securityCode);
     }
 
-    private void getPassengerDetails() {
+    private void setPassengerDetails() {
         System.out.println("Enter your First Name: ");
         String firstName = in.nextLine();
         passenger.setFirstName(firstName);
@@ -176,7 +176,7 @@ public class BuyTicket <T>
         	flight_id_second = validTicketfirst.getFlight().getFlightID();
 
             try{
-                getPassengerDetails();
+                setPassengerDetails();
                 
                 System.out.println("Do you want to purchase?\n 1-YES 0-NO");
                 int purch = in.nextInt();
@@ -227,7 +227,7 @@ public class BuyTicket <T>
                     ticket.setPrice(ticket_first.getPrice() + ticket_second.getPrice());
                     
                     System.out.println("Your bill: " + ticket.getPrice() + "\n");
-                    getPassengerCardDetails();
+                    setPassengerCardDetails();
                 }
             }
             catch (PatternSyntaxException patternException){

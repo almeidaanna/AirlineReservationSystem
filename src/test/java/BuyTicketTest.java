@@ -1,4 +1,5 @@
 import fit5171.monash.edu.*;
+import junit.framework.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -10,8 +11,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @DisplayName("Test class for BuyTicket")
@@ -27,8 +27,8 @@ public class BuyTicketTest {
     Passenger passenger;
     Ticket ticket;
     Flight flight;
-    Scanner userInput;
-    TicketCollection ticketCollection;
+ //   Scanner in;
+ //   TicketCollection ticketCollection;
 
     @BeforeAll
     static  void initAll(){
@@ -37,10 +37,10 @@ public class BuyTicketTest {
 
     @BeforeEach
     public void init(){
-        buyTicket = new BuyTicket();
-        passenger = spy(Passenger.class);
-        ticket = spy(Ticket.class);
-        flight = mock(Flight.class);
+        //buyTicket = new BuyTicket();
+        //passenger = spy(Passenger.class);
+//        ticket = spy(Ticket.class);
+//        flight = mock(Flight.class);
 //        userInput = mock(Scanner.class);
 
 //        final String testString = "Hello!";
@@ -53,9 +53,49 @@ public class BuyTicketTest {
 
     }
     @Test
-    void testPassengerInformation()
+    void testValidPassenger()
     {
+        int inputTicketId = 10024;
+        Passenger expectedPassenger = new Passenger("Jane", "Doe", 43, "Female", "janedoe@gmail.com", "0458353978", "M79843234","1234567891012345", 123);
+        String expected = expectedPassenger.toString();
+        Airplane airplane = new Airplane(101, "Airbus", 30, 60, 4);
+        flight = new Flight(34567, "Mel", "Syd", "A342", "Boeing", "12/09/2022","18/09/2022", airplane );
+        FlightCollection.addFlights(flight);
+        Ticket ticket = new Ticket(10024, 1000, flight, true, passenger);
+        TicketCollection.addTicket(ticket);
+        try {
+            String userInput = "Jane\nDoe\n43\n\nFemale\njanedoe@gmail.com\n0458353978\nM79843234\n1\n1234567891012345\n123";
+            System.setIn(new ByteArrayInputStream(userInput.getBytes()));
+            buyTicket = new BuyTicket();
+            buyTicket.buyTicket(inputTicketId);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        String actual = buyTicket.getPassenger().toString();
+        assertEquals(expected, actual);
+    }
 
+    @Test
+    void testInvalidPassenger()
+    {
+        int inputTicketId = 10024;
+        Airplane airplane = new Airplane(101, "Airbus", 30, 60, 4);
+        flight = new Flight(34567, "Mel", "Syd", "A342", "Boeing", "12/09/2022","18/09/2022", airplane );
+        FlightCollection.addFlights(flight);
+        Ticket ticket = new Ticket(10024, 1000, flight, true, passenger);
+        TicketCollection.addTicket(ticket);
+        String userInput = "Jane\nDoe\n43\n\nFemale\n\n\n0458353978\nM79843234\n1\n1234567891012345\n123";
+        Throwable actual = assertThrows(java.lang.IllegalArgumentException.class, () ->{
+            try {
+                System.setIn(new ByteArrayInputStream(userInput.getBytes()));
+                buyTicket = new BuyTicket();
+                buyTicket.buyTicket(inputTicketId);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+        String expected = "Email can not be empty";
+        assertEquals(expected, actual.getMessage());
     }
 
     @Test
@@ -69,54 +109,13 @@ public class BuyTicketTest {
     {
 
     }
-//    @Test
-//    void testBuyTicketValidity() throws Exception {
-//        int inputTicketId = 10024;
-//        Ticket ticket = new Ticket(10024, 1000, flight, true, passenger);
-//        when(TicketCollection.getTicketInfo()).thenReturn(ticket);
-//        when(ticket.getFlight().getFlightID()).thenReturn(1001);
-//        when(FlightCollection.getFlightInfo(1254));
-//        Airplane airplane = new Airplane(101, "Airbus", 30, 60, 4);
-//        when(Airplane.getAirPlaneInfo(101)).thenReturn(airplane);
-//        when(ticket.getClassVip()).thenReturn(true);
-//        when(ticket.getPrice()).thenReturn(1120);
-//        buyTicket.buyTicket(inputTicketId);
-//    }
+    @Test
+    void testBuyTicketValidity() throws Exception {
+    }
 
-//    @Test
-//    void testTicketValid()
-//    {
-////        passenger = mock(Passenger.class);
-////        ticket = spy(Ticket.class);
-////        flight = mock(Flight.class);
-////        Airplane airplane = new Airplane(101, "Airbus", 30, 60, 4);
-////        Passenger newPassenger = new Passenger("Jane", "Doe", 43, "Female", "janedoe@gmail.com", "0458353978", "M79843234","1234567891012345", 123);
-////        Flight newflight = new Flight(34567, "Mel", "Syd", "A342", "Boeing", "12/09/2022","18/09/2022", airplane );
-////        Ticket newticket = new Ticket(1234, 1000,newflight, false,newPassenger);
-//
-////        TicketCollection.addTicket(newticket);
-////
-////        try {
-////            buyTicket.buyTicket(1234);
-////        } catch (Exception e) {
-////            throw new RuntimeException(e);
-////        }
-//
-////        assertTrue(newticket.ticketStatus());
-//        buyTicket.setTicket(ticket);
-//        buyTicket.getTicket().setTicket_id(10136);
-//        buyTicket.getTicket().setPrice(1000);
-//        buyTicket.getTicket().setFlight(flight);
-//        buyTicket.getTicket().setClassVip(false);
-//        buyTicket.getTicket().setTicketStatus(false);
-//        buyTicket.getTicket().setPassenger((passenger));
-//
-//        assertEquals(10136, buyTicket.getTicket().getTicket_id());
-//        assertEquals(1000*1.12, buyTicket.getTicket());
-//        assertEquals(flight, buyTicket.getTicket().getFlight());
-//        assertEquals(false, buyTicket.getTicket().getClassVip());
-//        assertEquals(false, buyTicket.getTicket().ticketStatus());
-//        assertEquals(10136, buyTicket.getTicket().getTicket_id());
-//    }
+    @Test
+    void testTicketValid()
+    {
+    }
 
 }
