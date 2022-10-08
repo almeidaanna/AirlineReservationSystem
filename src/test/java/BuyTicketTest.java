@@ -1,34 +1,16 @@
 import fit5171.monash.edu.*;
-import junit.framework.Assert;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 @DisplayName("Test class for BuyTicket")
 public class BuyTicketTest {
     private BuyTicket buyTicket;
-    //https://stackoverflow.com/questions/1647907/junit-how-to-simulate-system-in-testing
-//    private final InputStream systemIn = System.in;
-//    private final PrintStream systemOut = System.out;
-//
-//    private ByteArrayInputStream testIn;
-//    private ByteArrayOutputStream testOut;
 
     Passenger passenger;
-    Ticket ticket;
     Flight flight;
- //   Scanner in;
- //   TicketCollection ticketCollection;
 
     @BeforeAll
     static  void initAll(){
@@ -37,32 +19,18 @@ public class BuyTicketTest {
 
     @BeforeEach
     public void init(){
-        //buyTicket = new BuyTicket();
-        //passenger = spy(Passenger.class);
-//        ticket = spy(Ticket.class);
-//        flight = mock(Flight.class);
-//        userInput = mock(Scanner.class);
-
-//        final String testString = "Hello!";
-//        provideInput(testString);
-//
-//        BuyTicket.main(new String[0]);
-//
-//        assertEquals(testString, getOutput());
-//        ticketCollection = mock(TicketCollection.class);
-
+        passenger = new Passenger("Jane", "Doe", 43, "Female", "janedoe@gmail.com", "0458353978", "M79843234","1234567891012345", 123);
+        Airplane airplane = new Airplane(101, "Airbus", 30, 60, 4);
+        flight = new Flight(34543, "Mel", "Syd", "A342", "Boeing", "12/09/2022","18/09/2022", airplane );
+        FlightCollection.addFlights(flight);
     }
     @Test
-    void testValidPassenger()
+    void testBuyTicketValidity()
     {
         int inputTicketId = 10024;
-        Passenger expectedPassenger = new Passenger("Jane", "Doe", 43, "Female", "janedoe@gmail.com", "0458353978", "M79843234","1234567891012345", 123);
-        String expected = expectedPassenger.toString();
-        Airplane airplane = new Airplane(101, "Airbus", 30, 60, 4);
-        flight = new Flight(34567, "Mel", "Syd", "A342", "Boeing", "12/09/2022","18/09/2022", airplane );
-        FlightCollection.addFlights(flight);
-        Ticket ticket = new Ticket(10024, 1000, flight, true, passenger);
-        TicketCollection.addTicket(ticket);
+        String expectedPassenger = passenger.toString();
+        Ticket expectedTicket = new Ticket(10024, 1000, flight, true, passenger);
+        TicketCollection.addTicket(expectedTicket);
         try {
             String userInput = "Jane\nDoe\n43\n\nFemale\njanedoe@gmail.com\n0458353978\nM79843234\n1\n1234567891012345\n123";
             System.setIn(new ByteArrayInputStream(userInput.getBytes()));
@@ -71,51 +39,66 @@ public class BuyTicketTest {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        String actual = buyTicket.getPassenger().toString();
-        assertEquals(expected, actual);
+        String actualPassenger = buyTicket.getPassenger().toString();
+        assertEquals(expectedPassenger, actualPassenger);
+        assertEquals(expectedTicket, buyTicket.getTicket());
+        assertEquals(flight,buyTicket.getFlight());
     }
 
     @Test
     void testInvalidPassenger()
     {
         int inputTicketId = 10024;
-        Airplane airplane = new Airplane(101, "Airbus", 30, 60, 4);
-        flight = new Flight(34567, "Mel", "Syd", "A342", "Boeing", "12/09/2022","18/09/2022", airplane );
-        FlightCollection.addFlights(flight);
         Ticket ticket = new Ticket(10024, 1000, flight, true, passenger);
         TicketCollection.addTicket(ticket);
-        String userInput = "Jane\nDoe\n43\n\nFemale\n\n\n0458353978\nM79843234\n1\n1234567891012345\n123";
+        String userInput = "Jane\nDoe\n43\n\nFemale\n@tfgybhn\n\n0458353978\nM79843234\n1\n1234567891012345\n123";
         Throwable actual = assertThrows(java.lang.IllegalArgumentException.class, () ->{
-            try {
                 System.setIn(new ByteArrayInputStream(userInput.getBytes()));
                 buyTicket = new BuyTicket();
                 buyTicket.buyTicket(inputTicketId);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
         });
-        String expected = "Email can not be empty";
+        String expected = "Invalid email address";
         assertEquals(expected, actual.getMessage());
     }
 
     @Test
-    void testFlightInformation()
+    void testInvalidFlight()
     {
-
+        int inputTicketId = 10024;
+        Airplane inputAirplane = new Airplane(102, "Airbus", 30, 60, 4);
+        Flight inputFlight = new Flight(0, "Mel", "Syd", "A363", "Boeing", "12/11/2022","12/11/2022", inputAirplane);
+        Ticket expectedTicket = new Ticket(10024, 1000, inputFlight, true, passenger);
+        TicketCollection.addTicket(expectedTicket);
+        Throwable actual = assertThrows(java.lang.IllegalArgumentException.class, ()->{
+            String userInput = "Jane\nDoe\n43\n\nFemale\njanedoe@gmail.com\n0458353978\nM79843234\n1\n1234567891012345\n123";
+            System.setIn(new ByteArrayInputStream(userInput.getBytes()));
+            buyTicket = new BuyTicket();
+            buyTicket.buyTicket(inputTicketId);
+        });
+        String expected = "Can not find flights you want by FlightID you entered.";
+        assertEquals(expected,actual.getMessage());
     }
 
     @Test
-    void testTicketInformation()
+    void testInvalidTicket()
     {
-
+        int inputTicketId = 10025;
+        Ticket expectedTicket = new Ticket(10022, 1000, flight, true, passenger);
+        TicketCollection.addTicket(expectedTicket);
+        Throwable actual = assertThrows(java.lang.NullPointerException.class, ()->{
+            String userInput = "Jane\nDoe\n43\n\nFemale\njanedoe@gmail.com\n0458353978\nM79843234\n1\n1234567891012345\n123";
+            System.setIn(new ByteArrayInputStream(userInput.getBytes()));
+            buyTicket = new BuyTicket();
+            buyTicket.buyTicket(inputTicketId);
+        });
+        String expected = "Ticket does not exist";
+        assertEquals(expected, actual.getMessage());
     }
-    @Test
-    void testBuyTicketValidity() throws Exception {
-    }
 
-    @Test
-    void testTicketValid()
+    @AfterEach
+    public void reset()
     {
+        FlightCollection.getFlights().removeAll(FlightCollection.getFlights());
+        TicketCollection.getTickets().removeAll(TicketCollection.getTickets());
     }
-
 }

@@ -131,15 +131,15 @@ public class BuyTicket <T>
         String gender = in.nextLine();
         passenger.setGender(gender);
 
-        System.out.println("Enter your e-mail address");
+        System.out.println("Enter your e-mail address: ");
         String email = in.nextLine();
         passenger.setEmail(email);
 
-        System.out.println("Enter your phone number (+7):");
+        System.out.println("Enter your phone number: ");
         String phoneNumber = in.nextLine();
         passenger.setPhoneNumber(phoneNumber);
 
-        System.out.println("Enter your passport number:");
+        System.out.println("Enter your passport number: ");
         String passportNumber = in.nextLine();
         passenger.setPassport(passportNumber);
     }
