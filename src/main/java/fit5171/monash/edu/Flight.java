@@ -58,7 +58,7 @@ public class Flight {
             try
             {
                 Date dateFromDate = dateFormat.parse(dateFromString);
-                Date dateToDate = dateFormat.parse(dateFromString);
+                Date dateToDate = dateFormat.parse(dateToString);
                 long dateF = dateFromDate.getTime();
                 long dateT = dateToDate.getTime();
                 this.dateFrom =  new Timestamp(dateF);
@@ -269,7 +269,6 @@ public class Flight {
                     ", depart to='" + getDepartTo() + '\'' +
                     ", code=" + getCode() + '\'' +
                     ", company=" + getCompany() + '\'' +
-                    ", code=" + getCode() + '\'' +
                     '}';
     }
 }

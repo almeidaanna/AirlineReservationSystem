@@ -219,4 +219,22 @@ public class FlightTest {
 
     }
 
+    @Test
+    void testToStringWithValidValue()
+    {
+        Airplane newAirplane = new Airplane(123456,"AF123", 5, 20, 2);
+        Flight existFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
+                "10/09/2022", "11/09/2022", newAirplane);
+        String expectedResult = "Flight{" + newAirplane.toString() +
+                ", date to=" +  "2022-09-11 00:00:00.0" + ", " + '\'' +
+                ", date from='" + "2022-09-10 00:00:00.0" + '\'' +
+                ", depart from='" + "Sydney" + '\'' +
+                ", depart to='" + "Melbourne" + '\'' +
+                ", code=" + "AA703" + '\'' +
+                ", company=" + "AusAir" + '\'' +
+                '}';
+        assertEquals(expectedResult, existFlight.toString());
+
+    }
+
 }
