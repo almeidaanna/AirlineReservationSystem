@@ -4,10 +4,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.sql.Timestamp;
-import java.util.Calendar;
-import java.util.regex.PatternSyntaxException;
-import java.util.ArrayList;
 
 import static fit5171.monash.edu.FlightCollection.flights;
 
@@ -18,26 +14,22 @@ public class Flight {
     private String code;
     private String company;
     private Timestamp dateFrom;
-
-    private String dateFromString;
     private Timestamp dateTo;
-
-    private String dateToString;
     Airplane airplane;
 
     
 
 
-    public Flight(int flight_id, String departTo, String departFrom, String code, String company,String dateFromString, String dateToString, Airplane airplane)
+    public Flight(int flightId, String departTo, String departFrom, String code, String company,String dateFromString, String dateToString, Airplane airplane)
     {
-        this.flightID=flight_id;
+        this.flightID=flightId;
         setCode(code);
         setCompany(company);
         setDepartTo(departTo);
         setDepartFrom(departFrom);
         setAirplane(airplane);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
+        String pattern = "^(0[1-9]|[1-2]\\d|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
 
         if (dateToString.matches(pattern) && dateFromString.matches(pattern))
         {
@@ -167,7 +159,7 @@ public class Flight {
     }
 
     public void setDateFrom(String dateFromString) {
-        String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
+        String pattern = "^(0[1-9]|[1-2]\\d|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
         if (dateFromString.isEmpty()|| dateFromString.isBlank())
         {
             throw new IllegalArgumentException("The Input of dateString can not be Empty or Null");
@@ -199,7 +191,7 @@ public class Flight {
     }
 
     public void setDateTo(String dateToString) {
-        String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
+        String pattern = "^(0[1-9]|[1-2]\\d|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
         if (dateToString.isEmpty()|| dateToString.isBlank())
         {
             throw new IllegalArgumentException("The Input of dateString can not be Empty or Null");

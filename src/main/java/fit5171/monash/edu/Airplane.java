@@ -114,9 +114,9 @@ public class Airplane
                 '}';
     }
 
-	public static Airplane getAirPlaneInfo(int airplane_id) {
+	public static Airplane getAirPlaneInfo(int airplaneId) {
         for (Flight flight:FlightCollection.flights)
-            if (flight.getAirplane().airplaneID == airplane_id)
+            if (flight.getAirplane().airplaneID == airplaneId)
                 return flight.getAirplane();
 		return null;
 	}
