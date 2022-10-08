@@ -220,6 +220,29 @@ public class FlightTest {
     }
 
     @Test
+    void setAirplaneWithValidValue()
+    {
+        Airplane Airplane1 = new Airplane(123456,"AF123", 5, 20, 2);
+        Flight flight1 = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
+                "10/09/2022", "11/09/2022", Airplane1);
+        FlightCollection.addFlights(flight1);
+
+        assertEquals(Airplane1, flight1.getAirplane());
+
+    }
+
+    @Test
+    void testNewFlightWithInvalidAirplane()
+    {
+        String expectedException = "The airplane can not be null when you set a flight!";
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            Flight flight1 = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
+                    "10/09/2022", "11/09/2022", null);
+        });
+        assertEquals(expectedException, exception.getMessage());
+    }
+
+    @Test
     void testToStringWithValidValue()
     {
         Airplane newAirplane = new Airplane(123456,"AF123", 5, 20, 2);
@@ -236,5 +259,6 @@ public class FlightTest {
         assertEquals(expectedResult, existFlight.toString());
 
     }
+
 
 }

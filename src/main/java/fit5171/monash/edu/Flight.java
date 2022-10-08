@@ -35,21 +35,7 @@ public class Flight {
         this.departFrom = departFrom;
         this.code = code;
         this.company = company;
-        if (flights.size() == 0)
-        {
-            this.airplane = airplane;
-        }
-        for (Flight flight : flights)
-        {
-            if (flight.getAirplane() != null && flight.getAirplane().getAirplaneID() == airplane.getAirplaneID())
-            {
-                throw new IllegalArgumentException("This airplane has already used for another flight");
-            }
-            else
-            {
-                this.airplane = airplane;
-            }
-        }
+        setAirplane(airplane);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
 
@@ -238,21 +224,29 @@ public class Flight {
     }
 
     public void setAirplane(Airplane airplane) {
-        if (flights.size() == 0)
+        if (flights.isEmpty() && airplane != null)
         {
             this.airplane = airplane;
         }
-        for (Flight flight : flights)
+        else if (airplane == null)
         {
-            if (flight.getAirplane() != null && flight.getAirplane().getAirplaneID() == airplane.getAirplaneID())
+            throw new IllegalArgumentException("The airplane can not be null when you set a flight!");
+        }
+        else
+        {
+            for (Flight flight : flights)
             {
-                throw new IllegalArgumentException("This airplane has already used for another flight");
-            }
-            else
-            {
-                this.airplane = airplane;
+                if (flight.getAirplane() != null && flight.getAirplane().getAirplaneID() == airplane.getAirplaneID())
+                {
+                    throw new IllegalArgumentException("This airplane has already used for another flight");
+                }
+                else
+                {
+                    this.airplane = airplane;
+                }
             }
         }
+
 
     }
 
