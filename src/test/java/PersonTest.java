@@ -21,7 +21,7 @@ public class PersonTest {
     void init(){
         person = new Person();
     }
-
+    // create a constructor test for person class
     @ParameterizedTest
     @ValueSource(strings = {"Male","Female","Other"})
     void testPersonValidity(String expectedGender)
