@@ -31,10 +31,10 @@ public class Flight {
     public Flight(int flight_id, String departTo, String departFrom, String code, String company,String dateFromString, String dateToString, Airplane airplane)
     {
         this.flightID=flight_id;
-        this.departTo = departTo;
-        this.departFrom = departFrom;
-        this.code = code;
-        this.company = company;
+        setCode(code);
+        setCompany(company);
+        setDepartTo(departTo);
+        setDepartFrom(departFrom);
         setAirplane(airplane);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String pattern = "^(0[1-9]|[1-2][0-9]|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
@@ -54,7 +54,7 @@ public class Flight {
                 throw new RuntimeException(e);
             }
 
-        }else {throw new PatternSyntaxException("You can not enter invalid date value, Please check it", "", -1);}
+        }else {throw new IllegalArgumentException("You can not enter invalid date value, Please check it");}
 
 
 

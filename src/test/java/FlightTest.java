@@ -128,6 +128,17 @@ public class FlightTest {
     }
 
     @Test
+    void testDepartToNull()
+    {
+        Throwable exception1 = assertThrows(java.lang.NullPointerException.class, () -> {
+            Airplane Airplane1 = new Airplane(123456,"AF123", 5, 20, 2);
+            Flight flight1 = new Flight(12345, null, "Sydney", "AA703", "AusAir",
+                    "10/09/2022", "11/09/2022", Airplane1);
+        });
+        assertEquals("DepartTo can not be Null",exception1.getMessage());
+    }
+
+    @Test
     void testDepartFromEmpty()
     {
         String departFrom = "";
@@ -135,6 +146,29 @@ public class FlightTest {
             flight.setDepartFrom(departFrom);
         });
         assertEquals("DepartFrom can not be Empty",exception.getMessage());
+    }
+
+    @Test
+    void testDepartFromNull()
+    {
+        Throwable exception2 = assertThrows(java.lang.NullPointerException.class, () -> {
+            Airplane Airplane2 = new Airplane(123456,"AF123", 5, 20, 2);
+            Flight flight1 = new Flight(12345, "Sydney", null, "AA703", "AusAir",
+                    "10/09/2022", "11/09/2022", Airplane2);
+        });
+        assertEquals("DepartFrom can not be Null",exception2.getMessage());
+    }
+
+    @Test
+    void testDepartFormWithInvalidValue()
+    {
+        String expectedException = "You can not enter invalid date value, Please check it";
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            Airplane Airplane1 = new Airplane(123456,"AF123", 5, 20, 2);
+            Flight flight1 = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
+                    "jnksaDNOSDNKOAw", "11/09/2022", Airplane1);
+        });
+        assertEquals(expectedException, exception.getMessage());
     }
 
     @Test
@@ -148,6 +182,17 @@ public class FlightTest {
     }
 
     @Test
+    void testCodeNull()
+    {
+        Throwable exception2 = assertThrows(java.lang.NullPointerException.class, () -> {
+            Airplane Airplane2 = new Airplane(123456,"AF123", 5, 20, 2);
+            Flight flight1 = new Flight(12345, "Sydney", "Melbourne", null, "AusAir",
+                    "10/09/2022", "11/09/2022", Airplane2);
+        });
+        assertEquals("Code can not be Null",exception2.getMessage());
+    }
+
+    @Test
     void testCompanyEmpty()
     {
         String company = "";
@@ -155,6 +200,17 @@ public class FlightTest {
             flight.setCompany(company);
         });
         assertEquals("Company can not be Empty",exception.getMessage());
+    }
+
+    @Test
+    void testCompanyNull()
+    {
+        Throwable exception2 = assertThrows(java.lang.NullPointerException.class, () -> {
+            Airplane Airplane2 = new Airplane(123456,"AF123", 5, 20, 2);
+            Flight flight1 = new Flight(12345, "Sydney", "Melbourne", "AA703", null,
+                    "10/09/2022", "11/09/2022", Airplane2);
+        });
+        assertEquals("Company can not be Null",exception2.getMessage());
     }
 
     @Test
