@@ -55,12 +55,10 @@ public class FlightCollection {
 			if (flight.getFlightID() == flightId)
 			{
 				certainedflight = flight;
+				break;
 			}else
-			{
 				throw new IllegalArgumentException("Can not find flights you want by FlightID you entered.");
-			}
     	return certainedflight;
-
     }
     
 

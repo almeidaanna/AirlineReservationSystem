@@ -2,13 +2,14 @@ import fit5171.monash.edu.*;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test class for BuyTicket")
 public class BuyTicketTest {
     private BuyTicket buyTicket;
-
     Passenger passenger;
     Flight flight;
 
@@ -20,8 +21,8 @@ public class BuyTicketTest {
     @BeforeEach
     public void init(){
         passenger = new Passenger("Jane", "Doe", 43, "Female", "janedoe@gmail.com", "0458353978", "M79843234","1234567891012345", 123);
-        Airplane airplane = new Airplane(101, "Airbus", 30, 60, 4);
-        flight = new Flight(34543, "Mel", "Syd", "A342", "Boeing", "12/09/2022","18/09/2022", airplane );
+        Airplane airplane = new Airplane(101, "747", 30, 60, 4);
+        flight = new Flight(34543, "SYD", "MEL", "A342", "Boeing", "12/09/2022","13/09/2022", airplane );
         FlightCollection.addFlights(flight);
     }
     @Test
@@ -65,8 +66,8 @@ public class BuyTicketTest {
     void testInvalidFlight()
     {
         int inputTicketId = 10024;
-        Airplane inputAirplane = new Airplane(102, "Airbus", 30, 60, 4);
-        Flight inputFlight = new Flight(0, "Mel", "Syd", "A363", "Boeing", "12/11/2022","12/11/2022", inputAirplane);
+        Airplane inputAirplane = new Airplane(102, "747", 30, 60, 4);
+        Flight inputFlight = new Flight(0, "SYD", "MEL", "A363", "Boeing", "12/11/2022","13/11/2022", inputAirplane);
         Ticket expectedTicket = new Ticket(10024, 1000, inputFlight, true, passenger);
         TicketCollection.addTicket(expectedTicket);
         Throwable actual = assertThrows(java.lang.IllegalArgumentException.class, ()->{
@@ -83,7 +84,7 @@ public class BuyTicketTest {
     void testInvalidTicket()
     {
         int inputTicketId = 10025;
-        Ticket expectedTicket = new Ticket(10022, 1000, flight, true, passenger);
+        Ticket expectedTicket = new Ticket(10024, 1000, flight, true, passenger);
         TicketCollection.addTicket(expectedTicket);
         Throwable actual = assertThrows(java.lang.NullPointerException.class, ()->{
             String userInput = "Jane\nDoe\n43\n\nFemale\njanedoe@gmail.com\n0458353978\nM79843234\n1\n1234567891012345\n123";
@@ -93,6 +94,34 @@ public class BuyTicketTest {
         });
         String expected = "Ticket does not exist";
         assertEquals(expected, actual.getMessage());
+    }
+
+    @Test
+    void testBuyTwoTicketsValid()
+    {
+        int ticketId1 = 10024;
+        int ticketId2 = 10157;
+        Ticket ticket1 = new Ticket(10024, 110, flight, false, passenger);
+        TicketCollection.addTicket(ticket1);
+        Airplane airplane = new Airplane(132, "A330", 30, 60, 4);
+        Flight flight2 = new Flight(30015, "LHR", "SYD", "F287", "Airbus", "13/09/2022","14/09/2022", airplane );
+        FlightCollection.addFlights(flight2);
+        Ticket ticket2 = new Ticket(10157, 670, flight2, true, passenger);
+        TicketCollection.addTicket(ticket2);
+
+        String userInput = "Jane\nDoe\n43\n\nFemale\njanedoe@gmail.com\n0458353978\nM79843234\n1\n1234567891012345\n123";
+        System.setIn(new ByteArrayInputStream(userInput.getBytes()));
+        buyTicket = new BuyTicket();
+        buyTicket.buyTicket(ticketId1, ticketId2);
+
+        Ticket actualTicket1 = TicketCollection.getTicketInfo(ticketId1);
+        Ticket actualTicket2 = TicketCollection.getTicketInfo(ticketId2);
+
+        int expectedPrice = (int) ((110 + 670) * 1.12);
+
+        assertEquals(ticket1, actualTicket1);
+        assertEquals(ticket2, actualTicket2);
+        assertEquals(expectedPrice, buyTicket.getTicket().getPrice());
     }
 
     @AfterEach
