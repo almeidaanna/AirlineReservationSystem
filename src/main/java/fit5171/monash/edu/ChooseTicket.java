@@ -2,9 +2,14 @@ package fit5171.monash.edu;
 import java.util.Scanner;
 
 public class ChooseTicket{
-	BuyTicket buyTicket = new BuyTicket();
+	BuyTicket buyTicket;
 
-	Scanner in = new Scanner(System.in);
+	Scanner in;
+
+	ChooseTicket(){
+		in = new Scanner(System.in);
+		buyTicket = new BuyTicket();
+	}
 
 	public BuyTicket getBuyTicket() {
 		return buyTicket;
@@ -14,7 +19,7 @@ public class ChooseTicket{
 		this.buyTicket = buyTicket;
 	}
 
-    public void chooseTicket(String city1, String city2) throws Exception
+    public void chooseTicket(String city1, String city2)
     {
     	int counter = 1;
     	int idFirst = 0;
@@ -34,9 +39,8 @@ public class ChooseTicket{
 	        //buy ticket here
 	        buyTicket.buyTicket(ticket_id);
         }
-        else
+        else{
             //in case there is no direct ticket from city1 to city2
-        {
         	//SELECT a flight where depart_to = city2
         	Flight depart_to = FlightCollection.getFlightInfo(city2);
         	//and search for city with depart_from as connector city
@@ -48,7 +52,6 @@ public class ChooseTicket{
         		idFirst = depart_to.getFlightID();
         		idSecond = flightConnectingTwoCities.getFlightID();
             }
-        	
         	counter++;
         	buyTicket.buyTicket(idFirst, idSecond); //pass two tickets and buy them
         	if(counter == 1)
