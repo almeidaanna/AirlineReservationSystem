@@ -35,7 +35,6 @@ public class TicketCollection {
 
 	public static Ticket getTicketInfo(int ticketId) {
     	//SELECT a ticket where ticket id = ticketId
-		// need to test the entire info
 		Ticket newTicket = null;
 		for (Ticket ticket: tickets)
 			if (ticket.getTicketId() == ticketId)

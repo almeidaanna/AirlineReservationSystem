@@ -96,7 +96,7 @@ public class TicketCollectionTest {
 
         Ticket actualValidTicket_id = TicketCollection.getTicketInfo(inputValidTicket_id);
         Throwable actualInvalidTicket_id = assertThrows(java.lang.NullPointerException.class,() ->{
-            Ticket ticket = TicketCollection.getTicketInfo(inputInvalidTicket_id);
+             TicketCollection.getTicketInfo(inputInvalidTicket_id);
         });
 
         assertEquals(expectedValidTicket, actualValidTicket_id);

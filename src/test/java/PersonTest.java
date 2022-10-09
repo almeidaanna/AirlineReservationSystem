@@ -1,3 +1,4 @@
+import fit5171.monash.edu.Passenger;
 import fit5171.monash.edu.Person;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +22,22 @@ public class PersonTest {
     void init(){
         person = new Person();
     }
-    // create a constructor test for person class
+
+    @Test
+    void constrctorTestValid(){
+        Person newPerson = new Person("Jane", "Doe", 43, "Female");
+        String expectedResult = "Person{firstName='Jane', secondName='Doe', age=43, gender='Female'}";
+        assertEquals(expectedResult, newPerson.toString());
+    }
+
+    @Test
+    void constrctorTestInvalid(){
+        Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
+            Person newPerson = new Person("", "", 43, "Female");
+        });
+        String expectedResult = "Invalid details";
+        assertEquals(expectedResult, exception.getMessage());
+    }
     @ParameterizedTest
     @ValueSource(strings = {"Male","Female","Other"})
     void testPersonValidity(String expectedGender)
