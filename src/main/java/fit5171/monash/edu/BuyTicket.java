@@ -145,7 +145,7 @@ public class BuyTicket {
 
         System.out.println(ticketIdFirst + " " + ticketIdSecond);
         Ticket validTicketfirst = TicketCollection.getTicketInfo(ticketIdFirst);
-        Ticket validTicketSecond = TicketCollection.getTicketInfo(ticketIdFirst);
+        Ticket validTicketSecond = TicketCollection.getTicketInfo(ticketIdSecond);
 
         System.out.println("Processing...");
         
@@ -155,7 +155,7 @@ public class BuyTicket {
         else {
         	flightIdFirst = validTicketfirst.getFlight().getFlightID();
         	
-        	flightIdSecond = validTicketfirst.getFlight().getFlightID();
+        	flightIdSecond = validTicketSecond.getFlight().getFlightID();
 
             setPassengerDetails();
 
@@ -190,7 +190,7 @@ public class BuyTicket {
 
                 ticketSecond.setPassenger(passenger);
                 ticketSecond.setTicketId(ticketIdSecond);
-                ticketSecond.setFlight(flightFirst);
+                ticketSecond.setFlight(flightSecond);
                 ticketSecond.setClassVip(ticketSecond.getClassVip());
                 ticketSecond.setTicketStatus(true);
 

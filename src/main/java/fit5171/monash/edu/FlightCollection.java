@@ -52,12 +52,12 @@ public class FlightCollection {
     public static Flight getFlightInfo(int flightId) {
     	Flight certainedflight = null;
 		for(Flight flight: flights)
-			if (flight.getFlightID() == flightId)
-			{
+			if (flight.getFlightID() == flightId) {
 				certainedflight = flight;
 				break;
-			}else
-				throw new IllegalArgumentException("Can not find flights you want by FlightID you entered.");
+			}
+		if (certainedflight == null)
+			throw new IllegalArgumentException("Can not find flights you want by FlightID you entered.");
     	return certainedflight;
     }
     
