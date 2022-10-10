@@ -6,7 +6,7 @@ public class ChooseTicket{
 
 	Scanner in;
 
-	ChooseTicket(){
+	public ChooseTicket(){
 		in = new Scanner(System.in);
 		buyTicket = new BuyTicket();
 	}
