@@ -16,6 +16,9 @@ public class Flight {
     private Timestamp dateFrom;
     private Timestamp dateTo;
     Airplane airplane;
+    public static final String DATEINPUTFORMATCHECK = "dd/MM/yyyy";
+
+    public static final String DATEFORMATCHECKPATTERN = "^(0[1-9]|[1-2]\\d|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
 
     
 
@@ -28,8 +31,8 @@ public class Flight {
         setDepartTo(departTo);
         setDepartFrom(departFrom);
         setAirplane(airplane);
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String pattern = "^(0[1-9]|[1-2]\\d|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
+        DateFormat dateFormat = new SimpleDateFormat(DATEINPUTFORMATCHECK);
+        String pattern = DATEFORMATCHECKPATTERN;
 
         if (dateToString.matches(pattern) && dateFromString.matches(pattern))
         {
@@ -159,7 +162,7 @@ public class Flight {
     }
 
     public void setDateFrom(String dateFromString) {
-        String pattern = "^(0[1-9]|[1-2]\\d|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
+        String pattern = DATEFORMATCHECKPATTERN;
         if (dateFromString.isEmpty()|| dateFromString.isBlank())
         {
             throw new IllegalArgumentException("The Input of dateString can not be Empty or Null");
@@ -172,7 +175,7 @@ public class Flight {
         {
             try
             {
-                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                DateFormat dateFormat = new SimpleDateFormat(DATEINPUTFORMATCHECK);
                 Date dateFromDate = dateFormat.parse(dateFromString);
                 long dateF = dateFromDate.getTime();
                 this.dateFrom =  new Timestamp(dateF);
@@ -191,7 +194,7 @@ public class Flight {
     }
 
     public void setDateTo(String dateToString) {
-        String pattern = "^(0[1-9]|[1-2]\\d|31(?!(?:0[2469]|11))|30(?!02))\\/(0[1-9]|1[0-2])\\/([12]\\d{3})$";
+        String pattern = DATEFORMATCHECKPATTERN;
         if (dateToString.isEmpty()|| dateToString.isBlank())
         {
             throw new IllegalArgumentException("The Input of dateString can not be Empty or Null");
@@ -203,7 +206,7 @@ public class Flight {
         else {
             try
             {
-                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                DateFormat dateFormat = new SimpleDateFormat(DATEINPUTFORMATCHECK);
                 Date dateToDate = dateFormat.parse(dateToString);
                 long dateT = dateToDate.getTime();
                 this.dateTo =  new Timestamp(dateT);
