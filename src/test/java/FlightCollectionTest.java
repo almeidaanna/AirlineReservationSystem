@@ -1,15 +1,12 @@
-import fit5171.monash.edu.Airplane;
-import fit5171.monash.edu.Flight;
-import fit5171.monash.edu.FlightCollection;
+import assignment.monash.edu.Airplane;
+import assignment.monash.edu.Flight;
+import assignment.monash.edu.FlightCollection;
 import org.junit.jupiter.api.*;
-
-import java.sql.Timestamp;
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("This is a test class for flightCollection")
-public class FlightCollectionTest {
+class FlightCollectionTest {
 
     private FlightCollection flightCollection;
     private Flight flight;
@@ -30,7 +27,7 @@ public class FlightCollectionTest {
     }
 
     @Test
-    public void testAddFlightsValid()
+    void testAddFlightsValid()
     {
         Flight newFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
                 "10/09/2022", "11/09/2022", airplane);
@@ -40,7 +37,7 @@ public class FlightCollectionTest {
     }
 
     @Test
-    public void testGetFlightByTwoCityValid()
+    void testGetFlightByTwoCityValid()
     {
         String inputValidCity1 = "Melbourne";
         String inputValidCity2 = "Sydney";
@@ -54,7 +51,7 @@ public class FlightCollectionTest {
     }
 
     @Test
-    public void testGetFlightByTwoCityInvalid()
+    void testGetFlightByTwoCityInvalid()
     {
         String inputInvalidCity1 = "asffawfasd";
         String inputInvalidCity2 = "asduhanwknhisa";
@@ -66,9 +63,9 @@ public class FlightCollectionTest {
     }
 
     @Test
-    public void testGetFlightInfoByOneCityValid()
+    void testGetFlightInfoByOneCityValid()
     {
-        String inputValidCity = "Melbourne";
+        String inputValidCity = "Sydney";
         Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
                 "10/09/2022","11/09/2022", airplane);
         FlightCollection.addFlights(expectedValidFlight);
@@ -79,23 +76,19 @@ public class FlightCollectionTest {
     }
 
     @Test
-    public void testGetFlightByOneCityInvalid()
+    void testGetFlightByOneCityInvalid()
     {
         String inputInvalidCity = "asffawfasd";
         Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
                 "10/09/2022", "11/09/2022", airplane);
         FlightCollection.addFlights(expectedValidFlight);
-        String expectedInValidString = "Can not find flights you want by departTo city you entered.";
+        Flight flight = FlightCollection.getFlightInfo(inputInvalidCity);
 
-        String actualInvalidString = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            Flight flight = FlightCollection.getFlightInfo(inputInvalidCity);
-        }).getMessage();
-
-        assertEquals(expectedInValidString, actualInvalidString);
+        assertNull(flight);
     }
 
     @Test
-    public void testGetFlightInfoByFlightIDValid()
+    void testGetFlightInfoByFlightIDValid()
     {
         int inputValidFlightID = 12345;
         Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
@@ -107,7 +100,7 @@ public class FlightCollectionTest {
     }
 
     @Test
-    public void testGetFlightByFlightIDInvalid()
+    void testGetFlightByFlightIDInvalid()
     {
         int inputInvalidFlightID = 78347834;
         Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
@@ -123,7 +116,7 @@ public class FlightCollectionTest {
     }
 
     @AfterEach
-    public void reset(){
+    void reset(){
         FlightCollection.getFlights().removeAll(FlightCollection.getFlights());
     }
 }

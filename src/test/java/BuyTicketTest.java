@@ -1,4 +1,4 @@
-import fit5171.monash.edu.*;
+import assignment.monash.edu.*;
 import org.junit.jupiter.api.*;
 import java.io.ByteArrayInputStream;
 import static org.junit.jupiter.api.Assertions.*;

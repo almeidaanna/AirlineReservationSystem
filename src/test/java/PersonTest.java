@@ -1,4 +1,4 @@
-import fit5171.monash.edu.Person;
+import assignment.monash.edu.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

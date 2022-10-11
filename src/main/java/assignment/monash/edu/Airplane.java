@@ -1,4 +1,4 @@
-package fit5171.monash.edu;
+package assignment.monash.edu;
 
 public class Airplane
 {

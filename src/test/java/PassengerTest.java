@@ -1,4 +1,4 @@
-import fit5171.monash.edu.Passenger;
+import assignment.monash.edu.Passenger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,8 +7,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
-    @DisplayName("This is to test the Passenger class")
-    class PassengerTest {
+@DisplayName("This is to test the Passenger class")
+class PassengerTest {
     private Passenger passenger;
 
     @BeforeEach

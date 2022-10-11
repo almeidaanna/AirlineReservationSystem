@@ -1,14 +1,9 @@
-import fit5171.monash.edu.*;
+import assignment.monash.edu.*;
 import org.junit.jupiter.api.*;
-import org.mockito.Mock;
-import org.mockito.MockedStatic;
-import org.mockito.Mockito;
 
 import java.io.ByteArrayInputStream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.*;
 
 @DisplayName("Test class for ChooseTicket")
 public class ChooseTicketTest {
@@ -32,20 +27,20 @@ public class ChooseTicketTest {
 
     @Test
     void testChooseTicketInvalidCity() {
-        String inputCity1 = "SYD";
-        String inputCity2 = "Melbourne";
+        String inputCity1 = "MEL";
+        String inputCity2 = "QLD";
         Airplane airplane = new Airplane(101, "747", 30, 60, 4);
         flight = new Flight(34543, "SYD", "MEL", "A342", "Boeing", "12/09/2022","13/09/2022", airplane );
         FlightCollection.addFlights(flight);
         Ticket expectedTicket = new Ticket(10024, 1000, flight, true, new Passenger());
         TicketCollection.addTicket(expectedTicket);
         Throwable actual = assertThrows(java.lang.IllegalArgumentException.class, ()->{
-            String userInput = "10024\nJane\nDoe\n43\n\nFemale\njanedoe@gmail.com\n0458353978\nM79843234\n1\n1234567891012345\n123";
+            String userInput = "10024";
             System.setIn(new ByteArrayInputStream(userInput.getBytes()));
             chooseTicket = new ChooseTicket();
             chooseTicket.chooseTicket(inputCity1, inputCity2);
         });
-        assertEquals("Can not find flights you want by departTo city you entered.", actual.getMessage());
+        assertEquals("No Flights exist to the input city", actual.getMessage());
     }
 
     @Test
@@ -65,8 +60,29 @@ public class ChooseTicketTest {
     }
 
     @Test
-    void validateFlight() {
+    void testChooseConnectingTicketInvalidCity() {
+        String inputCity1 = "MEL";
+        String inputCity2 = "QLD";
 
+        Airplane airplane = new Airplane(101, "747", 30, 60, 4);
+        flight = new Flight(34543, "MEL", "ADL", "A342", "Boeing", "12/09/2022","13/09/2022", airplane );
+        FlightCollection.addFlights(flight);
+        Ticket ticket1 = new Ticket(10024, 200, flight, true, new Passenger());
+        TicketCollection.addTicket(ticket1);
+
+        Airplane airplane2 = new Airplane(116, "747", 30, 60, 4);
+        Flight flight2 = new Flight(30021, "SYD", "QLD", "A342", "Boeing", "13/09/2022","13/09/2022", airplane2 );
+        FlightCollection.addFlights(flight2);
+        Ticket ticket2 = new Ticket(10026, 250, flight2, true, new Passenger());
+        TicketCollection.addTicket(ticket2);
+
+        Throwable actual = assertThrows(java.lang.IllegalArgumentException.class, ()->{
+            String userInput = "10024";
+            System.setIn(new ByteArrayInputStream(userInput.getBytes()));
+            chooseTicket = new ChooseTicket();
+            chooseTicket.chooseTicket(inputCity1, inputCity2);
+        });
+        assertEquals("Cannot find a flight between the two input cities", actual.getMessage());
     }
 
     @AfterEach

@@ -1,7 +1,7 @@
-import fit5171.monash.edu.Flight;
-import fit5171.monash.edu.Passenger;
-import fit5171.monash.edu.Ticket;
-import fit5171.monash.edu.TicketCollection;
+import assignment.monash.edu.Flight;
+import assignment.monash.edu.Passenger;
+import assignment.monash.edu.Ticket;
+import assignment.monash.edu.TicketCollection;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

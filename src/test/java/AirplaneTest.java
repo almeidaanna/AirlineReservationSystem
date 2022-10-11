@@ -1,6 +1,6 @@
-import fit5171.monash.edu.Airplane;
-import fit5171.monash.edu.Flight;
-import fit5171.monash.edu.FlightCollection;
+import assignment.monash.edu.Airplane;
+import assignment.monash.edu.Flight;
+import assignment.monash.edu.FlightCollection;
 import org.junit.jupiter.api.*;
 import static junit.framework.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;

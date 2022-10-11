@@ -1,4 +1,4 @@
-package fit5171.monash.edu;
+package assignment.monash.edu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class FlightCollection {
 	public static Flight getFlightInfo(String city1, String city2) {
     	Flight findedFlight = null;
 		for(Flight flight: flights)
-			if (flight.getDepartTo().equals(city1) && flight.getDepartFrom().equals(city2))
+			if (flight.getDepartFrom().equals(city1) && flight.getDepartTo().equals(city2))
 				findedFlight = flight;
     	return findedFlight;
     }
@@ -33,12 +33,7 @@ public class FlightCollection {
 		Flight findedFlight = null;
 		for(Flight flight: flights)
 			if (flight.getDepartTo().equals(city))
-			{
 				findedFlight = flight;
-			}
-			else {
-				throw new IllegalArgumentException("Can not find flights you want by departTo city you entered.");
-			}
 		return findedFlight;
 
     }

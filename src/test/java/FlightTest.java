@@ -1,6 +1,6 @@
-import fit5171.monash.edu.Airplane;
-import fit5171.monash.edu.Flight;
-import fit5171.monash.edu.FlightCollection;
+import assignment.monash.edu.Airplane;
+import assignment.monash.edu.Flight;
+import assignment.monash.edu.FlightCollection;
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 import java.sql.Timestamp;
@@ -96,14 +96,14 @@ import static org.mockito.Mockito.when;
     }
 
     @Test
-    void testDepartToNull()
+    void testDepartFromNull()
     {
         Throwable exception1 = assertThrows(java.lang.NullPointerException.class, () -> {
             Airplane Airplane1 = new Airplane(123456,"AF123", 5, 20, 2);
             Flight flight1 = new Flight(12345, null, "Sydney", "AA703", "AusAir",
                     "10/09/2022", "11/09/2022", Airplane1);
         });
-        assertEquals("DepartTo can not be Null",exception1.getMessage());
+        assertEquals("DepartFrom can not be Null",exception1.getMessage());
     }
 
     @Test
@@ -117,14 +117,14 @@ import static org.mockito.Mockito.when;
     }
 
     @Test
-    void testDepartFromNull()
+    void testDepartToNull()
     {
         Throwable exception2 = assertThrows(java.lang.NullPointerException.class, () -> {
             Airplane Airplane2 = new Airplane(123456,"AF123", 5, 20, 2);
             Flight flight1 = new Flight(12345, "Sydney", null, "AA703", "AusAir",
                     "10/09/2022", "11/09/2022", Airplane2);
         });
-        assertEquals("DepartFrom can not be Null",exception2.getMessage());
+        assertEquals("DepartTo can not be Null",exception2.getMessage());
     }
 
     @Test
@@ -267,8 +267,8 @@ import static org.mockito.Mockito.when;
         String expectedResult = "Flight{" + newAirplane.toString() +
                 ", date to=" +  "2022-09-11 00:00:00.0" + ", " + '\'' +
                 ", date from='" + "2022-09-10 00:00:00.0" + '\'' +
-                ", depart from='" + "Sydney" + '\'' +
-                ", depart to='" + "Melbourne" + '\'' +
+                ", depart from='" + "Melbourne" + '\'' +
+                ", depart to='" + "Sydney" + '\'' +
                 ", code=" + "AA703" + '\'' +
                 ", company=" + "AusAir" + '\'' +
                 '}';

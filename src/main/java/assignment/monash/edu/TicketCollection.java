@@ -1,4 +1,4 @@
-package fit5171.monash.edu;
+package assignment.monash.edu;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package fit5171.monash.edu;
+package assignment.monash.edu;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -21,7 +21,7 @@ public class Flight {
     
 
 
-    public Flight(int flightId, String departTo, String departFrom, String code, String company,String dateFromString, String dateToString, Airplane airplane)
+    public Flight(int flightId, String departFrom, String departTo, String code, String company,String dateFromString, String dateToString, Airplane airplane)
     {
         this.flightID=flightId;
         setCode(code);
