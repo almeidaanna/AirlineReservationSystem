@@ -5,8 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static fit5171.monash.edu.FlightCollection.flights;
-
 public class Flight {
     private int flightID;
     private String departTo;
@@ -219,7 +217,7 @@ public class Flight {
     }
 
     public void setAirplane(Airplane airplane) {
-        if (flights.isEmpty() && airplane != null)
+        if (FlightCollection.getFlights().isEmpty() && airplane != null)
         {
             this.airplane = airplane;
         }
@@ -229,7 +227,7 @@ public class Flight {
         }
         else
         {
-            for (Flight flight : flights)
+            for (Flight flight : FlightCollection.getFlights())
             {
                 if (flight.getAirplane() != null && flight.getAirplane().getAirplaneID() == airplane.getAirplaneID())
                 {

@@ -5,15 +5,14 @@ import java.util.List;
 
 public class FlightCollection {
 	
-	public static List<Flight> flights = new ArrayList<>();
+	private static final List<Flight> flights = new ArrayList<>();
 
 	public static List<Flight> getFlights() {
 		return flights;
 	}
 
-	public FlightCollection()
+	private FlightCollection()
 	{
-		flights = new ArrayList<>();
 	}
 
 	public static void addFlights(Flight newFlight)

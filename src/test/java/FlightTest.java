@@ -1,10 +1,7 @@
 import fit5171.monash.edu.Airplane;
 import fit5171.monash.edu.Flight;
 import fit5171.monash.edu.FlightCollection;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 
 import java.sql.Timestamp;
@@ -38,7 +35,7 @@ public class FlightTest {
     void init(){
         airplane = new Airplane();
         flight = new Flight();
-        flights = new FlightCollection();
+        //flights = new FlightCollection();
     }
 
     @Test
@@ -315,6 +312,9 @@ public class FlightTest {
         assertEquals(expectedResult, existFlight.toString());
 
     }
-
+    @AfterEach
+    public void reset(){
+        FlightCollection.getFlights().removeAll(FlightCollection.getFlights());
+    }
 
 }

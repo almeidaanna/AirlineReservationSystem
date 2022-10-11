@@ -1,10 +1,7 @@
 import fit5171.monash.edu.Airplane;
 import fit5171.monash.edu.Flight;
 import fit5171.monash.edu.FlightCollection;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 
 import javax.swing.text.TableView;
@@ -21,7 +18,6 @@ public class AirplaneTest {
 
     private Airplane airplane;
     private Flight flight;
-    private FlightCollection flights;
 
     @BeforeAll
     static void initAll(){
@@ -32,7 +28,6 @@ public class AirplaneTest {
     {
         airplane = new Airplane();
         flight = new Flight();
-        flights = new FlightCollection();
     }
 
 
@@ -191,5 +186,8 @@ public class AirplaneTest {
         FlightCollection.addFlights(existFlight);
         assertNull(null,Airplane.getAirPlaneInfo(123999));
     }
-
+    @AfterEach
+    public void reset(){
+        FlightCollection.getFlights().removeAll(FlightCollection.getFlights());
+    }
 }

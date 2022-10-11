@@ -115,7 +115,7 @@ public class Airplane
     }
 
 	public static Airplane getAirPlaneInfo(int airplaneId) {
-        for (Flight flight:FlightCollection.flights)
+        for (Flight flight:FlightCollection.getFlights())
             if (flight.getAirplane().airplaneID == airplaneId)
                 return flight.getAirplane();
 		return null;
