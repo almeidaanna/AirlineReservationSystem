@@ -46,7 +46,7 @@ public class ChooseTicketTest {
             chooseTicket = new ChooseTicket();
             chooseTicket.chooseTicket(inputCity1, inputCity2);
         });
-        assertEquals("Can not find flights you want by departTo city you entered.", actual.getMessage());
+        assertEquals("Can not find flights you want by departTo city you entered.",actual.getMessage());
     }
 
     @Test
