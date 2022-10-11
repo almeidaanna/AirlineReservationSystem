@@ -2,34 +2,19 @@ import fit5171.monash.edu.Airplane;
 import fit5171.monash.edu.Flight;
 import fit5171.monash.edu.FlightCollection;
 import org.junit.jupiter.api.*;
-
-
-import javax.swing.text.TableView;
-
 import static junit.framework.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
-
 @DisplayName("This is a Test class for Airplane")
 public class AirplaneTest {
-
-
     private Airplane airplane;
-    private Flight flight;
 
-    @BeforeAll
-    static void initAll(){
-        AirplaneTest airplaneTest = new AirplaneTest();
-    }
     @BeforeEach
     void init()
     {
         airplane = new Airplane();
-        flight = new Flight();
     }
-
 
     @Test
     void testConstructorValidAndToString()
@@ -43,9 +28,7 @@ public class AirplaneTest {
                 '}';
         String actualString = newAirplane.toString();
         assertEquals(exceptedString, actualString);
-
     }
-
 
     @Test
     void testAirplaneValidity()
@@ -55,27 +38,19 @@ public class AirplaneTest {
         int businessSitsNumber = 5;
         int economySitsNumber = 20;
         int crewSitsNumber = 2;
-
-
-
         int expectedAirplaneID = 123456;
         String expectedAirplaneModel = "AF123";
         int expectedBusinessSitsNumber = 5;
         int expectedEconomySitsNumber = 20;
         int expectedCrewSitsNumber = 2;
-
         airplane.setAirplaneID(airplaneID);
         assertEquals(expectedAirplaneID,airplane.getAirplaneID());
-
         airplane.setAirplaneModel(airplaneModel);
         assertEquals(expectedAirplaneModel,airplane.getAirplaneModel());
-
         airplane.setBusinessSitsNumber(businessSitsNumber);
         assertEquals(expectedBusinessSitsNumber,airplane.getBusinessSitsNumber());
-
         airplane.setEconomySitsNumber(economySitsNumber);
         assertEquals(expectedEconomySitsNumber,airplane.getEconomySitsNumber());
-
         airplane.setCrewSitsNumber(crewSitsNumber);
         assertEquals(expectedCrewSitsNumber,airplane.getCrewSitsNumber());
     }
@@ -109,7 +84,6 @@ public class AirplaneTest {
         });
         assertEquals("AirplaneModel can not be Null",exception.getMessage());
     }
-
 
     @Test
     void testBusinessSitsNumberEmpty()
@@ -154,7 +128,6 @@ public class AirplaneTest {
 
     }
 
-
     @Test
     void testTotalNumberOverRange()
     {
@@ -186,6 +159,7 @@ public class AirplaneTest {
         FlightCollection.addFlights(existFlight);
         assertNull(null,Airplane.getAirPlaneInfo(123999));
     }
+
     @AfterEach
     public void reset(){
         FlightCollection.getFlights().removeAll(FlightCollection.getFlights());

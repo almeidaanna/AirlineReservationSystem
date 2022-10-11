@@ -1,24 +1,16 @@
 import fit5171.monash.edu.Passenger;
-import fit5171.monash.edu.Person;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
 import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("This is to test the Passenger class")
-public class PassengerTest {
+    @DisplayName("This is to test the Passenger class")
+    public class PassengerTest {
     private Passenger passenger;
-
-    @BeforeAll
-    static void initAll(){
-        PassengerTest passengerTest = new PassengerTest();
-    }
 
     @BeforeEach
     void init(){
@@ -54,7 +46,6 @@ public class PassengerTest {
         String expectedCardNumber = "1234567891052378";
         String expectedPhoneNumber = "0458353974";
         int expectedAge = 42;
-
         passenger.setEmail(expectedEmail);
         assertEquals(expectedEmail,passenger.getEmail());
         passenger.setFirstName(expectedFirstName);
@@ -185,6 +176,7 @@ public class PassengerTest {
         }).getMessage();
         assertEquals(expectedResultInvalid,exception);
     }
+
     @Test
     void testEmailNull()
     {
@@ -214,6 +206,7 @@ public class PassengerTest {
         });
         assertEquals("Passport can not be null", exception.getMessage());
     }
+
     @Test
     void testSecurityCodeEmpty()
     {
@@ -285,6 +278,7 @@ public class PassengerTest {
         }).getMessage();
         assertEquals(expectedResult,exception);
     }
+
     @Test
     void testPassportCharacterLength()
     {

@@ -1,4 +1,3 @@
-import fit5171.monash.edu.Passenger;
 import fit5171.monash.edu.Person;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,18 +5,13 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
 import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test class for person")
 public class PersonTest {
     private Person person;
-    @BeforeAll
-    static void initAll(){
-        PersonTest personTest = new PersonTest();
-    }
+
     @BeforeEach
     void init(){
         person = new Person();
@@ -38,6 +32,7 @@ public class PersonTest {
         String expectedResult = "Invalid details";
         assertEquals(expectedResult, exception.getMessage());
     }
+
     @ParameterizedTest
     @ValueSource(strings = {"Male","Female","Other"})
     void testPersonValidity(String expectedGender)
@@ -45,7 +40,6 @@ public class PersonTest {
         String expectedFirstName ="Jane";
         String expectedSecondName = "Doe";
         int expectedAge = 42;
-
         person.setFirstName(expectedFirstName);
         assertEquals(expectedFirstName,person.getFirstName());
         person.setSecondName(expectedSecondName);
@@ -55,6 +49,7 @@ public class PersonTest {
         person.setGender(expectedGender);
         assertTrue(Arrays.asList(expectedGender).contains(person.getGender()));
     }
+
     @Test
     void testFirstNameEmpty()
     {

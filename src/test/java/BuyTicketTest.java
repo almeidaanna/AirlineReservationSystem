@@ -1,10 +1,6 @@
 import fit5171.monash.edu.*;
 import org.junit.jupiter.api.*;
-
 import java.io.ByteArrayInputStream;
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test class for BuyTicket")
@@ -13,11 +9,6 @@ public class BuyTicketTest {
     Passenger passenger;
     Flight flight;
 
-    @BeforeAll
-    static  void initAll(){
-        BuyTicketTest buyTicketTest = new BuyTicketTest();
-    }
-
     @BeforeEach
     public void init(){
         passenger = new Passenger("Jane", "Doe", 43, "Female", "janedoe@gmail.com", "0458353978", "M79843234","1234567891012345", 123);
@@ -25,6 +16,7 @@ public class BuyTicketTest {
         flight = new Flight(34543, "SYD", "MEL", "A342", "Boeing", "12/09/2022","13/09/2022", airplane );
         FlightCollection.addFlights(flight);
     }
+
     @Test
     void testBuyTicketValidity() {
         int inputTicketId = 10024;
@@ -103,17 +95,13 @@ public class BuyTicketTest {
         FlightCollection.addFlights(flight2);
         Ticket ticket2 = new Ticket(10157, 670, flight2, true, passenger);
         TicketCollection.addTicket(ticket2);
-
         String userInput = "Jane\nDoe\n43\n\nFemale\njanedoe@gmail.com\n0458353978\nM79843234\n1\n1234567891012345\n123";
         System.setIn(new ByteArrayInputStream(userInput.getBytes()));
         buyTicket = new BuyTicket();
         buyTicket.buyTicket(ticketId1, ticketId2);
-
         Ticket actualTicket1 = TicketCollection.getTicketInfo(ticketId1);
         Ticket actualTicket2 = TicketCollection.getTicketInfo(ticketId2);
-
         int expectedPrice = (int) ((110 + 670) * 1.12);
-
         assertEquals(ticket1, actualTicket1);
         assertEquals(ticket2, actualTicket2);
         assertEquals(expectedPrice, buyTicket.getTicket().getPrice());
@@ -130,14 +118,12 @@ public class BuyTicketTest {
         FlightCollection.addFlights(flight2);
         Ticket ticket2 = new Ticket(10157, 670, flight2, true, passenger);
         TicketCollection.addTicket(ticket2);
-
         Throwable expected = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             String userInput = "Jane\nDoe\n43\n\nFemale\n \n0458353978\nM79843234\n1\n1234567891012345\n123";
             System.setIn(new ByteArrayInputStream(userInput.getBytes()));
             buyTicket = new BuyTicket();
             buyTicket.buyTicket(ticketId1, ticketId2);
         });
-
         assertEquals("Email can not be empty", expected.getMessage());
     }
 
@@ -151,7 +137,6 @@ public class BuyTicketTest {
         Flight flight2 = new Flight(30015, "LHR", "SYD", "F287", "Airbus", "13/09/2022","14/09/2022", airplane );
         Ticket ticket2 = new Ticket(10157, 670, flight2, true, passenger);
         TicketCollection.addTicket(ticket2);
-
         Throwable expected = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             String userInput = "Jane\nDoe\n43\n\nFemale\njanedoe@gmail.com\n0458353978\nM79843234\n1\n1234567891012345\n123";
             System.setIn(new ByteArrayInputStream(userInput.getBytes()));
@@ -171,7 +156,6 @@ public class BuyTicketTest {
         Flight flight2 = new Flight(30015, "LHR", "SYD", "F287", "Airbus", "13/09/2022","14/09/2022", airplane );
         Ticket ticket2 = new Ticket(10157, 670, flight2, true, passenger);
         TicketCollection.addTicket(ticket2);
-
         Throwable expected = assertThrows(java.lang.NullPointerException.class, () -> {
             String userInput = "Jane\nDoe\n43\n\nFemale\njanedoe@gmail.com\n0458353978\nM79843234\n1\n1234567891012345\n123";
             System.setIn(new ByteArrayInputStream(userInput.getBytes()));

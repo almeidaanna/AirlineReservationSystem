@@ -5,7 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -17,21 +16,14 @@ public class TicketTest {
     Flight flight;
     Passenger passenger;
 
-    @BeforeAll
-    static void initAll(){
-        TicketTest ticketTest = new TicketTest();
-    }
-
     @BeforeEach
     void init(){
         int ticket_id = 10010;
         int price = 1000;
         airplane = mock(Airplane.class);
-    //    flight = new Flight(34567, "Mel", "Syd", "A342", "Boeing", "12/09/2022","18/09/2022", airplane );
         flight = mock(Flight.class);
         boolean classVip = false;
         passenger = mock(Passenger.class);
-//        passenger = new Passenger("Jane", "Doe", 43, "Female", "janedoe@gmail.com", "0458353978", "M79843234","1234567891012345", 123);
         ticket = new Ticket(ticket_id, price, flight, classVip, passenger);
     }
 
@@ -41,10 +33,7 @@ public class TicketTest {
         int price = 1001;
         int expectedTicket_id = 10052;
         int expectedPrice = (int) (price * 1.12);
-        //Flight expectedFlight = mock(Flight.class);
         boolean expectedClassVip = false;
-       // Passenger expectedPassenger = mock(Passenger.class);
-
         ticket.setTicketId(expectedTicket_id);
         assertEquals(expectedTicket_id,ticket.getTicketId());
         ticket.setPassenger(passenger);
