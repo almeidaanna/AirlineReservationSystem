@@ -34,10 +34,16 @@ public class ChooseTicket{
         	TicketCollection.getAllTickets();
 	        System.out.println("Enter ID of ticket you want to choose:");
 			String input = in.nextLine();
-	        int ticket_id = Integer.parseInt(input);
-	        //validate ticket here
+	        int ticketId = Integer.parseInt(input);
+			boolean exists = false;
+			for (Ticket ticket: TicketCollection.getTickets()) {
+				if (ticket.getTicketId() == ticketId)
+					exists = true;
+			}
+			if (!exists)
+				throw new IllegalArgumentException("This ticket does not exist!");
 	        //buy ticket here
-	        buyTicket.buyTicket(ticket_id);
+	        buyTicket.buyTicket(ticketId);
         }
         else{
             //in case there is no direct ticket from city1 to city2

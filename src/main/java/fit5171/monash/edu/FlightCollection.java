@@ -24,13 +24,7 @@ public class FlightCollection {
     	Flight findedFlight = null;
 		for(Flight flight: flights)
 			if (flight.getDepartTo().equals(city1) && flight.getDepartFrom().equals(city2))
-			{
 				findedFlight = flight;
-			}
-			else {
-				throw new IllegalArgumentException("Can not find flights you want by two city you entered.");
-			}
-
     	return findedFlight;
     }
     
@@ -45,7 +39,6 @@ public class FlightCollection {
 			else {
 				throw new IllegalArgumentException("Can not find flights you want by departTo city you entered.");
 			}
-
 		return findedFlight;
 
     }

@@ -1,8 +1,5 @@
 import fit5171.monash.edu.*;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
@@ -34,10 +31,10 @@ public class ChooseTicketTest {
     }
 
     @Test
-    void testChooseTicketInvalid() {
+    void testChooseTicketInvalidCity() {
 
-        String inputCity1 = "ABC";
-        String inputCity2 = "DEF";
+        String inputCity1 = "SYD";
+        String inputCity2 = "Melbourne";
         Airplane airplane = new Airplane(101, "747", 30, 60, 4);
         flight = new Flight(34543, "SYD", "MEL", "A342", "Boeing", "12/09/2022","13/09/2022", airplane );
         FlightCollection.addFlights(flight);
@@ -49,23 +46,35 @@ public class ChooseTicketTest {
             chooseTicket = new ChooseTicket();
             chooseTicket.chooseTicket(inputCity1, inputCity2);
         });
-        assertEquals("Can not find flights you want by two city you entered.",actual.getMessage());
-
+        assertEquals("Can not find flights you want by departTo city you entered",actual.getMessage());
     }
 
     @Test
-    void validateCity(){
-
-    }
-
-    @Test
-    void validateChoice(){
-
+    void testPassengerChoiceInvalid(){
+        //String inputTicketId = "20521";
+        Airplane airplane = new Airplane(101, "747", 30, 60, 4);
+        flight = new Flight(34543, "SYD", "MEL", "A342", "Boeing", "12/09/2022","13/09/2022", airplane );
+        FlightCollection.addFlights(flight);
+        Ticket expectedTicket = new Ticket(10024, 1000, flight, true, new Passenger());
+        TicketCollection.addTicket(expectedTicket);
+        String userInput = "20521\n";
+        Throwable actual = assertThrows(java.lang.IllegalArgumentException.class, ()-> {
+            System.setIn(new ByteArrayInputStream(userInput.getBytes()));
+            chooseTicket = new ChooseTicket();
+            chooseTicket.chooseTicket("SYD", "MEL");
+        });
+        assertEquals("This ticket does not exist!", actual.getMessage());
     }
 
     @Test
     void validateFlight()
     {
 
+    }
+
+    @AfterEach
+    public void reset() {
+        FlightCollection.getFlights().removeAll(FlightCollection.getFlights());
+        TicketCollection.getTickets().removeAll(TicketCollection.getTickets());
     }
 }

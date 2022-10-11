@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("This is a test class for flightCollection")
 public class FlightCollectionTest {
@@ -62,16 +61,11 @@ public class FlightCollectionTest {
     {
         String inputInvalidCity1 = "asffawfasd";
         String inputInvalidCity2 = "asduhanwknhisa";
-        Flight expectedValidFlight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
+        Flight flight = new Flight(12345, "Melbourne", "Sydney", "AA703", "AusAir",
                 "10/09/2022", "11/09/2022", airplane);
-        FlightCollection.addFlights(expectedValidFlight);
-        String expectedInValidString = "Can not find flights you want by two city you entered.";
-
-        String actualInvalidString = assertThrows(java.lang.IllegalArgumentException.class, () -> {
-            Flight flight = FlightCollection.getFlightInfo(inputInvalidCity1, inputInvalidCity2);
-        }).getMessage();
-
-        assertEquals(expectedInValidString, actualInvalidString);
+        FlightCollection.addFlights(flight);
+        Flight actualFlight = FlightCollection.getFlightInfo(inputInvalidCity1, inputInvalidCity2);
+        assertNull(actualFlight);
     }
 
     @Test
