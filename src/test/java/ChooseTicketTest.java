@@ -32,7 +32,6 @@ public class ChooseTicketTest {
 
     @Test
     void testChooseTicketInvalidCity() {
-
         String inputCity1 = "SYD";
         String inputCity2 = "Melbourne";
         Airplane airplane = new Airplane(101, "747", 30, 60, 4);
@@ -51,7 +50,6 @@ public class ChooseTicketTest {
 
     @Test
     void testPassengerChoiceInvalid(){
-        //String inputTicketId = "20521";
         Airplane airplane = new Airplane(101, "747", 30, 60, 4);
         flight = new Flight(34543, "SYD", "MEL", "A342", "Boeing", "12/09/2022","13/09/2022", airplane );
         FlightCollection.addFlights(flight);
@@ -67,8 +65,7 @@ public class ChooseTicketTest {
     }
 
     @Test
-    void validateFlight()
-    {
+    void validateFlight() {
 
     }
 
