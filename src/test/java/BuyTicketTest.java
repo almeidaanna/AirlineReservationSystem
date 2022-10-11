@@ -37,7 +37,7 @@ public class BuyTicketTest {
             buyTicket = new BuyTicket();
             buyTicket.buyTicket(inputTicketId);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(e);
         }
         String actualPassenger = buyTicket.getPassenger().toString();
         assertEquals(expectedPassenger, actualPassenger);

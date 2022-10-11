@@ -46,7 +46,7 @@ public class Flight {
                 this.dateTo = new Timestamp(dateT);
             }
             catch (ParseException e) {
-                throw new RuntimeException(e);
+                throw new IllegalArgumentException(e);
             }
 
         }else {throw new IllegalArgumentException("You can not enter invalid date value, Please check it");}
@@ -182,7 +182,7 @@ public class Flight {
             }
             catch (ParseException cannotTransfer)
             {
-                throw new RuntimeException(cannotTransfer);
+                throw new IllegalArgumentException(cannotTransfer);
             }
         }
 
@@ -213,7 +213,7 @@ public class Flight {
             }
             catch (ParseException cannotTransfer)
             {
-                throw new RuntimeException(cannotTransfer);
+                throw new IllegalArgumentException(cannotTransfer);
             }
         }
     }

@@ -25,11 +25,9 @@ public class ChooseTicket{
     	int idFirst = 0;
         int idSecond = 0;
     	
-        Flight flight = new Flight();
+        Flight flight = FlightCollection.getFlightInfo(city1, city2);
 
         //search for direct flight from city1 to city2
-        flight = FlightCollection.getFlightInfo(city1, city2);
-
         if(flight != null) {
         	TicketCollection.getAllTickets();
 	        System.out.println("Enter ID of ticket you want to choose:");
@@ -48,14 +46,14 @@ public class ChooseTicket{
         else{
             //in case there is no direct ticket from city1 to city2
         	//SELECT a flight where depart_to = city2
-        	Flight depart_to = FlightCollection.getFlightInfo(city2);
+        	Flight departTo = FlightCollection.getFlightInfo(city2);
         	//and search for city with depart_from as connector city
-        	String connectCity = depart_to.getDepartFrom();
+        	String connectCity = departTo.getDepartFrom();
         	//SELECT * from flight where depart_to = '" + connectCity + "' and depart_from = '" + city1+"'"
         	Flight flightConnectingTwoCities = FlightCollection.getFlightInfo(city1, connectCity);
         	if(flightConnectingTwoCities != null){
         		System.out.println("There is special way to go there. And it is transfer way, like above. Way №" + counter);
-        		idFirst = depart_to.getFlightID();
+        		idFirst = departTo.getFlightID();
         		idSecond = flightConnectingTwoCities.getFlightID();
             }
         	counter++;

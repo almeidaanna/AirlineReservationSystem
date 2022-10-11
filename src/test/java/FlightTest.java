@@ -64,7 +64,7 @@ public class FlightTest {
         try {
             date = dateFormat.parse("23/09/2022");
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(e);
         }
         long time3 = date.getTime();
         new Timestamp(time3);
@@ -73,7 +73,7 @@ public class FlightTest {
         try {
             date = dateFormat.parse("24/09/2022");
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(e);
         }
         long time4 = date.getTime();
         new Timestamp(time4);

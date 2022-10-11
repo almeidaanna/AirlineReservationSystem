@@ -17,7 +17,7 @@ public class TicketCollection {
 			throw new NullPointerException("Invalid Ticket");
 		for (Ticket ticket : tickets)
 			if (ticket.getTicketId() == newTicket.getTicketId())
-				throw new RuntimeException("Duplicate Ticket");
+				throw new IllegalArgumentException("Duplicate Ticket");
 		tickets.add(newTicket);
 	}
 

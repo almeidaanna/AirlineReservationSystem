@@ -1,12 +1,13 @@
 package fit5171.monash.edu;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FlightCollection {
 	
-	public static ArrayList<Flight> flights = new ArrayList<>();
+	public static List<Flight> flights = new ArrayList<>();
 
-	public static ArrayList<Flight> getFlights() {
+	public static List<Flight> getFlights() {
 		return flights;
 	}
 
