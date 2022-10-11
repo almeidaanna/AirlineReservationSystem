@@ -28,7 +28,7 @@ public class Passenger extends Person
             throw new NullPointerException("Email can not be null");
         if (email.isBlank()||email.isEmpty())
             throw new IllegalArgumentException("Email can not be empty");
-        if (!(email.endsWith(".com")&&email.matches("^(.*)@(.+)$")))
+        if (!(email.endsWith(".com")&&email.matches("^[a-zA-Z0-9._%+]+@[a-zA-Z0-9.]+")))
             throw new IllegalArgumentException("Invalid email address");
         this.email = email;
     }

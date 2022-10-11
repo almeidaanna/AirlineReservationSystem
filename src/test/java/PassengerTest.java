@@ -1,5 +1,4 @@
 import fit5171.monash.edu.Passenger;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,15 +17,14 @@ import static org.junit.jupiter.api.Assertions.*;
     }
 
     @Test
-    void constrctorTestValid(){
+    void constructorTestValid(){
         Passenger newPassenger = new Passenger("Jane", "Doe", 43, "Female", "janedoe@gmail.com", "0458353978", "M79843234","1234567891012345", 123);
         String expectedResult = "Passenger{ Fullname= Jane Doe ,email='janedoe@gmail.com', phoneNumber='0458353978', passport='M79843234}";
         assertEquals(expectedResult, newPassenger.toString());
     }
 
     @Test
-    void constrctorTestInvalid(){
-        //assertEquals(passenger.toString());
+    void constructorTestInvalid(){
         Throwable exception = assertThrows(java.lang.IllegalArgumentException.class, () -> {
             Passenger newPassenger = new Passenger("", "", 43, "Female", "janedoe@gmail.com", "0458353978", "M79843234","1234567891012345", 123);
         });
