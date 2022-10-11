@@ -7,8 +7,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Test class for person")
-public class PersonTest {
+    @DisplayName("Test class for person")
+    class PersonTest {
     private Person person;
 
     @BeforeEach

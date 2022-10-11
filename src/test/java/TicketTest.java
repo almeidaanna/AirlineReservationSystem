@@ -9,7 +9,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @DisplayName("Test for ticket class")
-public class TicketTest {
+    class TicketTest {
     private Ticket ticket;
     Airplane airplane;
     Flight flight;

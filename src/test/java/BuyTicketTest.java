@@ -4,7 +4,7 @@ import java.io.ByteArrayInputStream;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test class for BuyTicket")
-public class BuyTicketTest {
+    class BuyTicketTest {
     private BuyTicket buyTicket;
     Passenger passenger;
     Flight flight;

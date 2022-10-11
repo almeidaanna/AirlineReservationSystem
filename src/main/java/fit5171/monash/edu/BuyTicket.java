@@ -54,7 +54,6 @@ public class BuyTicket {
             System.out.println("This ticket does not exist.");
         else{
             flightId = validTicket.getFlight().getFlightID();
-//            try {
                 setPassengerDetails();
                 String tempInput;
                 System.out.println("Do you want to purchase?\n 1-YES 0-NO");
@@ -79,12 +78,7 @@ public class BuyTicket {
                         airplane.setEconomySitsNumber(airplane.getEconomySitsNumber() - 1);
                 }
                 System.out.println("Your bill: " + ticket.getPrice() + "\n");
-
                 setPassengerCardDetails();
-//            }
-//            catch (PatternSyntaxException patternException) {
-//                patternException.printStackTrace();
-//            }
         }
     }
 

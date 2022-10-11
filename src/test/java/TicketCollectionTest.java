@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Test class for TicketCollection")
-public class TicketCollectionTest {
+    class TicketCollectionTest {
     private Flight flight;
     private Passenger passenger;
     private Ticket inputTicket;
@@ -21,12 +21,12 @@ public class TicketCollectionTest {
     }
 
     @BeforeEach
-    public void setup(){
+    void setup(){
 
     }
 
     @Test
-    public void testAddTicketValid(){
+    void testAddTicketValid(){
         inputTicket = new Ticket(34221, 600, flight,true, passenger);
         TicketCollection.addTicket(inputTicket);
         Ticket actualTicket = TicketCollection.getTicketInfo(34221);
@@ -34,7 +34,7 @@ public class TicketCollectionTest {
     }
 
     @Test
-    public void testAddTicketNull(){
+    void testAddTicketNull(){
         String expectedResult = "Invalid Ticket";
         inputTicket = null;
         Throwable actualResult = assertThrows(java.lang.NullPointerException.class, () -> {
@@ -44,7 +44,7 @@ public class TicketCollectionTest {
     }
 
     @Test
-    public void testAddTicketExists(){
+    void testAddTicketExists(){
         inputTicket = new Ticket(12345, 600, flight,true, passenger);
         TicketCollection.addTicket(inputTicket);
         String expectedResult = "Duplicate Ticket";
@@ -56,7 +56,7 @@ public class TicketCollectionTest {
     }
 
     @Test
-    public void testAddTicketsNull(){
+    void testAddTicketsNull(){
         String expectedResult = "Invalid Tickets, Cannot be added to list";
         newTickets = null;
         Throwable actualResult = assertThrows(java.lang.NullPointerException.class, () -> {
@@ -66,7 +66,7 @@ public class TicketCollectionTest {
     }
 
     @Test
-    public void testAddTicketsValid(){
+    void testAddTicketsValid(){
         newTickets = new ArrayList<Ticket>();
         Ticket newTicket1 = new Ticket(12345, 600, flight,true, passenger);
         Ticket newTicket2 = new Ticket(30024, 500,flight, false, passenger);
@@ -77,7 +77,7 @@ public class TicketCollectionTest {
     }
 
     @Test
-    public void testTicketInfo()
+    void testTicketInfo()
     {
         int inputValidTicket_id = 12345;
         int inputInvalidTicket_id = 0;

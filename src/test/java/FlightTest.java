@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 @DisplayName("This is test class for Flight")
-public class FlightTest {
+    class FlightTest {
     private Flight flight;
     private Airplane airplane;
 

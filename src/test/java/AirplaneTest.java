@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("This is a Test class for Airplane")
-public class AirplaneTest {
+    class AirplaneTest {
     private Airplane airplane;
 
     @BeforeEach

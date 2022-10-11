@@ -8,7 +8,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
     @DisplayName("This is to test the Passenger class")
-    public class PassengerTest {
+    class PassengerTest {
     private Passenger passenger;
 
     @BeforeEach
