@@ -5,8 +5,8 @@ import java.io.ByteArrayInputStream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@DisplayName("Test class for ChooseTicket")
-public class ChooseTicketTest {
+    @DisplayName("Test class for ChooseTicket")
+    class ChooseTicketTest {
     private ChooseTicket chooseTicket;
     private Airplane airplane;
     private Flight flight;
@@ -19,7 +19,7 @@ public class ChooseTicketTest {
     }
 
     @BeforeEach
-    public void init(){
+    void init(){
         airplane = new Airplane();
         flight = new Flight();
         ticket = new Ticket();
@@ -86,7 +86,7 @@ public class ChooseTicketTest {
     }
 
     @AfterEach
-    public void reset() {
+    void reset() {
         FlightCollection.getFlights().removeAll(FlightCollection.getFlights());
         TicketCollection.getTickets().removeAll(TicketCollection.getTickets());
     }
